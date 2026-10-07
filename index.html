@@ -981,18 +981,6 @@ body{
   font-size:26px;
 }
 
-.upi-pay-btn{
-  width:100%;
-  margin-top:10px;
-  padding:13px;
-  border:0;
-  border-radius:11px;
-  background:linear-gradient(135deg,var(--green),#00c960);
-  color:#061009;
-  font-weight:1000;
-  cursor:pointer;
-}
-
 .qr-note{
   margin-top:10px;
   padding:11px;
@@ -1030,6 +1018,19 @@ body{
   color:#061009;
   font-weight:1000;
   cursor:pointer;
+}
+
+.upi-pay-btn{
+  width:100%;
+  margin-top:10px;
+  padding:14px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(135deg,var(--green),#00c960);
+  color:#061009;
+  font-weight:1000;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(0,239,112,.25);
 }
 
 .payment-success{
@@ -1138,30 +1139,19 @@ body{
 <div class="container">
 
 <div class="top">
+  <div class="logo">
+    FREE FIRE <span>INDIA STORE</span>
+  </div>
 
-<div class="logo">
-FREE FIRE <span>INDIA STORE</span>
+  <div class="india">
+    🇮🇳 INDIA
+  </div>
 </div>
-
-<div class="india">
-🇮🇳 INDIA
-</div>
-
-</div>
-
 
 <div class="hero">
-
-<h1>
-TOP-UP <span>STORE</span>
-</h1>
-
-<p>
-Fast • Secure • Premium Player Experience
-</p>
-
+  <h1>TOP-UP <span>STORE</span></h1>
+  <p>Fast • Secure • Premium Player Experience</p>
 </div>
-
 
 <div class="main-card">
 
@@ -1189,7 +1179,6 @@ VERIFY ID
 
 </div>
 
-
 <div
 class="verify-status"
 id="verifyStatus"
@@ -1198,7 +1187,6 @@ id="verifyStatus"
 Checking Player ID...
 </div>
 
-
 <div
 class="success"
 id="success"
@@ -1206,15 +1194,11 @@ id="success"
 ✓ PLAYER ID SELECTED SUCCESSFULLY
 </div>
 
-
 <div class="server">
 
 <div class="server-left">
-
 <div class="dot"></div>
-
 🇮🇳 India Server
-
 </div>
 
 <div class="server-selected">
@@ -1222,7 +1206,6 @@ SELECTED ✓
 </div>
 
 </div>
-
 
 <!-- DIAMONDS -->
 
@@ -1247,7 +1230,6 @@ id="diamondGrid"
 
 </div>
 
-
 <!-- MEMBERSHIP -->
 
 <div class="section">
@@ -1271,7 +1253,6 @@ id="passGrid"
 
 </div>
 
-
 <!-- SPIN -->
 
 <div class="spin-box">
@@ -1284,13 +1265,11 @@ id="passGrid"
 Spin karo aur available pack mein se apna FREE BONUS win karo!
 </div>
 
-
 <div class="wheel-wrap">
 
 <div class="pointer">
 ▼
 </div>
-
 
 <div
 class="wheel"
@@ -1317,7 +1296,6 @@ id="wheel"
 
 </div>
 
-
 <button
 class="spin-btn"
 id="spinBtn"
@@ -1326,13 +1304,11 @@ onclick="spinWheel()"
 🎡 SPIN NOW — FREE
 </button>
 
-
 <div class="spin-note">
 Free promotional spin • No payment required to spin
 </div>
 
 </div>
-
 
 <!-- RESULT -->
 
@@ -1353,7 +1329,6 @@ id="rewardPopup"
 
 </div>
 
-
 <div class="reward-number">
 
 <strong id="wonDiamonds">
@@ -1366,66 +1341,36 @@ id="rewardPopup"
 
 </div>
 
-
 <div class="reward-grid">
 
 <div class="reward-item">
-
-<small>
-WON REWARD
-</small>
-
-<strong id="wonInfo">
-</strong>
-
+<small>WON REWARD</small>
+<strong id="wonInfo"></strong>
 </div>
 
-
 <div class="reward-item">
-
-<small>
-RECOMMENDED PACK
-</small>
-
-<strong id="recommendedPack">
-</strong>
-
+<small>RECOMMENDED PACK</small>
+<strong id="recommendedPack"></strong>
 </div>
 
-
 <div class="reward-item">
-
-<small>
-PACK PRICE
-</small>
-
-<strong id="recommendedPrice">
-</strong>
-
+<small>PACK PRICE</small>
+<strong id="recommendedPrice"></strong>
 </div>
 
-
 <div class="reward-item">
-
-<small>
-REWARD STATUS
-</small>
-
+<small>REWARD STATUS</small>
 <strong class="reward-unlocked">
 ✓ UNLOCKED
 </strong>
-
 </div>
 
 </div>
-
 
 <div
 class="reward-message"
 id="rewardText"
->
-</div>
-
+></div>
 
 <div class="reward-buttons">
 
@@ -1435,7 +1380,6 @@ onclick="selectSpinPack()"
 >
 💎 SELECT THIS PACK
 </button>
-
 
 <button
 class="copy-reward"
@@ -1448,7 +1392,6 @@ onclick="copyReward()"
 
 </div>
 
-
 <!-- PAYMENT -->
 
 <div class="payment">
@@ -1456,7 +1399,6 @@ onclick="copyReward()"
 <div class="payment-title">
 💳 Payment
 </div>
-
 
 <div class="upi">
 
@@ -1488,7 +1430,6 @@ style="accent-color:#963cff;"
 
 </div>
 
-
 <div class="summary">
 
 <span>
@@ -1501,7 +1442,6 @@ Selected Product
 
 </div>
 
-
 <button
 class="checkout"
 onclick="checkout()"
@@ -1512,7 +1452,6 @@ CONTINUE TO UPI PAYMENT →
 </div>
 
 </div>
-
 
 <!-- FOOTER -->
 
@@ -1538,7 +1477,6 @@ CONTINUE TO UPI PAYMENT →
 
 </div>
 
-
 <div class="experience">
 Fast service • Secure UPI • India Server
 </div>
@@ -1554,7 +1492,6 @@ separately authorized.
 </div>
 
 </div>
-
 
 <!-- PAYMENT MODAL -->
 
@@ -1580,7 +1517,6 @@ onclick="closePayment()"
 
 </div>
 
-
 <div class="amount-box">
 
 <span>
@@ -1593,17 +1529,17 @@ PAYMENT AMOUNT
 
 </div>
 
-
 <div class="qr-note">
 
-<b>UPI PAYMENT</b><br><br>
+<b>DIRECT UPI PAYMENT</b><br><br>
 
-Click <b>OPEN UPI APP & PAY</b>.<br>
-Aapke phone mein available UPI app open hoga.<br>
-Amount automatically selected rahega.
+Click <b>OPEN UPI APP & PAY</b> to start payment.<br>
+Your selected amount will be sent with the payment request.<br><br>
+
+If the UPI app does not open, copy the UPI ID below
+and use it in your preferred UPI app.
 
 </div>
-
 
 <div class="upi-id-box">
 
@@ -1620,7 +1556,6 @@ COPY
 
 </div>
 
-
 <button
 class="upi-pay-btn"
 onclick="openUPIApp()"
@@ -1628,21 +1563,18 @@ onclick="openUPIApp()"
 📱 OPEN UPI APP & PAY
 </button>
 
-
 <div
 class="payment-success"
 id="paymentSuccess"
 >
 ✓ UPI PAYMENT REQUEST OPENED
 <br><br>
-Agar app open nahi hua, UPI ID ko COPY karke
-apne preferred UPI app mein paste karein.
+Complete the payment in your UPI app.
 </div>
 
 </div>
 
 </div>
-
 
 <script>
 
@@ -1700,7 +1632,6 @@ const diamonds=[
 
 ];
 
-
 /* MEMBERSHIP */
 
 const passes=[
@@ -1729,7 +1660,6 @@ const passes=[
 
 ];
 
-
 /* UPI */
 
 const UPI_ID="topup24servis@naviaxis";
@@ -1738,14 +1668,11 @@ const PAYEE_NAME="Free Fire Store";
 const OFFER_END =
 new Date("2026-10-08T23:59:59+05:30");
 
-
 let selectedProduct=null;
 let selectedPrice=0;
-
 let spinResult=null;
 let spinning=false;
 let wheelRotation=0;
-
 
 /* SOUND */
 
@@ -1799,7 +1726,6 @@ oscillator.stop(ctx.currentTime+.14);
 
 }
 
-
 /* TIMER */
 
 function formatTime(ms){
@@ -1832,7 +1758,6 @@ String(seconds).padStart(2,"0")
 
 }
 
-
 function updateTimers(){
 
 const remaining=
@@ -1845,7 +1770,6 @@ el.textContent=formatTime(remaining);
 });
 
 }
-
 
 /* DIAMONDS */
 
@@ -1895,7 +1819,6 @@ OUT OF STOCK
 
 }
 
-
 card.innerHTML=`
 
 <div class="selection-ring"></div>
@@ -1931,7 +1854,6 @@ ${stockHTML}
 
 `;
 
-
 if(item.stock>0){
 
 card.onclick=()=>{
@@ -1947,7 +1869,6 @@ grid.appendChild(card);
 updateTimers();
 
 }
-
 
 /* MEMBERSHIP */
 
@@ -1967,7 +1888,6 @@ card.className=
 (item.type==="monthly"?"monthly":"");
 
 card.dataset.id=item.id;
-
 
 card.innerHTML=`
 
@@ -1999,7 +1919,6 @@ ${item.days}
 
 </div>
 
-
 <div class="pass-rewards">
 
 <div class="pass-reward">
@@ -2013,7 +1932,6 @@ ${item.days}
 </div>
 
 </div>
-
 
 <div class="pass-bottom">
 
@@ -2037,7 +1955,6 @@ Effective for ${item.days.toLowerCase()}
 
 `;
 
-
 card.onclick=()=>{
 selectProduct(item,card);
 };
@@ -2048,7 +1965,6 @@ grid.appendChild(card);
 
 }
 
-
 /* SELECT */
 
 function selectProduct(item,card){
@@ -2057,7 +1973,6 @@ playClickSound();
 
 selectedProduct=item;
 selectedPrice=item.price;
-
 
 document.querySelectorAll(
 ".diamond-card,.pass-card"
@@ -2074,9 +1989,7 @@ ring.classList.remove("run");
 
 });
 
-
 card.classList.add("selected");
-
 
 const ring=
 card.querySelector(".selection-ring");
@@ -2090,7 +2003,6 @@ void ring.offsetWidth;
 ring.classList.add("run");
 
 }
-
 
 const icon=
 card.querySelector(".diamond-icon");
@@ -2106,12 +2018,10 @@ icon.style.animation=
 
 }
 
-
 document.getElementById("total")
 .textContent="₹"+item.price;
 
 }
-
 
 /* UID */
 
@@ -2138,7 +2048,6 @@ document.getElementById("success");
 status.style.display="block";
 success.style.display="none";
 
-
 setTimeout(()=>{
 
 status.style.display="none";
@@ -2148,13 +2057,11 @@ success.style.display="block";
 
 }
 
-
 /* SPIN */
 
 function spinWheel(){
 
 if(spinning)return;
-
 
 const available=
 diamonds.filter(
@@ -2171,9 +2078,7 @@ return;
 
 }
 
-
 spinning=true;
-
 
 const btn=
 document.getElementById("spinBtn");
@@ -2188,14 +2093,12 @@ btn.textContent=
 
 playClickSound();
 
-
 const wheelOrder=[
 520,
 1060,
 2180,
 5600
 ];
-
 
 const availableValues=
 available.map(
@@ -2209,12 +2112,10 @@ Math.random()*availableValues.length
 )
 ];
 
-
 spinResult=
 diamonds.find(
 item=>item.diamonds===winnerValue
 );
-
 
 const index=
 wheelOrder.indexOf(winnerValue);
@@ -2230,14 +2131,11 @@ const targetAngle=
 const correction=
 (targetAngle-current+360)%360;
 
-
 wheelRotation +=
 (360*6)+correction;
 
-
 wheel.style.transform=
 `rotate(${wheelRotation}deg)`;
-
 
 setTimeout(()=>{
 
@@ -2254,37 +2152,31 @@ btn.textContent=
 
 }
 
-
 /* RESULT */
 
 function showSpinReward(item){
 
 if(!item)return;
 
-
 document.getElementById(
 "wonDiamonds"
 ).textContent=
 "+"+item.diamonds+" 💎";
-
 
 document.getElementById(
 "wonInfo"
 ).textContent=
 "+"+item.diamonds+" Diamonds";
 
-
 document.getElementById(
 "recommendedPack"
 ).textContent=
 item.diamonds+" Diamonds";
 
-
 document.getElementById(
 "recommendedPrice"
 ).textContent=
 "₹"+item.price;
-
 
 document.getElementById(
 "rewardText"
@@ -2302,12 +2194,10 @@ continue kar sakte ho.
 
 `;
 
-
 const popup=
 document.getElementById("rewardPopup");
 
 popup.style.display="block";
-
 
 popup.scrollIntoView({
 behavior:"smooth",
@@ -2316,28 +2206,23 @@ block:"center"
 
 }
 
-
 /* SELECT WINNER */
 
 function selectSpinPack(){
 
 if(!spinResult)return;
 
-
 const card=
 document.querySelector(
 `.diamond-card[data-id="${spinResult.id}"]`
 );
 
-
 if(!card)return;
-
 
 selectProduct(
 spinResult,
 card
 );
-
 
 setTimeout(()=>{
 
@@ -2350,19 +2235,16 @@ block:"center"
 
 }
 
-
 /* COPY RESULT */
 
 function copyReward(){
 
 if(!spinResult)return;
 
-
 const text=
 `SPIN RESULT
 Winning Pack: ${spinResult.diamonds} Diamonds
 Pack Price: ₹${spinResult.price}`;
-
 
 if(navigator.clipboard){
 
@@ -2380,7 +2262,6 @@ alert(text);
 
 }
 
-
 /* CHECKOUT */
 
 function checkout(){
@@ -2395,11 +2276,9 @@ return;
 
 }
 
-
 const uid=
 document.getElementById("uid")
 .value.trim();
-
 
 if(uid.length<5){
 
@@ -2411,12 +2290,10 @@ return;
 
 }
 
-
 document.getElementById(
 "payAmount"
 ).textContent=
 "₹"+selectedPrice;
-
 
 document.getElementById(
 "paymentModal"
@@ -2424,8 +2301,7 @@ document.getElementById(
 
 }
 
-
-/* CLOSE PAYMENT */
+/* CLOSE */
 
 function closePayment(){
 
@@ -2435,29 +2311,18 @@ document.getElementById(
 
 }
 
-
-/* OPEN UPI APP */
+/* DIRECT UPI PAYMENT */
 
 function openUPIApp(){
 
 if(!selectedProduct)return;
 
-
 const uid=
 document.getElementById("uid")
 .value.trim();
 
-
 const note=
 "Free Fire Topup - UID "+uid;
-
-
-/*
-  Standard UPI deep link.
-
-  Android/UPI apps decide which
-  available UPI app opens.
-*/
 
 const upiUrl=
 "upi://pay"+
@@ -2467,23 +2332,16 @@ const upiUrl=
 "&cu=INR"+
 "&tn="+encodeURIComponent(note);
 
+/*
+Standard UPI deep link.
 
-try{
+The phone/Android system chooses the
+compatible UPI app available on the device.
+*/
 
 window.location.href=upiUrl;
 
-}catch(e){
-
-copyUPI();
-
-document.getElementById(
-"paymentSuccess"
-).style.display="block";
-
 }
-
-}
-
 
 /* COPY UPI */
 
@@ -2496,9 +2354,7 @@ if(navigator.clipboard){
 navigator.clipboard
 .writeText(UPI_ID)
 .then(()=>{
-
 alert("✓ UPI ID copied!");
-
 });
 
 }else{
@@ -2511,8 +2367,7 @@ alert(
 
 }
 
-
-/* CLOSE MODAL WHEN BACKGROUND CLICKED */
+/* MODAL BACKGROUND */
 
 document.getElementById(
 "paymentModal"
@@ -2528,7 +2383,6 @@ closePayment();
 
 }
 );
-
 
 /* INIT */
 
