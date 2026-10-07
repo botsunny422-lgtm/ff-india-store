@@ -36,16 +36,16 @@ body{
   min-height:100vh;
 }
 
-/* TOP ANNOUNCEMENT BAR */
-.announcement-bar {
-  background: linear-gradient(90deg, #963cff, #ff4161);
-  color: white;
-  text-align: center;
-  padding: 8px;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 10px rgba(150,60,255,0.4);
+/* ANNOUNCEMENT */
+.announcement-bar{
+  background:linear-gradient(90deg,#963cff,#ff4161);
+  color:#fff;
+  text-align:center;
+  padding:8px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.5px;
+  box-shadow:0 2px 10px rgba(150,60,255,.4);
 }
 
 .container{
@@ -102,7 +102,7 @@ body{
   margin-top:7px;
 }
 
-/* MAIN CARD */
+/* MAIN */
 .main-card{
   padding:15px;
   border-radius:21px;
@@ -306,19 +306,19 @@ body{
   text-shadow:0 0 7px rgba(0,239,112,.45);
 }
 
-.popular-tag {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--gold), #ff8b00);
-  color: #000;
-  font-size: 8px;
-  font-weight: bold;
-  padding: 3px 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  z-index: 10;
+.popular-tag{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--gold),#ff8b00);
+  color:#000;
+  font-size:8px;
+  font-weight:bold;
+  padding:3px 8px;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  z-index:10;
 }
 
 .stock-count{
@@ -338,16 +338,6 @@ body{
   box-shadow:0 0 8px rgba(255,65,97,.45);
 }
 
-.card-timer{
-  margin-top:5px;
-  color:#858596;
-  font-size:8px;
-}
-
-.card-timer b{
-  color:#ddd;
-}
-
 .out-stock{
   margin-top:8px;
   color:var(--red);
@@ -355,7 +345,7 @@ body{
   font-weight:1000;
 }
 
-/* SELECTION RING */
+/* SELECTION */
 .selection-ring{
   position:absolute!important;
   inset:0;
@@ -385,8 +375,14 @@ body{
 }
 
 @keyframes ring{
-  from{ transform:rotate(0); opacity:1; }
-  to{ transform:rotate(360deg); opacity:0; }
+  from{
+    transform:rotate(0);
+    opacity:1;
+  }
+  to{
+    transform:rotate(360deg);
+    opacity:0;
+  }
 }
 
 .selected-badge{
@@ -405,7 +401,9 @@ body{
 
 .diamond-card.selected{
   border-color:var(--green);
-  box-shadow: 0 0 8px rgba(0,239,112,.6), inset 0 0 16px rgba(0,239,112,.05);
+  box-shadow:
+    0 0 8px rgba(0,239,112,.6),
+    inset 0 0 16px rgba(0,239,112,.05);
 }
 
 .diamond-card.selected .selected-badge{
@@ -435,20 +433,22 @@ body{
   overflow:hidden;
   padding:13px;
   border-radius:16px;
-  background: linear-gradient(135deg,#24143d,#151522 55%,#0d0d16);
+  background:linear-gradient(135deg,#24143d,#151522 55%,#0d0d16);
   border:1px solid #38334b;
   cursor:pointer;
   transition:.2s;
 }
 
 .pass-card.monthly{
-  background: linear-gradient(135deg,#3b280c,#21191a 55%,#111017);
+  background:linear-gradient(135deg,#3b280c,#21191a 55%,#111017);
   border-color:#514329;
 }
 
 .pass-card.selected{
   border-color:var(--green);
-  box-shadow: 0 0 9px rgba(0,239,112,.6), inset 0 0 18px rgba(0,239,112,.05);
+  box-shadow:
+    0 0 9px rgba(0,239,112,.6),
+    inset 0 0 18px rgba(0,239,112,.05);
 }
 
 .pass-card>*{
@@ -544,11 +544,6 @@ body{
   text-shadow:0 0 7px rgba(0,239,112,.45);
 }
 
-.pass-days{
-  color:#aaaaba;
-  font-size:8px;
-}
-
 .pass-selected{
   position:absolute!important;
   right:7px;
@@ -574,7 +569,9 @@ body{
   padding:17px 10px;
   text-align:center;
   border-radius:19px;
-  background: radial-gradient(circle at 50% 35%,rgba(150,60,255,.11),transparent 42%), #0b0b13;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(150,60,255,.11),transparent 42%),
+    #0b0b13;
   border:1px solid #343449;
   box-shadow:0 0 20px rgba(150,60,255,.08);
 }
@@ -623,8 +620,12 @@ body{
     #00c8df 180deg 270deg,
     #7126e8 270deg 360deg
   );
-  box-shadow: 0 0 0 3px rgba(0,207,232,.08), 0 0 12px rgba(0,207,232,.55), 0 0 24px rgba(150,60,255,.22);
-  transition: transform 4.3s cubic-bezier(.12,.7,.15,1);
+  box-shadow:
+    0 0 0 3px rgba(0,207,232,.08),
+    0 0 12px rgba(0,207,232,.55),
+    0 0 24px rgba(150,60,255,.22);
+  transition:
+    transform 4.3s cubic-bezier(.12,.7,.15,1);
 }
 
 .wheel::before{
@@ -662,10 +663,29 @@ body{
   white-space:nowrap;
 }
 
-.l520{ top:25px; left:50%; transform:translateX(-50%); }
-.l1060{ right:5px; top:50%; transform:translateY(-50%); }
-.l2180{ bottom:25px; left:50%; transform:translateX(-50%); }
-.l5600{ left:5px; top:50%; transform:translateY(-50%); }
+.l520{
+  top:25px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.l1060{
+  right:5px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.l2180{
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.l5600{
+  left:5px;
+  top:50%;
+  transform:translateY(-50%);
+}
 
 .spin-btn{
   border:0;
@@ -679,7 +699,9 @@ body{
   box-shadow:0 0 12px rgba(0,239,112,.5);
 }
 
-.spin-btn:disabled{ opacity:.5; }
+.spin-btn:disabled{
+  opacity:.5;
+}
 
 .spin-note{
   color:#69697a;
@@ -687,162 +709,490 @@ body{
   margin-top:9px;
 }
 
-/* RESULT POPUP */
+/* RESULT */
 .reward-popup{
   display:none;
   margin-top:14px;
   padding:17px;
   border-radius:18px;
-  background: radial-gradient(circle at 50% 0%,rgba(0,239,112,.09),transparent 50%), #0c1013;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(0,239,112,.09),transparent 50%),
+    #0c1013;
   border:1px solid rgba(0,239,112,.45);
   box-shadow:0 0 15px rgba(0,239,112,.12);
   animation:rewardIn .4s ease;
 }
 
 @keyframes rewardIn{
-  from{ opacity:0; transform:translateY(12px) scale(.97); }
-  to{ opacity:1; transform:none; }
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
 
-.reward-head{ text-align:center; }
-.reward-head h2{ color:var(--green); font-size:22px; text-shadow:0 0 9px rgba(0,239,112,.55); }
-.reward-head p{ color:#9b9baa; font-size:10px; margin-top:4px; }
-.reward-number{ text-align:center; margin:13px 0; }
-.reward-number strong{ display:block; font-size:30px; text-shadow:0 0 9px rgba(255,255,255,.5); }
-.reward-number span{ display:block; margin-top:4px; color:var(--yellow); font-size:11px; font-weight:1000; }
-
-.reward-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
-.reward-item{ padding:10px; border-radius:10px; background:#161620; border:1px solid #29293b; }
-.reward-item small{ color:#777789; font-size:8px; }
-.reward-item strong{ display:block; margin-top:4px; font-size:12px; }
-.reward-unlocked{ color:var(--green)!important; }
-.reward-message{ margin-top:10px; padding:12px; border-radius:11px; background:rgba(150,60,255,.07); color:#c8c8d5; font-size:10px; line-height:1.55; text-align:center; }
-.reward-buttons{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
-.select-spin, .copy-reward{ padding:12px 6px; border-radius:11px; border:0; font-size:10px; font-weight:1000; cursor:pointer; }
-.select-spin{ color:#061009; background:linear-gradient(135deg,var(--green),#00c960); }
-.copy-reward{ color:#fff; background:#242431; border:1px solid #38384b; }
-
-/* PROMO CODE SECTION */
-.promo-box {
-  margin-top: 15px;
-  background: #13131e;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #303044;
+.reward-head{
+  text-align:center;
 }
 
-.promo-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 6px;
+.reward-head h2{
+  color:var(--green);
+  font-size:22px;
+  text-shadow:0 0 9px rgba(0,239,112,.55);
 }
 
-.promo-input {
-  flex: 1;
-  padding: 10px;
-  background: #08080e;
-  border: 1px solid #303044;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 12px;
-  text-transform: uppercase;
-  outline: none;
+.reward-head p{
+  color:#9b9baa;
+  font-size:10px;
+  margin-top:4px;
 }
 
-.promo-btn {
-  padding: 0 15px;
-  background: linear-gradient(135deg, #00ef70, #00c960);
-  border: 0;
-  border-radius: 8px;
-  font-weight: bold;
-  color: #061009;
-  cursor: pointer;
+.reward-number{
+  text-align:center;
+  margin:13px 0;
+}
+
+.reward-number strong{
+  display:block;
+  font-size:30px;
+  text-shadow:0 0 9px rgba(255,255,255,.5);
+}
+
+.reward-number span{
+  display:block;
+  margin-top:4px;
+  color:var(--yellow);
+  font-size:11px;
+  font-weight:1000;
+}
+
+.reward-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:7px;
+}
+
+.reward-item{
+  padding:10px;
+  border-radius:10px;
+  background:#161620;
+  border:1px solid #29293b;
+}
+
+.reward-item small{
+  color:#777789;
+  font-size:8px;
+}
+
+.reward-item strong{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+}
+
+.reward-unlocked{
+  color:var(--green)!important;
+}
+
+.reward-message{
+  margin-top:10px;
+  padding:12px;
+  border-radius:11px;
+  background:rgba(150,60,255,.07);
+  color:#c8c8d5;
+  font-size:10px;
+  line-height:1.55;
+  text-align:center;
+}
+
+.reward-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:10px;
+}
+
+.select-spin,
+.copy-reward{
+  padding:12px 6px;
+  border-radius:11px;
+  border:0;
+  font-size:10px;
+  font-weight:1000;
+  cursor:pointer;
+}
+
+.select-spin{
+  color:#061009;
+  background:linear-gradient(135deg,var(--green),#00c960);
+}
+
+.copy-reward{
+  color:#fff;
+  background:#242431;
+  border:1px solid #38384b;
+}
+
+/* PROMO */
+.promo-box{
+  margin-top:15px;
+  background:#13131e;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #303044;
+}
+
+.promo-row{
+  display:flex;
+  gap:8px;
+  margin-top:6px;
+}
+
+.promo-input{
+  flex:1;
+  padding:10px;
+  background:#08080e;
+  border:1px solid #303044;
+  border-radius:8px;
+  color:#fff;
+  font-size:12px;
+  text-transform:uppercase;
+  outline:none;
+}
+
+.promo-btn{
+  padding:0 15px;
+  background:linear-gradient(135deg,#00ef70,#00c960);
+  border:0;
+  border-radius:8px;
+  font-weight:bold;
+  color:#061009;
+  cursor:pointer;
 }
 
 /* PAYMENT */
-.payment{ margin-top:20px; }
-.payment-title{ font-size:17px; font-weight:1000; margin-bottom:10px; }
-.upi{ display:flex; align-items:center; justify-content:space-between; padding:13px; border-radius:13px; background:#12121c; border:1px solid #303044; }
-.upi-left{ display:flex; align-items:center; gap:10px; }
-.upi-icon{ width:38px; height:38px; display:flex; justify-content:center; align-items:center; border-radius:10px; background:linear-gradient(135deg,#9d32f5,#6929db); font-size:10px; font-weight:1000; }
-.upi-name{ font-size:12px; font-weight:1000; }
-.upi-desc{ color:#777789; font-size:9px; margin-top:2px; }
-
-.summary{ display:flex; justify-content:space-between; align-items:center; margin-top:9px; padding:13px; border-radius:12px; background:#08080e; border:1px solid #29293a; font-size:11px; }
-.summary strong{ color:var(--green); font-size:18px; text-shadow:0 0 7px rgba(0,239,112,.45); }
-
-.checkout{ width:100%; margin-top:9px; padding:14px; border:0; border-radius:13px; color:#fff; font-weight:1000; background:linear-gradient(135deg,#963cff,#7130e9); box-shadow:0 0 13px rgba(150,60,255,.3); cursor:pointer; }
-
-/* REVIEWS & FAQ */
-.faq-box details {
-  background: #13131e;
-  border: 1px solid #303044;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 11px;
-  margin-bottom: 8px;
+.payment{
+  margin-top:20px;
 }
-.faq-box summary {
-  font-weight: bold;
-  color: var(--green);
-  cursor: pointer;
+
+.payment-title{
+  font-size:17px;
+  font-weight:1000;
+  margin-bottom:10px;
 }
-.faq-box p {
-  margin-top: 6px;
-  color: #aaa;
-  line-height: 1.4;
+
+.upi{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:13px;
+  border-radius:13px;
+  background:#12121c;
+  border:1px solid #303044;
+}
+
+.upi-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.upi-icon{
+  width:38px;
+  height:38px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:10px;
+  background:linear-gradient(135deg,#9d32f5,#6929db);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.upi-name{
+  font-size:12px;
+  font-weight:1000;
+}
+
+.upi-desc{
+  color:#777789;
+  font-size:9px;
+  margin-top:2px;
+}
+
+.summary{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:9px;
+  padding:13px;
+  border-radius:12px;
+  background:#08080e;
+  border:1px solid #29293a;
+  font-size:11px;
+}
+
+.summary strong{
+  color:var(--green);
+  font-size:18px;
+  text-shadow:0 0 7px rgba(0,239,112,.45);
+}
+
+.checkout{
+  width:100%;
+  margin-top:9px;
+  padding:14px;
+  border:0;
+  border-radius:13px;
+  color:#fff;
+  font-weight:1000;
+  background:linear-gradient(135deg,#963cff,#7130e9);
+  box-shadow:0 0 13px rgba(150,60,255,.3);
+  cursor:pointer;
+}
+
+/* FAQ */
+.faq-box details{
+  background:#13131e;
+  border:1px solid #303044;
+  border-radius:10px;
+  padding:10px;
+  font-size:11px;
+  margin-bottom:8px;
+}
+
+.faq-box summary{
+  font-weight:bold;
+  color:var(--green);
+  cursor:pointer;
+}
+
+.faq-box p{
+  margin-top:6px;
+  color:#aaa;
+  line-height:1.4;
 }
 
 /* MODAL */
-.modal{ display:none; position:fixed; inset:0; z-index:100; padding:14px; overflow:auto; background:rgba(0,0,0,.88); }
-.modal-box{ width:min(480px,100%); margin:25px auto; padding:18px; border-radius:20px; background:#101019; border:1px solid #3a3a50; }
-.modal-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-.modal-head h2{ font-size:18px; }
-.close{ width:31px; height:31px; border:0; border-radius:50%; color:#fff; background:#252532; cursor:pointer; }
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  padding:14px;
+  overflow:auto;
+  background:rgba(0,0,0,.88);
+}
 
-.amount-box{ padding:13px; text-align:center; border-radius:12px; background:#171722; border:1px solid #2b2b3c; }
-.amount-box span{ color:#777789; font-size:9px; }
-.amount-box strong{ display:block; margin-top:3px; color:var(--green); font-size:26px; }
+.modal-box{
+  width:min(480px,100%);
+  margin:25px auto;
+  padding:18px;
+  border-radius:20px;
+  background:#101019;
+  border:1px solid #3a3a50;
+}
 
-.qr-note{ margin-top:10px; padding:11px; border-radius:11px; background:rgba(150,60,255,.07); color:#bbbccc; font-size:10px; line-height:1.5; }
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+}
 
-.upi-id-box{ display:flex; gap:7px; margin-top:10px; }
-.upi-id{ flex:1; padding:11px; border-radius:10px; background:#08080e; border:1px solid #2c2c3d; color:#fff; font-size:11px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.copy-upi{ border:0; padding:0 12px; border-radius:10px; background:var(--green); color:#061009; font-weight:1000; cursor:pointer; }
+.modal-head h2{
+  font-size:18px;
+}
 
-.upi-pay-btn{ width:100%; margin-top:12px; padding:14px; border:0; border-radius:11px; background:linear-gradient(135deg,var(--green),#00c960); color:#061009; font-weight:1000; cursor:pointer; box-shadow:0 0 12px rgba(0,239,112,.25); font-size:15px; }
+.close{
+  width:31px;
+  height:31px;
+  border:0;
+  border-radius:50%;
+  color:#fff;
+  background:#252532;
+  cursor:pointer;
+}
 
-.insta-verify-btn { display:block; text-align:center; margin-top:12px; padding:12px; background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366); color:#fff; text-decoration:none; font-weight:bold; font-size:12px; border-radius:10px; }
+.amount-box{
+  padding:13px;
+  text-align:center;
+  border-radius:12px;
+  background:#171722;
+  border:1px solid #2b2b3c;
+}
 
-.payment-success{ display:none; margin-top:10px; padding:12px; border-radius:10px; text-align:center; color:var(--green); background:rgba(0,239,112,.06); border:1px solid rgba(0,239,112,.2); font-size:10px; }
+.amount-box span{
+  color:#777789;
+  font-size:9px;
+}
 
-/* FOOTER & TRUST */
-.trust-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:20px; }
-.trust-card{ padding:12px 4px; text-align:center; border-radius:13px; background:#101019; border:1px solid #29293b; }
-.trust-icon{ font-size:18px; }
-.trust-number{ margin-top:4px; font-size:10px; font-weight:1000; }
-.trust-text{ color:#777789; font-size:7px; margin-top:2px; }
+.amount-box strong{
+  display:block;
+  margin-top:3px;
+  color:var(--green);
+  font-size:26px;
+}
 
-.creator{ margin-top:15px; text-align:center; font-size:11px; font-weight:1000; }
-.disclaimer{ max-width:520px; margin:6px auto 0; text-align:center; color:#555566; font-size:8px; line-height:1.5; }
+.qr-note{
+  margin-top:10px;
+  padding:11px;
+  border-radius:11px;
+  background:rgba(150,60,255,.07);
+  color:#bbbccc;
+  font-size:10px;
+  line-height:1.5;
+}
 
-/* FLOATING WIDGETS */
-#recentBuy { display:none; position:fixed; bottom:20px; left:15px; z-index:99; background:#181824; border:1px solid #00ef70; padding:10px 14px; border-radius:10px; box-shadow:0 0 12px rgba(0,239,112,0.3); font-size:11px; align-items:center; gap:8px; }
-.float-help { position:fixed; bottom:20px; right:15px; z-index:99; background:linear-gradient(135deg,#cc2366,#bc1888); color:white; border-radius:50px; padding:10px 16px; font-weight:bold; font-size:11px; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.4); }
+.upi-pay-btn{
+  width:100%;
+  margin-top:12px;
+  padding:14px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(135deg,var(--green),#00c960);
+  color:#061009;
+  font-weight:1000;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(0,239,112,.25);
+  font-size:15px;
+}
 
+.manual-label{
+  font-size:11px;
+  color:#858596;
+  margin-top:15px;
+  margin-bottom:5px;
+}
+
+.upi-id-box{
+  display:flex;
+  gap:7px;
+  margin-top:5px;
+}
+
+.upi-id{
+  flex:1;
+  padding:11px;
+  border-radius:10px;
+  background:#08080e;
+  border:1px solid #2c2c3d;
+  color:#fff;
+  font-size:11px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.copy-upi{
+  border:0;
+  padding:0 12px;
+  border-radius:10px;
+  background:var(--green);
+  color:#061009;
+  font-weight:1000;
+  cursor:pointer;
+}
+
+.payment-success{
+  display:none;
+  margin-top:10px;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  color:var(--green);
+  background:rgba(0,239,112,.06);
+  border:1px solid rgba(0,239,112,.2);
+  font-size:10px;
+}
+
+/* FOOTER */
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:20px;
+}
+
+.trust-card{
+  padding:12px 4px;
+  text-align:center;
+  border-radius:13px;
+  background:#101019;
+  border:1px solid #29293b;
+}
+
+.trust-icon{
+  font-size:18px;
+}
+
+.trust-number{
+  margin-top:4px;
+  font-size:10px;
+  font-weight:1000;
+}
+
+.trust-text{
+  color:#777789;
+  font-size:7px;
+  margin-top:2px;
+}
+
+.creator{
+  margin-top:15px;
+  text-align:center;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.disclaimer{
+  max-width:520px;
+  margin:6px auto 0;
+  text-align:center;
+  color:#555566;
+  font-size:8px;
+  line-height:1.5;
+}
+
+/* MOBILE */
 @media(max-width:430px){
-  .container{ width:95%; }
-  .hero h1{ font-size:29px; }
-  .wheel-wrap, .wheel{ width:215px; height:215px; }
+
+  .container{
+    width:95%;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .diamond-grid{
+    gap:7px;
+  }
+
+  .diamond-card{
+    min-height:178px;
+  }
+
+  .pass-card{
+    min-height:190px;
+  }
+
+  .wheel-wrap,
+  .wheel{
+    width:215px;
+    height:215px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- STICKY ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
-  🔥 TODAY SPECIAL OFFER: Extra 10% Diamonds Bonus on all Direct UPI Payments!
+  🇮🇳 INDIA SERVER • DIRECT UPI PAYMENT AVAILABLE
 </div>
 
 <div class="container">
@@ -851,6 +1201,7 @@ body{
   <div class="logo">
     FREE FIRE <span>INDIA STORE</span>
   </div>
+
   <div class="india">
     🇮🇳 INDIA
   </div>
@@ -863,504 +1214,1596 @@ body{
 
 <div class="main-card">
 
-<label class="label">FREE FIRE PLAYER ID</label>
+<label class="label">
+FREE FIRE PLAYER ID
+</label>
 
 <div class="uid-row">
-  <input id="uid" class="uid-input" type="text" maxlength="15" inputmode="numeric" placeholder="Enter Player UID">
-  <button class="verify-btn" onclick="verifyUID()">VERIFY ID</button>
+
+<input
+id="uid"
+class="uid-input"
+type="text"
+maxlength="15"
+inputmode="numeric"
+placeholder="Enter Player UID"
+>
+
+<button
+class="verify-btn"
+onclick="verifyUID()"
+>
+VERIFY ID
+</button>
+
 </div>
 
-<div class="verify-status" id="verifyStatus">
-  <div class="loader"></div> Checking Player ID...
+<div
+class="verify-status"
+id="verifyStatus"
+>
+<div class="loader"></div>
+Checking Player ID...
 </div>
 
-<div class="success" id="success">
-  ✓ PLAYER ID SELECTED SUCCESSFULLY
+<div
+class="success"
+id="success"
+>
+✓ PLAYER ID SELECTED SUCCESSFULLY
 </div>
 
 <div class="server">
-  <div class="server-left">
-    <div class="dot"></div> 🇮🇳 India Server
-  </div>
-  <div class="server-selected">SELECTED ✓</div>
+
+<div class="server-left">
+<div class="dot"></div>
+🇮🇳 India Server
 </div>
 
-<!-- DIAMONDS SECTION -->
+<div class="server-selected">
+SELECTED ✓
+</div>
+
+</div>
+
+<!-- DIAMONDS -->
+
 <div class="section">
-  <div class="section-head">
-    <div class="title">💎 Diamonds</div>
-    <div class="sub">India Store</div>
-  </div>
-  <div class="diamond-grid" id="diamondGrid"></div>
+
+<div class="section-head">
+
+<div class="title">
+💎 Diamonds
 </div>
 
-<!-- MEMBERSHIP SECTION -->
+<div class="sub">
+India Store
+</div>
+
+</div>
+
+<div
+class="diamond-grid"
+id="diamondGrid"
+></div>
+
+</div>
+
+<!-- MEMBERSHIP -->
+
 <div class="section">
-  <div class="section-head">
-    <div class="title">🎟️ Membership</div>
-    <div class="sub">Special Price</div>
-  </div>
-  <div class="pass-grid" id="passGrid"></div>
+
+<div class="section-head">
+
+<div class="title">
+🎟️ Membership
 </div>
 
-<!-- SPIN SECTION -->
+<div class="sub">
+Special Price
+</div>
+
+</div>
+
+<div
+class="pass-grid"
+id="passGrid"
+></div>
+
+</div>
+
+<!-- SPIN -->
+
 <div class="spin-box">
-  <div class="spin-title">🎡 FREE SPIN REWARD</div>
-  <div class="spin-sub">Spin karo aur available pack mein se apna FREE BONUS win karo!</div>
 
-  <div class="wheel-wrap">
-    <div class="pointer">▼</div>
-    <div class="wheel" id="wheel">
-      <div class="wheel-label l520">520 💎</div>
-      <div class="wheel-label l1060">1060 💎</div>
-      <div class="wheel-label l2180">2180 💎</div>
-      <div class="wheel-label l5600">5600 💎</div>
-    </div>
-  </div>
-
-  <button class="spin-btn" id="spinBtn" onclick="spinWheel()">🎡 SPIN NOW — FREE</button>
-  <div class="spin-note">Free promotional spin • No payment required to spin</div>
+<div class="spin-title">
+🎡 FREE SPIN REWARD
 </div>
 
-<!-- REWARD POPUP -->
-<div class="reward-popup" id="rewardPopup">
-  <div class="reward-head">
-    <h2>🎉 CONGRATULATIONS!</h2>
-    <p>🏆 SPIN REWARD UNLOCKED</p>
-  </div>
-  <div class="reward-number">
-    <strong id="wonDiamonds">+520 💎</strong>
-    <span>🎁 FREE BONUS UNLOCKED</span>
-  </div>
-  <div class="reward-grid">
-    <div class="reward-item"><small>WON REWARD</small><strong id="wonInfo"></strong></div>
-    <div class="reward-item"><small>RECOMMENDED PACK</small><strong id="recommendedPack"></strong></div>
-    <div class="reward-item"><small>PACK PRICE</small><strong id="recommendedPrice"></strong></div>
-    <div class="reward-item"><small>REWARD STATUS</small><strong class="reward-unlocked">✓ UNLOCKED</strong></div>
-  </div>
-  <div class="reward-message" id="rewardText"></div>
-  <div class="reward-buttons">
-    <button class="select-spin" onclick="selectSpinPack()">💎 SELECT THIS PACK</button>
-    <button class="copy-reward" onclick="copyReward()">📋 COPY DETAILS</button>
-  </div>
+<div class="spin-sub">
+Spin karo aur available pack mein se apna FREE BONUS win karo!
 </div>
 
-<!-- PROMO CODE BOX -->
+<div class="wheel-wrap">
+
+<div class="pointer">
+▼
+</div>
+
+<div
+class="wheel"
+id="wheel"
+>
+
+<div class="wheel-label l520">
+520 💎
+</div>
+
+<div class="wheel-label l1060">
+1060 💎
+</div>
+
+<div class="wheel-label l2180">
+2180 💎
+</div>
+
+<div class="wheel-label l5600">
+5600 💎
+</div>
+
+</div>
+
+</div>
+
+<button
+class="spin-btn"
+id="spinBtn"
+onclick="spinWheel()"
+>
+🎡 SPIN NOW — FREE
+</button>
+
+<div class="spin-note">
+Free promotional spin • No payment required to spin
+</div>
+
+</div>
+
+<!-- RESULT -->
+
+<div
+class="reward-popup"
+id="rewardPopup"
+>
+
+<div class="reward-head">
+
+<h2>
+🎉 CONGRATULATIONS!
+</h2>
+
+<p>
+🏆 SPIN REWARD UNLOCKED
+</p>
+
+</div>
+
+<div class="reward-number">
+
+<strong id="wonDiamonds">
++520 💎
+</strong>
+
+<span>
+🎁 FREE BONUS UNLOCKED
+</span>
+
+</div>
+
+<div class="reward-grid">
+
+<div class="reward-item">
+<small>WON REWARD</small>
+<strong id="wonInfo"></strong>
+</div>
+
+<div class="reward-item">
+<small>RECOMMENDED PACK</small>
+<strong id="recommendedPack"></strong>
+</div>
+
+<div class="reward-item">
+<small>PACK PRICE</small>
+<strong id="recommendedPrice"></strong>
+</div>
+
+<div class="reward-item">
+<small>REWARD STATUS</small>
+<strong class="reward-unlocked">
+✓ UNLOCKED
+</strong>
+</div>
+
+</div>
+
+<div
+class="reward-message"
+id="rewardText"
+></div>
+
+<div class="reward-buttons">
+
+<button
+class="select-spin"
+onclick="selectSpinPack()"
+>
+💎 SELECT THIS PACK
+</button>
+
+<button
+class="copy-reward"
+onclick="copyReward()"
+>
+📋 COPY DETAILS
+</button>
+
+</div>
+
+</div>
+
+<!-- PROMO -->
+
 <div class="promo-box">
-  <label class="label">🎟️ PROMO CODE / DISCOUNT COUPON</label>
-  <div class="promo-row">
-    <input type="text" id="couponCode" class="promo-input" placeholder="Enter Coupon Code (e.g. SUNNY999)">
-    <button class="promo-btn" onclick="applyCoupon()">APPLY</button>
-  </div>
-  <p id="couponMsg" style="font-size: 10px; margin-top: 6px; display: none;"></p>
+
+<label class="label">
+🎟️ PROMO CODE / DISCOUNT COUPON
+</label>
+
+<div class="promo-row">
+
+<input
+type="text"
+id="couponCode"
+class="promo-input"
+placeholder="Enter Coupon Code"
+>
+
+<button
+class="promo-btn"
+onclick="applyCoupon()"
+>
+APPLY
+</button>
+
 </div>
 
-<!-- PAYMENT SECTION -->
+<p
+id="couponMsg"
+style="
+font-size:10px;
+margin-top:6px;
+display:none;
+"
+></p>
+
+</div>
+
+<!-- PAYMENT -->
+
 <div class="payment">
-  <div class="payment-title">💳 Payment</div>
-  <div class="upi">
-    <div class="upi-left">
-      <div class="upi-icon">UPI</div>
-      <div>
-        <div class="upi-name">UPI Payment (Direct App)</div>
-        <div class="upi-desc">PhonePe, Google Pay, Paytm, BHIM</div>
-      </div>
-    </div>
-    <input type="radio" checked style="accent-color:#963cff;">
-  </div>
 
-  <div class="summary">
-    <span>Selected Product</span>
-    <strong id="total">₹0</strong>
-  </div>
-
-  <button class="checkout" onclick="checkout()">CONTINUE TO UPI PAYMENT →</button>
+<div class="payment-title">
+💳 Payment
 </div>
 
-<!-- FAQ SECTION -->
+<div class="upi">
+
+<div class="upi-left">
+
+<div class="upi-icon">
+UPI
+</div>
+
+<div>
+
+<div class="upi-name">
+UPI Payment
+</div>
+
+<div class="upi-desc">
+PhonePe • Google Pay • Paytm • BHIM
+</div>
+
+</div>
+
+</div>
+
+<input
+type="radio"
+checked
+style="accent-color:#963cff;"
+>
+
+</div>
+
+<div class="summary">
+
+<span>
+Selected Product
+</span>
+
+<strong id="total">
+₹0
+</strong>
+
+</div>
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+CONTINUE TO UPI PAYMENT →
+</button>
+
+</div>
+
+<!-- FAQ -->
+
 <div class="section faq-box">
-  <div class="title" style="margin-bottom:10px;">❓ Frequently Asked Questions</div>
-  <details>
-    <summary>Top-up kitni der mein milta hai?</summary>
-    <p>Payment successful hone ke 5-10 minutes ke andar aapki Free Fire Player ID par diamonds bhej diye jate hain.</p>
-  </details>
-  <details>
-    <summary>Kya ID ka password dena padega?</summary>
-    <p>Bilkul nahi! Hum sirf Player UID ke zariye top-up karte hain. Apna password kisi ko mat share karein.</p>
-  </details>
+
+<div
+class="title"
+style="margin-bottom:10px;"
+>
+❓ Frequently Asked Questions
 </div>
 
-</div> <!-- /main-card -->
+<details>
 
-<!-- TRUST FOOTER -->
+<summary>
+Top-up kitni der mein milta hai?
+</summary>
+
+<p>
+Payment successful hone ke baad top-up processing
+time service availability par depend karta hai.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+Kya ID ka password dena padega?
+</summary>
+
+<p>
+Bilkul nahi! Sirf Player UID ki zaroorat hai.
+Apna password, OTP ya UPI PIN kisi ke saath share
+mat karein.
+</p>
+
+</details>
+
+</div>
+
+</div>
+
+<!-- TRUST -->
+
 <div class="trust-grid">
-  <div class="trust-card"><div class="trust-icon">⚡</div><div class="trust-number">FAST</div><div class="trust-text">SERVICE</div></div>
-  <div class="trust-card"><div class="trust-icon">🔒</div><div class="trust-number">SECURE</div><div class="trust-text">UPI PAYMENT</div></div>
-  <div class="trust-card"><div class="trust-icon">🇮🇳</div><div class="trust-number">INDIA</div><div class="trust-text">SERVER</div></div>
+
+<div class="trust-card">
+<div class="trust-icon">⚡</div>
+<div class="trust-number">FAST</div>
+<div class="trust-text">SERVICE</div>
 </div>
 
-<div class="creator">FREE FIRE CREATOR STORE</div>
+<div class="trust-card">
+<div class="trust-icon">🔒</div>
+<div class="trust-number">SECURE</div>
+<div class="trust-text">UPI PAYMENT</div>
+</div>
+
+<div class="trust-card">
+<div class="trust-icon">🇮🇳</div>
+<div class="trust-number">INDIA</div>
+<div class="trust-text">SERVER</div>
+</div>
+
+</div>
+
+<div class="creator">
+FREE FIRE CREATOR STORE
+</div>
+
 <div class="disclaimer">
-  This website is an independent community store and is not affiliated with or endorsed by Garena unless separately authorized.
+This website is an independent community store and is
+not affiliated with or endorsed by Garena unless
+separately authorized.
 </div>
 
-</div> <!-- /container -->
+</div>
 
 <!-- PAYMENT MODAL -->
-<div class="modal" id="paymentModal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h2>💳 DIRECT UPI PAYMENT</h2>
-      <button class="close" onclick="closePayment()">✕</button>
-    </div>
 
-    <div class="amount-box">
-      <span>PAYMENT AMOUNT</span>
-      <strong id="payAmount">₹0</strong>
-    </div>
+<div
+class="modal"
+id="paymentModal"
+>
 
-    <div class="qr-note">
-      <b>INSTANT UPI DIRECT PAYMENT</b><br><br>
-      Niche diye gaye <b>OPEN UPI APP & PAY</b> button par click karein. Aapka PhonePe / GPay app direct open ho jayega.<br><br>
-      <i>Note: Screenshot lene ki zaroorat nahi hai. Direct app se pay karein.</i>
-    </div>
+<div class="modal-box">
 
-    <button class="upi-pay-btn" onclick="openUPIApp()">📱 OPEN UPI APP & PAY</button>
+<div class="modal-head">
 
-    <div style="margin: 15px 0; border-top: 1px dashed #3a3a50;"></div>
+<h2>
+💳 DIRECT UPI PAYMENT
+</h2>
 
-    <div style="font-size: 11px; color: #858596; margin-bottom: 5px;">Manual UPI ID Copy:</div>
-    <div class="upi-id-box">
-      <div class="upi-id">topup24servis@naviaxis</div>
-      <button class="copy-upi" onclick="copyUPI()">COPY</button>
-    </div>
+<button
+class="close"
+onclick="closePayment()"
+>
+✕
+</button>
 
-    <!-- INSTAGRAM VERIFICATION LINK -->
-    <a href="https://www.instagram.com/paymentverify1" target="_blank" class="insta-verify-btn">
-      📸 Payment Verify On Instagram
-    </a>
-
-    <div class="payment-success" id="paymentSuccess">
-      ✓ UPI PAYMENT REQUEST SENT<br><br>App mein ja kar payment complete karein.
-    </div>
-  </div>
 </div>
 
-<!-- LIVE RECENT PURCHASES WIDGET -->
-<div id="recentBuy">
-  <span style="font-size:18px;">⚡</span>
-  <div>
-    <span id="buyUser" style="font-weight:bold; color:#fff;">UID 1948****21</span> <span style="color:#aaa;">ne kharida</span><br>
-    <b id="buyItem" style="color:#00ef70;">520 Diamonds 💎</b>
-  </div>
+<div class="amount-box">
+
+<span>
+PAYMENT AMOUNT
+</span>
+
+<strong id="payAmount">
+₹0
+</strong>
+
 </div>
 
-<!-- FLOATING HELP BUTTON -->
-<a href="https://www.instagram.com/paymentverify1" target="_blank" class="float-help">💬 Help / Support</a>
+<div class="qr-note">
+
+<b>DIRECT UPI PAYMENT</b>
+<br><br>
+
+Tap <b>OPEN UPI APP & PAY</b>.
+Android will open an available UPI app
+for the payment request.
+
+<br><br>
+
+<i>
+If the UPI app does not open correctly,
+use the COPY UPI ID option below.
+</i>
+
+</div>
+
+<button
+class="upi-pay-btn"
+onclick="openUPIApp()"
+>
+📱 OPEN UPI APP & PAY
+</button>
+
+<div class="manual-label">
+Manual UPI ID
+</div>
+
+<div class="upi-id-box">
+
+<div
+class="upi-id"
+id="upiDisplay"
+>
+topup24servis@naviaxis
+</div>
+
+<button
+class="copy-upi"
+onclick="copyUPI()"
+>
+COPY
+</button>
+
+</div>
+
+<div
+class="payment-success"
+id="paymentSuccess"
+>
+</div>
+
+</div>
+
+</div>
 
 <script>
-/* PRODUCTS DATA */
-const diamonds = [
-  { id:"d100", diamonds:100, mrp:80, price:80, stock:0, popular:false },
-  { id:"d310", diamonds:310, mrp:240, price:240, stock:0, popular:false },
-  { id:"d520", diamonds:520, mrp:400, price:200, stock:87, popular:true },
-  { id:"d1060", diamonds:1060, mrp:800, price:400, stock:67, popular:false },
-  { id:"d2180", diamonds:2180, mrp:1600, price:800, stock:44, popular:false },
-  { id:"d5600", diamonds:5600, mrp:4000, price:2000, stock:10, popular:false }
+
+/* =========================
+   PRODUCTS
+========================= */
+
+const diamonds=[
+
+{
+  id:"d100",
+  diamonds:100,
+  mrp:80,
+  price:80,
+  stock:0,
+  popular:false
+},
+
+{
+  id:"d310",
+  diamonds:310,
+  mrp:240,
+  price:240,
+  stock:0,
+  popular:false
+},
+
+{
+  id:"d520",
+  diamonds:520,
+  mrp:400,
+  price:200,
+  stock:87,
+  popular:true
+},
+
+{
+  id:"d1060",
+  diamonds:1060,
+  mrp:800,
+  price:400,
+  stock:67,
+  popular:false
+},
+
+{
+  id:"d2180",
+  diamonds:2180,
+  mrp:1600,
+  price:800,
+  stock:44,
+  popular:false
+},
+
+{
+  id:"d5600",
+  diamonds:5600,
+  mrp:4000,
+  price:2000,
+  stock:10,
+  popular:false
+}
+
 ];
 
-const passes = [
-  { id:"weekly", name:"WEEKLY MEMBERSHIP", days:"7 DAYS", instant:"200 💎", daily:"35 💎", mrp:160, price:110, type:"weekly" },
-  { id:"monthly", name:"MONTHLY MEMBERSHIP", days:"30 DAYS", instant:"1000 💎", daily:"50 💎", mrp:800, price:400, type:"monthly" }
+/* =========================
+   MEMBERSHIP
+========================= */
+
+const passes=[
+
+{
+  id:"weekly",
+  name:"WEEKLY MEMBERSHIP",
+  days:"7 DAYS",
+  instant:"200 💎",
+  daily:"35 💎",
+  mrp:160,
+  price:110,
+  type:"weekly"
+},
+
+{
+  id:"monthly",
+  name:"MONTHLY MEMBERSHIP",
+  days:"30 DAYS",
+  instant:"1000 💎",
+  daily:"50 💎",
+  mrp:800,
+  price:400,
+  type:"monthly"
+}
+
 ];
 
-const UPI_ID = "topup24servis@naviaxis";
-const PAYEE_NAME = "Free Fire Store";
+/* =========================
+   UPI
+========================= */
 
-let selectedProduct = null;
-let selectedPrice = 0;
-let appliedDiscount = 0;
-let spinResult = null;
-let spinning = false;
-let wheelRotation = 0;
+const UPI_ID=
+"topup24servis@naviaxis";
 
-/* SOUND EFFECT */
+const PAYEE_NAME=
+"Free Fire Store";
+
+let selectedProduct=null;
+let selectedPrice=0;
+let appliedDiscount=0;
+
+let spinResult=null;
+let spinning=false;
+let wheelRotation=0;
+
+/* =========================
+   SOUND
+========================= */
+
 function playClickSound(){
+
   try{
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    const ctx = new AudioContext();
-    const oscillator = ctx.createOscillator();
-    const gain = ctx.createGain();
-    oscillator.type = "sine";
-    oscillator.frequency.setValueAtTime(520, ctx.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(820, ctx.currentTime + .08);
-    gain.gain.setValueAtTime(.001, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(.10, ctx.currentTime + .01);
-    gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .13);
+
+    const AudioContext=
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    const ctx=
+      new AudioContext();
+
+    const oscillator=
+      ctx.createOscillator();
+
+    const gain=
+      ctx.createGain();
+
+    oscillator.type="sine";
+
+    oscillator.frequency.setValueAtTime(
+      520,
+      ctx.currentTime
+    );
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+      820,
+      ctx.currentTime+.08
+    );
+
+    gain.gain.setValueAtTime(
+      .001,
+      ctx.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .10,
+      ctx.currentTime+.01
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      ctx.currentTime+.13
+    );
+
     oscillator.connect(gain);
     gain.connect(ctx.destination);
+
     oscillator.start();
-    oscillator.stop(ctx.currentTime + .14);
+
+    oscillator.stop(
+      ctx.currentTime+.14
+    );
+
   }catch(e){}
+
 }
 
-/* RENDER PRODUCTS */
+/* =========================
+   DIAMONDS
+========================= */
+
 function renderDiamonds(){
-  const grid = document.getElementById("diamondGrid");
-  grid.innerHTML = "";
 
-  diamonds.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "diamond-card";
-    card.dataset.id = item.id;
+  const grid=
+    document.getElementById(
+      "diamondGrid"
+    );
 
-    let popularHTML = item.popular ? `<div class="popular-tag">🔥 BEST VALUE</div>` : ``;
-    let stockHTML = item.stock > 0 
-      ? `<div class="stock-count ${item.stock<=10?'low':''}">${item.stock} LEFT</div>`
-      : `<div class="out-stock">OUT OF STOCK</div>`;
+  grid.innerHTML="";
 
-    card.innerHTML = `
+  diamonds.forEach(item=>{
+
+    const card=
+      document.createElement("div");
+
+    card.className=
+      "diamond-card";
+
+    card.dataset.id=
+      item.id;
+
+    const popularHTML=
+      item.popular
+      ?
+      `<div class="popular-tag">
+        🔥 BEST VALUE
+      </div>`
+      :
+      "";
+
+    const stockHTML=
+      item.stock>0
+      ?
+      `
+      <div class="stock-count ${
+        item.stock<=10 ? "low" : ""
+      }">
+        ${item.stock} LEFT
+      </div>
+      `
+      :
+      `
+      <div class="out-stock">
+        OUT OF STOCK
+      </div>
+      `;
+
+    card.innerHTML=`
+
       ${popularHTML}
+
       <div class="selection-ring"></div>
-      <div class="selected-badge">✓ SELECTED</div>
-      <div class="diamond-icon">💎</div>
-      <div class="diamond-name">${item.diamonds} Diamonds</div>
-      <div class="mrp">MRP ₹${item.mrp}</div>
-      ${item.stock > 0 ? `<div class="price">₹${item.price}</div>` : ''}
+
+      <div class="selected-badge">
+        ✓ SELECTED
+      </div>
+
+      <div class="diamond-icon">
+        💎
+      </div>
+
+      <div class="diamond-name">
+        ${item.diamonds} Diamonds
+      </div>
+
+      <div class="mrp">
+        MRP ₹${item.mrp}
+      </div>
+
+      ${
+        item.stock>0
+        ?
+        `
+        <div class="price">
+          ₹${item.price}
+        </div>
+        `
+        :
+        ""
+      }
+
       ${stockHTML}
+
     `;
 
-    if(item.stock > 0){
-      card.onclick = () => selectProduct(item, card);
+    if(item.stock>0){
+
+      card.onclick=()=>{
+        selectProduct(
+          item,
+          card
+        );
+      };
+
     }
+
     grid.appendChild(card);
+
   });
+
 }
+
+/* =========================
+   MEMBERSHIP
+========================= */
 
 function renderPasses(){
-  const grid = document.getElementById("passGrid");
-  grid.innerHTML = "";
 
-  passes.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "pass-card " + (item.type === "monthly" ? "monthly" : "");
-    card.dataset.id = item.id;
+  const grid=
+    document.getElementById(
+      "passGrid"
+    );
 
-    card.innerHTML = `
+  grid.innerHTML="";
+
+  passes.forEach(item=>{
+
+    const card=
+      document.createElement("div");
+
+    card.className=
+      "pass-card "+
+      (
+        item.type==="monthly"
+        ?
+        "monthly"
+        :
+        ""
+      );
+
+    card.dataset.id=
+      item.id;
+
+    card.innerHTML=`
+
       <div class="selection-ring"></div>
-      <div class="pass-selected">✓ SELECTED</div>
+
+      <div class="pass-selected">
+        ✓ SELECTED
+      </div>
+
       <div class="pass-top">
-        <div class="pass-icon">${item.type==="monthly"?"M":"W"}</div>
-        <div class="pass-name">${item.name}</div>
+
+        <div class="pass-icon">
+          ${
+            item.type==="monthly"
+            ?
+            "M"
+            :
+            "W"
+          }
+        </div>
+
+        <div class="pass-name">
+          ${item.name}
+        </div>
+
       </div>
-      <div class="pass-duration">${item.days} <div><span>MEMBERSHIP PERIOD</span></div></div>
+
+      <div class="pass-duration">
+
+        ${item.days}
+
+        <div>
+          <span>
+            MEMBERSHIP PERIOD
+          </span>
+        </div>
+
+      </div>
+
       <div class="pass-rewards">
-        <div class="pass-reward"><small>INSTANT</small><b>${item.instant}</b></div>
-        <div class="pass-reward"><small>DAILY</small><b>${item.daily}</b></div>
+
+        <div class="pass-reward">
+
+          <small>
+            INSTANT
+          </small>
+
+          <b>
+            ${item.instant}
+          </b>
+
+        </div>
+
+        <div class="pass-reward">
+
+          <small>
+            DAILY
+          </small>
+
+          <b>
+            ${item.daily}
+          </b>
+
+        </div>
+
       </div>
+
       <div class="pass-bottom">
-        <div><div class="pass-old">MRP ₹${item.mrp}</div></div>
-        <div class="pass-price">₹${item.price}</div>
+
+        <div>
+
+          <div class="pass-old">
+            MRP ₹${item.mrp}
+          </div>
+
+        </div>
+
+        <div class="pass-price">
+          ₹${item.price}
+        </div>
+
       </div>
+
     `;
 
-    card.onclick = () => selectProduct(item, card);
+    card.onclick=()=>{
+      selectProduct(
+        item,
+        card
+      );
+    };
+
     grid.appendChild(card);
+
   });
+
 }
 
-/* SELECTION LOGIC */
-function selectProduct(item, card){
-  playClickSound();
-  selectedProduct = item;
-  selectedPrice = item.price - appliedDiscount;
-  if(selectedPrice < 0) selectedPrice = 0;
+/* =========================
+   SELECT PRODUCT
+========================= */
 
-  document.querySelectorAll(".diamond-card, .pass-card").forEach(c => {
-    c.classList.remove("selected");
-    const ring = c.querySelector(".selection-ring");
-    if(ring) ring.classList.remove("run");
+function selectProduct(
+  item,
+  card
+){
+
+  playClickSound();
+
+  selectedProduct=
+    item;
+
+  selectedPrice=
+    item.price -
+    appliedDiscount;
+
+  if(selectedPrice<0)
+    selectedPrice=0;
+
+  document.querySelectorAll(
+    ".diamond-card,.pass-card"
+  ).forEach(c=>{
+
+    c.classList.remove(
+      "selected"
+    );
+
+    const ring=
+      c.querySelector(
+        ".selection-ring"
+      );
+
+    if(ring){
+      ring.classList.remove(
+        "run"
+      );
+    }
+
   });
 
-  card.classList.add("selected");
-  const ring = card.querySelector(".selection-ring");
+  card.classList.add(
+    "selected"
+  );
+
+  const ring=
+    card.querySelector(
+      ".selection-ring"
+    );
+
   if(ring){
-    ring.classList.remove("run");
+
+    ring.classList.remove(
+      "run"
+    );
+
     void ring.offsetWidth;
-    ring.classList.add("run");
+
+    ring.classList.add(
+      "run"
+    );
+
   }
 
-  document.getElementById("total").textContent = "₹" + selectedPrice;
+  const icon=
+    card.querySelector(
+      ".diamond-icon"
+    );
+
+  if(icon){
+
+    icon.style.animation=
+      "none";
+
+    void icon.offsetWidth;
+
+    icon.style.animation=
+      "diamondPop .6s cubic-bezier(.2,1.5,.4,1)";
+
+  }
+
+  document.getElementById(
+    "total"
+  ).textContent=
+    "₹"+selectedPrice;
+
 }
 
-/* UID VERIFICATION */
+/* =========================
+   UID
+========================= */
+
 function verifyUID(){
-  const uid = document.getElementById("uid").value.trim();
-  if(uid.length < 5){
-    alert("Please enter a valid Player UID.");
-    return;
-  }
-  const status = document.getElementById("verifyStatus");
-  const success = document.getElementById("success");
-  status.style.display = "block";
-  success.style.display = "none";
 
-  setTimeout(() => {
-    status.style.display = "none";
-    success.style.display = "block";
-  }, 1000);
+  const uid=
+    document.getElementById(
+      "uid"
+    ).value.trim();
+
+  if(uid.length<5){
+
+    alert(
+      "Please enter a valid Player UID."
+    );
+
+    return;
+
+  }
+
+  const status=
+    document.getElementById(
+      "verifyStatus"
+    );
+
+  const success=
+    document.getElementById(
+      "success"
+    );
+
+  status.style.display=
+    "block";
+
+  success.style.display=
+    "none";
+
+  setTimeout(()=>{
+
+    status.style.display=
+      "none";
+
+    success.style.display=
+      "block";
+
+  },1000);
+
 }
 
-/* PROMO CODE LOGIC */
-function applyCoupon() {
-  const code = document.getElementById("couponCode").value.trim().toUpperCase();
-  const msg = document.getElementById("couponMsg");
+/* =========================
+   COUPON
+========================= */
 
-  if (!selectedProduct) {
-    alert("Pehle koi product select karein!");
+function applyCoupon(){
+
+  const code=
+    document.getElementById(
+      "couponCode"
+    ).value
+    .trim()
+    .toUpperCase();
+
+  const msg=
+    document.getElementById(
+      "couponMsg"
+    );
+
+  if(!selectedProduct){
+
+    alert(
+      "Pehle koi product select karein!"
+    );
+
     return;
+
   }
 
-  if (code === "SUNNY999" || code === "OFF20") {
-    appliedDiscount = 20;
-    msg.style.color = "#00ef70";
-    msg.innerText = "✓ Coupon Applied! ₹20 Discount Active";
-    msg.style.display = "block";
+  if(
+    code==="SUNNY999" ||
+    code==="OFF20"
+  ){
 
-    selectedPrice = selectedProduct.price - appliedDiscount;
-    if(selectedPrice < 0) selectedPrice = 0;
-    document.getElementById("total").innerText = "₹" + selectedPrice + " (Saved ₹20)";
-  } else {
-    msg.style.color = "#ff4161";
-    msg.innerText = "❌ Invalid Coupon Code!";
-    msg.style.display = "block";
+    appliedDiscount=20;
+
+    selectedPrice=
+      selectedProduct.price -
+      appliedDiscount;
+
+    if(selectedPrice<0)
+      selectedPrice=0;
+
+    msg.style.color=
+      "#00ef70";
+
+    msg.innerText=
+      "✓ Coupon Applied! ₹20 Discount Active";
+
+    msg.style.display=
+      "block";
+
+    document.getElementById(
+      "total"
+    ).innerText=
+      "₹"+
+      selectedPrice+
+      " (Saved ₹20)";
+
+  }else{
+
+    msg.style.color=
+      "#ff4161";
+
+    msg.innerText=
+      "❌ Invalid Coupon Code!";
+
+    msg.style.display=
+      "block";
+
   }
+
 }
 
-/* SPIN WHEEL */
+/* =========================
+   SPIN
+========================= */
+
 function spinWheel(){
-  if(spinning) return;
-  const available = diamonds.filter(item => item.stock > 0);
-  if(!available.length) return;
 
-  spinning = true;
-  const btn = document.getElementById("spinBtn");
-  const wheel = document.getElementById("wheel");
+  if(spinning)
+    return;
 
-  btn.disabled = true;
-  btn.textContent = "🎡 SPINNING...";
+  const available=
+    diamonds.filter(
+      item=>item.stock>0
+    );
+
+  if(!available.length){
+
+    alert(
+      "Currently koi pack available nahi hai."
+    );
+
+    return;
+
+  }
+
+  spinning=true;
+
+  const btn=
+    document.getElementById(
+      "spinBtn"
+    );
+
+  const wheel=
+    document.getElementById(
+      "wheel"
+    );
+
+  btn.disabled=true;
+
+  btn.textContent=
+    "🎡 SPINNING...";
+
   playClickSound();
 
-  const wheelOrder = [520, 1060, 2180, 5600];
-  const availableValues = available.map(item => item.diamonds);
-  const winnerValue = availableValues[Math.floor(Math.random() * availableValues.length)];
+  const wheelOrder=[
+    520,
+    1060,
+    2180,
+    5600
+  ];
 
-  spinResult = diamonds.find(item => item.diamonds === winnerValue);
-  const index = wheelOrder.indexOf(winnerValue);
-  const segment = 90;
-  const current = ((wheelRotation % 360) + 360) % 360;
-  const targetAngle = (360 - (index * segment)) % 360;
-  const correction = (targetAngle - current + 360) % 360;
+  const availableValues=
+    available.map(
+      item=>item.diamonds
+    );
 
-  wheelRotation += (360 * 6) + correction;
-  wheel.style.transform = `rotate(${wheelRotation}deg)`;
+  const winnerValue=
+    availableValues[
+      Math.floor(
+        Math.random()*
+        availableValues.length
+      )
+    ];
 
-  setTimeout(() => {
-    showSpinReward(spinResult);
-    spinning = false;
-    btn.disabled = false;
-    btn.textContent = "🔄 SPIN AGAIN";
-  }, 4400);
+  spinResult=
+    diamonds.find(
+      item=>
+        item.diamonds===
+        winnerValue
+    );
+
+  const index=
+    wheelOrder.indexOf(
+      winnerValue
+    );
+
+  const segment=90;
+
+  const current=
+    (
+      (wheelRotation%360)+360
+    )%360;
+
+  const targetAngle=
+    (
+      360 -
+      index*segment
+    )%360;
+
+  const correction=
+    (
+      targetAngle-
+      current+
+      360
+    )%360;
+
+  wheelRotation+=
+    (360*6)+
+    correction;
+
+  wheel.style.transform=
+    `rotate(${wheelRotation}deg)`;
+
+  setTimeout(()=>{
+
+    showSpinReward(
+      spinResult
+    );
+
+    spinning=false;
+
+    btn.disabled=false;
+
+    btn.textContent=
+      "🔄 SPIN AGAIN";
+
+  },4400);
+
 }
+
+/* =========================
+   SPIN RESULT
+========================= */
 
 function showSpinReward(item){
-  if(!item) return;
-  document.getElementById("wonDiamonds").textContent = "+" + item.diamonds + " 💎";
-  document.getElementById("wonInfo").textContent = "+" + item.diamonds + " Diamonds";
-  document.getElementById("recommendedPack").textContent = item.diamonds + " Diamonds";
-  document.getElementById("recommendedPrice").textContent = "₹" + item.price;
-  document.getElementById("rewardText").innerHTML = `💎 Spin mein aapne <b>${item.diamonds} Diamonds pack</b> win kiya! Select karke payment continue karein.`;
 
-  const popup = document.getElementById("rewardPopup");
-  popup.style.display = "block";
-  popup.scrollIntoView({ behavior: "smooth", block: "center" });
+  if(!item)
+    return;
+
+  document.getElementById(
+    "wonDiamonds"
+  ).textContent=
+    "+"+
+    item.diamonds+
+    " 💎";
+
+  document.getElementById(
+    "wonInfo"
+  ).textContent=
+    "+"+
+    item.diamonds+
+    " Diamonds";
+
+  document.getElementById(
+    "recommendedPack"
+  ).textContent=
+    item.diamonds+
+    " Diamonds";
+
+  document.getElementById(
+    "recommendedPrice"
+  ).textContent=
+    "₹"+
+    item.price;
+
+  document.getElementById(
+    "rewardText"
+  ).innerHTML=`
+
+    💎 Spin result:
+    <b>
+      ${item.diamonds} Diamonds pack
+    </b>
+
+    <br><br>
+
+    🛒 You can select this pack
+    and continue to payment.
+
+  `;
+
+  const popup=
+    document.getElementById(
+      "rewardPopup"
+    );
+
+  popup.style.display=
+    "block";
+
+  popup.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
 }
+
+/* =========================
+   SELECT SPIN PACK
+========================= */
 
 function selectSpinPack(){
-  if(!spinResult) return;
-  const card = document.querySelector(`.diamond-card[data-id="${spinResult.id}"]`);
-  if(card) selectProduct(spinResult, card);
+
+  if(!spinResult)
+    return;
+
+  const card=
+    document.querySelector(
+      `.diamond-card[data-id="${spinResult.id}"]`
+    );
+
+  if(card){
+
+    selectProduct(
+      spinResult,
+      card
+    );
+
+  }
+
 }
+
+/* =========================
+   COPY REWARD
+========================= */
 
 function copyReward(){
-  if(!spinResult) return;
-  const text = `SPIN RESULT\nWinning Pack: ${spinResult.diamonds} Diamonds\nPack Price: ₹${spinResult.price}`;
-  navigator.clipboard.writeText(text).then(() => alert("✓ Details copied!"));
+
+  if(!spinResult)
+    return;
+
+  const text=
+`SPIN RESULT
+Winning Pack: ${spinResult.diamonds} Diamonds
+Pack Price: ₹${spinResult.price}`;
+
+  if(
+    navigator.clipboard
+  ){
+
+    navigator.clipboard
+      .writeText(text)
+      .then(()=>{
+        alert(
+          "✓ Details copied!"
+        );
+      });
+
+  }else{
+
+    alert(text);
+
+  }
+
 }
 
-/* CHECKOUT & UPI INTENT LINK */
+/* =========================
+   CHECKOUT
+========================= */
+
 function checkout(){
+
   if(!selectedProduct){
-    alert("Please pehle koi product select karo.");
+
+    alert(
+      "Please pehle koi product select karo."
+    );
+
     return;
-  }
-  const uid = document.getElementById("uid").value.trim();
-  if(uid.length < 5){
-    alert("Please pehle Player UID verify karo.");
-    return;
+
   }
 
-  document.getElementById("payAmount").textContent = "₹" + selectedPrice;
-  document.getElementById("paymentModal").style.display = "block";
+  const uid=
+    document.getElementById(
+      "uid"
+    ).value.trim();
+
+  if(uid.length<5){
+
+    alert(
+      "Please pehle Player UID verify karo."
+    );
+
+    return;
+
+  }
+
+  document.getElementById(
+    "payAmount"
+  ).textContent=
+    "₹"+
+    selectedPrice;
+
+  document.getElementById(
+    "paymentSuccess"
+  ).style.display=
+    "none";
+
+  document.getElementById(
+    "paymentModal"
+  ).style.display=
+    "block";
+
 }
+
+/* =========================
+   CLOSE PAYMENT
+========================= */
 
 function closePayment(){
-  document.getElementById("paymentModal").style.display = "none";
+
+  document.getElementById(
+    "paymentModal"
+  ).style.display=
+    "none";
+
 }
+
+/* =========================
+   UPI PAYMENT
+========================= */
 
 function openUPIApp(){
-  if(!selectedProduct) return;
-  const uid = document.getElementById("uid").value.trim();
-  const note = "Free Fire Topup - UID " + uid;
 
-  // Direct UPI Intent URL
-  const upiUrl = "upi://pay" +
-    "?pa=" + encodeURIComponent(UPI_ID) +
-    "&pn=" + encodeURIComponent(PAYEE_NAME) +
-    "&am=" + encodeURIComponent(selectedPrice) +
-    "&cu=INR" +
-    "&tn=" + encodeURIComponent(note);
+  if(!selectedProduct){
 
-  document.getElementById("paymentSuccess").style.display = "block";
-  window.location.href = upiUrl;
+    alert(
+      "Please pehle koi product select karo."
+    );
+
+    return;
+
+  }
+
+  const uid=
+    document.getElementById(
+      "uid"
+    ).value.trim();
+
+  if(uid.length<5){
+
+    alert(
+      "Please pehle Player UID enter karo."
+    );
+
+    return;
+
+  }
+
+  const amount=
+    Number(selectedPrice)
+    .toFixed(2);
+
+  const note=
+    "Free Fire Topup UID "+
+    uid;
+
+  /*
+   * Standard UPI URI.
+   *
+   * Android decides which installed
+   * UPI app handles this request.
+   */
+
+  const upiUrl=
+    "upi://pay"+
+    "?pa="+
+    encodeURIComponent(UPI_ID)+
+    "&pn="+
+    encodeURIComponent(PAYEE_NAME)+
+    "&am="+
+    encodeURIComponent(amount)+
+    "&cu=INR"+
+    "&tn="+
+    encodeURIComponent(note);
+
+  const status=
+    document.getElementById(
+      "paymentSuccess"
+    );
+
+  status.style.display=
+    "block";
+
+  status.innerHTML=`
+
+    ✓ OPENING UPI APP...
+    <br><br>
+    Amount: ₹${amount}
+    <br><br>
+    <small>
+      Complete the payment inside
+      your selected UPI app.
+    </small>
+
+  `;
+
+  /*
+   * Give the browser a moment to update
+   * the button/status before handing
+   * control to Android.
+   */
+
+  setTimeout(()=>{
+
+    window.location.href=
+      upiUrl;
+
+  },100);
+
 }
+
+/* =========================
+   COPY UPI
+========================= */
 
 function copyUPI(){
+
   playClickSound();
-  navigator.clipboard.writeText(UPI_ID).then(() => alert("✓ UPI ID Copied!"));
+
+  if(
+    navigator.clipboard
+  ){
+
+    navigator.clipboard
+      .writeText(UPI_ID)
+      .then(()=>{
+
+        alert(
+          "✓ UPI ID Copied!\n\n"+
+          UPI_ID
+        );
+
+      })
+      .catch(()=>{
+
+        alert(
+          "UPI ID:\n"+
+          UPI_ID
+        );
+
+      });
+
+  }else{
+
+    alert(
+      "UPI ID:\n"+
+      UPI_ID
+    );
+
+  }
+
 }
 
-/* LIVE RECENT PURCHASES TICKER */
-const fakeBuyers = [
-  {uid: "9823****", pack: "520 Diamonds 💎"},
-  {uid: "1249****", pack: "Weekly Membership 🎟️"},
-  {uid: "5632****", pack: "1060 Diamonds 💎"},
-  {uid: "8821****", pack: "Monthly Membership 🎟️"}
-];
+/* =========================
+   MODAL BACKGROUND
+========================= */
 
-setInterval(() => {
-  const randomBuyer = fakeBuyers[Math.floor(Math.random() * fakeBuyers.length)];
-  document.getElementById("buyUser").innerText = "UID " + randomBuyer.uid;
-  document.getElementById("buyItem").innerText = randomBuyer.pack;
+document.getElementById(
+  "paymentModal"
+).addEventListener(
+  "click",
+  function(e){
 
-  const box = document.getElementById("recentBuy");
-  box.style.display = "flex";
-  setTimeout(() => { box.style.display = "none"; }, 4000);
-}, 9000);
+    if(e.target===this){
 
-/* INIT */
+      closePayment();
+
+    }
+
+  }
+);
+
+/* =========================
+   INIT
+========================= */
+
 renderDiamonds();
+
 renderPasses();
+
 </script>
 
 </body>
