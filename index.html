@@ -11,13 +11,9 @@
   --purple:#963cff;
   --cyan:#00cfe8;
   --gold:#ffb91f;
-  --pink:#ff3bd4;
   --red:#ff4161;
   --yellow:#ffd21f;
   --bg:#07070d;
-  --card:#13131e;
-  --border:#303044;
-  --muted:#858596;
 }
 
 *{
@@ -26,25 +22,39 @@
   padding:0;
 }
 
+/* CUSTOM NEON GAMING SCROLLBAR */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #07070d;
+}
+::-webkit-scrollbar-thumb {
+  background: #303044;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
   background:
-    radial-gradient(circle at 10% 0%,rgba(150,60,255,.12),transparent 30%),
-    radial-gradient(circle at 90% 25%,rgba(0,239,112,.07),transparent 28%),
+    radial-gradient(circle at 10% 0%,rgba(150,60,255,.18),transparent 35%),
+    radial-gradient(circle at 90% 25%,rgba(0,239,112,.12),transparent 30%),
     #07070d;
   min-height:100vh;
 }
 
 .announcement-bar{
   background:linear-gradient(90deg,#963cff,#ff4161);
-  color:#fff;
   text-align:center;
   padding:8px;
   font-size:11px;
   font-weight:bold;
-  letter-spacing:.5px;
-  box-shadow:0 2px 10px rgba(150,60,255,.4);
+  letter-spacing:0.5px;
 }
 
 .container{
@@ -63,11 +73,12 @@ body{
 .logo{
   font-size:17px;
   font-weight:1000;
+  letter-spacing:0.5px;
 }
 
 .logo span{
   color:var(--green);
-  text-shadow:0 0 8px rgba(0,239,112,.45);
+  text-shadow:0 0 12px rgba(0,239,112,.6);
 }
 
 .india{
@@ -86,11 +97,12 @@ body{
 .hero h1{
   font-size:32px;
   font-weight:1000;
+  text-shadow:0 0 20px rgba(150,60,255,.4);
 }
 
 .hero h1 span{
   color:var(--purple);
-  text-shadow:0 0 10px rgba(150,60,255,.5);
+  text-shadow:0 0 15px rgba(150,60,255,.7);
 }
 
 .hero p{
@@ -99,12 +111,14 @@ body{
   margin-top:7px;
 }
 
+/* MAIN CARD GLASSMORPHISM */
 .main-card{
   padding:15px;
   border-radius:21px;
-  background:linear-gradient(145deg,#171722,#0b0b12);
-  border:1px solid #303044;
-  box-shadow:0 18px 55px rgba(0,0,0,.38);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(13, 13, 22, 0.9) 100%) !important;
+  backdrop-filter: blur(12px);
+  border:1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:0 18px 55px rgba(0,0,0,.6), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 .label{
@@ -113,28 +127,100 @@ body{
   font-size:11px;
   font-weight:1000;
   margin-bottom:7px;
+  letter-spacing:0.5px;
 }
+
+/* UID */
 
 .uid-row{
   display:flex;
   gap:8px;
 }
 
-.uid-input{
+.uid-input-wrap{
+  position:relative;
   flex:1;
-  min-width:0;
+  overflow:hidden;
+  border-radius:13px;
+}
+
+.uid-input{
+  width:100%;
   padding:14px;
   border-radius:13px;
-  background:#08080e;
+  background:#05050a;
   border:1px solid #303044;
   color:#fff;
   outline:none;
   font-size:14px;
+  position:relative;
+  z-index:3;
+  transition:.25s;
 }
 
-.uid-input:focus{
-  border-color:var(--purple);
-  box-shadow:0 0 12px rgba(150,60,255,.22);
+.uid-input-wrap.active .uid-input{
+  border-color:var(--cyan);
+  box-shadow:
+    0 0 12px rgba(0,207,232,.5),
+    0 0 25px rgba(0,207,232,.2);
+}
+
+.uid-glow{
+  position:absolute;
+  inset:-30px;
+  z-index:1;
+  opacity:0;
+  pointer-events:none;
+  background:radial-gradient(
+    circle,
+    rgba(0,239,112,.28),
+    transparent 60%
+  );
+  animation:uidGlow 1.5s ease-in-out infinite;
+}
+
+.uid-input-wrap.active .uid-glow{
+  opacity:1;
+}
+
+@keyframes uidGlow{
+  0%,100%{
+    transform:scale(.8);
+    opacity:.2;
+  }
+  50%{
+    transform:scale(1.15);
+    opacity:.7;
+  }
+}
+
+.uid-scan-line{
+  position:absolute;
+  z-index:4;
+  left:0;
+  top:0;
+  width:3px;
+  height:100%;
+  opacity:0;
+  pointer-events:none;
+  background:linear-gradient(
+    transparent,
+    var(--green),
+    #fff,
+    var(--cyan),
+    transparent
+  );
+  box-shadow:0 0 8px var(--green);
+}
+
+.uid-input-wrap.scanning .uid-scan-line{
+  opacity:1;
+  animation:uidScan 1s linear infinite;
+}
+
+@keyframes uidScan{
+  from{left:0}
+  to{left:100%}
 }
 
 .verify-btn{
@@ -144,29 +230,158 @@ body{
   color:#fff;
   font-weight:1000;
   background:linear-gradient(135deg,#a53cff,#7130e9);
-  box-shadow:0 0 12px rgba(150,60,255,.28);
   cursor:pointer;
+  min-width:105px;
+  box-shadow: 0 0 18px rgba(150, 60, 255, 0.4);
 }
 
-.verify-status,
-.success{
+.verify-btn.verifying{
+  background:linear-gradient(
+    135deg,
+    #7130e9,
+    #963cff,
+    #00cfe8
+  );
+  background-size:200% 200%;
+  animation:verifyButton 1s ease infinite;
+}
+
+@keyframes verifyButton{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* SERVER STATUS */
+
+.server-connect{
+  display:none;
+  margin-top:10px;
+  padding:11px;
+  border-radius:13px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,239,112,.05),
+      rgba(0,207,232,.05)
+    ),
+    #08080e;
+  border:1px solid #303044;
+  overflow:hidden;
+}
+
+.server-connect.show{
+  display:block;
+  animation:serverIn .35s ease;
+}
+
+@keyframes serverIn{
+  from{
+    opacity:0;
+    transform:translateY(-6px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.server-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:6px 0;
+  font-size:10px;
+  color:#aaaabd;
+}
+
+.server-line b{
+  color:#fff;
+}
+
+.server-status{
+  color:var(--cyan);
+  font-size:9px;
+  font-weight:1000;
+}
+
+.server-status.ok{
+  color:var(--green);
+}
+
+.status-pulse{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--cyan);
+  margin-right:5px;
+  box-shadow:0 0 8px var(--cyan);
+  animation:pulse 1s infinite;
+}
+
+.status-pulse.ok{
+  background:var(--green);
+  box-shadow:0 0 8px var(--green);
+}
+
+@keyframes pulse{
+  0%,100%{
+    transform:scale(.7);
+    opacity:.5;
+  }
+  50%{
+    transform:scale(1.2);
+    opacity:1;
+  }
+}
+
+.verify-status{
   display:none;
   margin-top:9px;
   padding:10px;
   border-radius:10px;
+  background:#171321;
+  color:#d5b8ff;
   text-align:center;
   font-size:10px;
 }
 
-.verify-status{
-  background:#171321;
-  color:#d5b8ff;
+.verify-status.show{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  animation:statusIn .3s ease;
 }
 
 .success{
+  display:none;
+  margin-top:9px;
+  padding:11px;
+  border-radius:10px;
+  text-align:center;
   color:var(--green);
-  background:rgba(0,239,112,.06);
-  border:1px solid rgba(0,239,112,.2);
+  background:rgba(0,239,112,.08);
+  border:1px solid rgba(0,239,112,.35);
+  box-shadow:0 0 15px rgba(0,239,112,.15);
+  animation:successIn .45s cubic-bezier(.2,1.5,.4,1);
+  font-size:10px;
+  font-weight:1000;
+}
+
+@keyframes successIn{
+  0%{
+    opacity:0;
+    transform:scale(.8);
+  }
+  70%{
+    transform:scale(1.04);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
 }
 
 .loader{
@@ -177,7 +392,6 @@ body{
   border-top-color:var(--green);
   border-radius:50%;
   animation:load .7s linear infinite;
-  vertical-align:-2px;
 }
 
 @keyframes load{
@@ -208,7 +422,7 @@ body{
   height:9px;
   border-radius:50%;
   background:var(--green);
-  box-shadow:0 0 8px rgba(0,239,112,.65);
+  box-shadow:0 0 8px rgba(0,239,112,.8);
 }
 
 .server-selected{
@@ -216,6 +430,8 @@ body{
   font-size:10px;
   font-weight:1000;
 }
+
+/* SECTIONS */
 
 .section{
   margin-top:21px;
@@ -231,12 +447,16 @@ body{
 .title{
   font-size:17px;
   font-weight:1000;
+  letter-spacing:0.5px;
+  text-transform: uppercase;
 }
 
 .sub{
   color:#858596;
   font-size:10px;
 }
+
+/* DIAMONDS - GLASS & NEON */
 
 .diamond-grid{
   display:grid;
@@ -251,17 +471,25 @@ body{
   text-align:center;
   overflow:hidden;
   border-radius:15px;
-  background:
-    radial-gradient(circle at 50% 15%,rgba(0,207,232,.06),transparent 42%),
-    linear-gradient(145deg,#181824,#0d0d16);
-  border:1px solid #303044;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(13, 13, 22, 0.85) 100%) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.12);
   cursor:pointer;
-  transition:.2s;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .diamond-card:hover{
-  transform:translateY(-2px);
-  border-color:#55556b;
+  transform:translateY(-3px);
+  border-color: rgba(0, 239, 112, 0.5) !important;
+  box-shadow: 0 12px 30px rgba(0, 239, 112, 0.15) !important;
+}
+
+/* Dim Out-of-Stock Cards */
+.diamond-card:has(.out-stock) {
+  opacity: 0.42;
+  filter: grayscale(0.85);
+  border-color: rgba(255, 65, 97, 0.2) !important;
 }
 
 .diamond-card>*{
@@ -274,7 +502,7 @@ body{
   font-size:39px;
   line-height:1;
   margin-top:3px;
-  filter:drop-shadow(0 0 5px rgba(0,207,232,.55));
+  filter: drop-shadow(0 0 12px rgba(0,207,232,.85)) !important;
 }
 
 .diamond-name{
@@ -295,7 +523,7 @@ body{
   font-size:18px;
   font-weight:1000;
   margin-top:3px;
-  text-shadow:0 0 7px rgba(0,239,112,.45);
+  text-shadow: 0 0 12px rgba(0, 239, 112, 0.65);
 }
 
 .popular-tag{
@@ -303,14 +531,14 @@ body{
   top:0;
   left:50%;
   transform:translateX(-50%);
-  background:linear-gradient(135deg,var(--gold),#ff8b00);
-  color:#000;
+  background: linear-gradient(135deg, #ffb91f, #ff4161) !important;
+  color:#fff !important;
   font-size:8px;
-  font-weight:bold;
+  font-weight:1000 !important;
   padding:3px 8px;
-  border-bottom-left-radius:8px;
-  border-bottom-right-radius:8px;
-  z-index:10;
+  border-radius:0 0 9px 9px !important;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 15px rgba(255, 65, 97, 0.5);
 }
 
 .stock-count{
@@ -327,7 +555,7 @@ body{
 .stock-count.low{
   color:#fff;
   background:var(--red);
-  box-shadow:0 0 8px rgba(255,65,97,.45);
+  box-shadow:0 0 10px rgba(255,65,97,.5);
 }
 
 .out-stock{
@@ -387,14 +615,17 @@ body{
   color:#061009;
   font-size:8px;
   font-weight:1000;
-  z-index:10!important;
+  animation: badgePulse 1.5s infinite alternate;
+}
+
+@keyframes badgePulse {
+  from { box-shadow: 0 0 4px var(--green); }
+  to { box-shadow: 0 0 12px var(--green); }
 }
 
 .diamond-card.selected{
-  border-color:var(--green);
-  box-shadow:
-    0 0 8px rgba(0,239,112,.6),
-    inset 0 0 16px rgba(0,239,112,.05);
+  border: 1px solid var(--green) !important;
+  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45), inset 0 0 15px rgba(0, 239, 112, 0.15) !important;
 }
 
 .diamond-card.selected .selected-badge{
@@ -411,6 +642,8 @@ body{
   100%{transform:scale(1) rotate(0)}
 }
 
+/* MEMBERSHIP */
+
 .pass-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -423,22 +656,26 @@ body{
   overflow:hidden;
   padding:13px;
   border-radius:16px;
-  background:linear-gradient(135deg,#24143d,#151522 55%,#0d0d16);
-  border:1px solid #38334b;
+  background: linear-gradient(135deg, rgba(36, 20, 61, 0.85), rgba(21, 21, 34, 0.85) 55%, rgba(13, 13, 22, 0.85));
+  backdrop-filter: blur(12px);
+  border:1px solid rgba(255, 255, 255, 0.1) !important;
   cursor:pointer;
-  transition:.2s;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .pass-card.monthly{
-  background:linear-gradient(135deg,#3b280c,#21191a 55%,#111017);
-  border-color:#514329;
+  background: linear-gradient(135deg, rgba(59, 40, 12, 0.85), rgba(33, 25, 26, 0.85) 55%, rgba(17, 16, 23, 0.85));
+}
+
+.pass-card:hover{
+  transform:translateY(-3px);
+  border-color: rgba(0, 239, 112, 0.5) !important;
+  box-shadow: 0 12px 30px rgba(0, 239, 112, 0.15) !important;
 }
 
 .pass-card.selected{
-  border-color:var(--green);
-  box-shadow:
-    0 0 9px rgba(0,239,112,.6),
-    inset 0 0 18px rgba(0,239,112,.05);
+  border: 1px solid var(--green) !important;
+  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45), inset 0 0 15px rgba(0, 239, 112, 0.15) !important;
 }
 
 .pass-card>*{
@@ -461,13 +698,13 @@ body{
   border-radius:9px;
   font-weight:1000;
   background:linear-gradient(135deg,#d735ff,#711eff);
-  box-shadow:0 0 8px rgba(213,53,255,.4);
+  box-shadow:0 0 12px rgba(215,53,255,.4);
 }
 
 .monthly .pass-icon{
   background:linear-gradient(135deg,#ffd329,#ff8b00);
   color:#291900;
-  box-shadow:0 0 9px rgba(255,184,0,.45);
+  box-shadow:0 0 12px rgba(255,211,41,.4);
 }
 
 .pass-name{
@@ -484,7 +721,6 @@ body{
 .pass-duration span{
   font-size:9px;
   color:#9999a9;
-  letter-spacing:.8px;
 }
 
 .pass-rewards{
@@ -497,8 +733,7 @@ body{
 .pass-reward{
   padding:7px;
   border-radius:8px;
-  background:rgba(0,0,0,.24);
-  border:1px solid rgba(255,255,255,.07);
+  background:rgba(0,0,0,.35);
 }
 
 .pass-reward small{
@@ -510,7 +745,6 @@ body{
 .pass-reward b{
   display:block;
   margin-top:3px;
-  color:#fff;
   font-size:10px;
 }
 
@@ -531,7 +765,7 @@ body{
   color:var(--green);
   font-size:19px;
   font-weight:1000;
-  text-shadow:0 0 7px rgba(0,239,112,.45);
+  text-shadow: 0 0 10px rgba(0, 239, 112, 0.6);
 }
 
 .pass-selected{
@@ -545,11 +779,14 @@ body{
   background:var(--green);
   font-size:8px;
   font-weight:1000;
+  animation: badgePulse 1.5s infinite alternate;
 }
 
 .pass-card.selected .pass-selected{
   display:block;
 }
+
+/* SPIN */
 
 .spin-box{
   position:relative;
@@ -558,17 +795,15 @@ body{
   padding:17px 10px;
   text-align:center;
   border-radius:19px;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(150,60,255,.11),transparent 42%),
-    #0b0b13;
-  border:1px solid #343449;
-  box-shadow:0 0 20px rgba(150,60,255,.08);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(11, 11, 19, 0.95) 100%) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:0 15px 35px rgba(0,0,0,.6);
 }
 
 .spin-title{
   font-size:19px;
   font-weight:1000;
-  text-shadow:0 0 8px rgba(150,60,255,.45);
 }
 
 .spin-sub{
@@ -590,9 +825,8 @@ body{
   left:50%;
   top:-13px;
   transform:translateX(-50%);
-  color:#fff;
   font-size:26px;
-  text-shadow:0 0 6px rgba(255,255,255,.7);
+  filter:drop-shadow(0 0 8px #fff);
 }
 
 .wheel{
@@ -610,19 +844,10 @@ body{
     #7126e8 270deg 360deg
   );
   box-shadow:
-    0 0 0 3px rgba(0,207,232,.08),
-    0 0 12px rgba(0,207,232,.55),
-    0 0 24px rgba(150,60,255,.22);
+    0 0 15px rgba(0,207,232,.65),
+    0 0 30px rgba(150,60,255,.3);
   transition:
     transform 4.3s cubic-bezier(.12,.7,.15,1);
-}
-
-.wheel::before{
-  content:"";
-  position:absolute;
-  inset:5px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.2);
 }
 
 .wheel::after{
@@ -636,7 +861,6 @@ body{
   border-radius:50%;
   background:#07070d;
   border:3px solid #fff;
-  box-shadow:0 0 10px rgba(255,255,255,.5);
   z-index:20;
 }
 
@@ -685,7 +909,7 @@ body{
   font-size:12px;
   font-weight:1000;
   cursor:pointer;
-  box-shadow:0 0 12px rgba(0,239,112,.5);
+  box-shadow: 0 0 20px rgba(0,239,112,.4);
 }
 
 .spin-btn:disabled{
@@ -698,16 +922,16 @@ body{
   margin-top:9px;
 }
 
+/* REWARD */
+
 .reward-popup{
   display:none;
   margin-top:14px;
   padding:17px;
   border-radius:18px;
-  background:
-    radial-gradient(circle at 50% 0%,rgba(0,239,112,.09),transparent 50%),
-    #0c1013;
+  background:#0c1013;
   border:1px solid rgba(0,239,112,.45);
-  box-shadow:0 0 15px rgba(0,239,112,.12);
+  box-shadow:0 0 30px rgba(0,239,112,.2);
   animation:rewardIn .4s ease;
 }
 
@@ -729,7 +953,7 @@ body{
 .reward-head h2{
   color:var(--green);
   font-size:22px;
-  text-shadow:0 0 9px rgba(0,239,112,.55);
+  text-shadow:0 0 10px rgba(0,239,112,.5);
 }
 
 .reward-head p{
@@ -746,7 +970,6 @@ body{
 .reward-number strong{
   display:block;
   font-size:30px;
-  text-shadow:0 0 9px rgba(255,255,255,.5);
 }
 
 .reward-number span{
@@ -824,6 +1047,8 @@ body{
   border:1px solid #38384b;
 }
 
+/* PROMO */
+
 .promo-box{
   margin-top:15px;
   background:#13131e;
@@ -857,8 +1082,9 @@ body{
   border-radius:8px;
   font-weight:bold;
   color:#061009;
-  cursor:pointer;
 }
+
+/* PAYMENT */
 
 .payment{
   margin-top:20px;
@@ -896,6 +1122,7 @@ body{
   background:linear-gradient(135deg,#9d32f5,#6929db);
   font-size:10px;
   font-weight:1000;
+  box-shadow:0 0 10px rgba(157,50,245,.4);
 }
 
 .upi-name{
@@ -924,7 +1151,7 @@ body{
 .summary strong{
   color:var(--green);
   font-size:18px;
-  text-shadow:0 0 7px rgba(0,239,112,.45);
+  text-shadow:0 0 10px rgba(0,239,112,.5);
 }
 
 .checkout{
@@ -936,9 +1163,35 @@ body{
   color:#fff;
   font-weight:1000;
   background:linear-gradient(135deg,#963cff,#7130e9);
-  box-shadow:0 0 13px rgba(150,60,255,.3);
   cursor:pointer;
+  box-shadow:0 0 20px rgba(150,60,255,.4);
 }
+
+/* PREMIUM BUTTON SHINE ANIMATION */
+.checkout, .verify-btn, .spin-btn, .payment-success-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.checkout::after, .verify-btn::after, .spin-btn::after, .payment-success-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 30%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(25deg);
+  animation: buttonShine 3.5s infinite;
+}
+
+@keyframes buttonShine {
+  0% { left: -75%; }
+  20% { left: 125%; }
+  100% { left: 125%; }
+}
+
+/* FAQ */
 
 .faq-box details{
   background:#13131e;
@@ -952,7 +1205,6 @@ body{
 .faq-box summary{
   font-weight:bold;
   color:var(--green);
-  cursor:pointer;
 }
 
 .faq-box p{
@@ -971,6 +1223,7 @@ body{
   padding:14px;
   overflow:auto;
   background:rgba(0,0,0,.88);
+  backdrop-filter: blur(8px);
 }
 
 .modal-box{
@@ -980,6 +1233,7 @@ body{
   border-radius:20px;
   background:#101019;
   border:1px solid #3a3a50;
+  box-shadow:0 20px 50px rgba(0,0,0,.8);
 }
 
 .modal-head{
@@ -1033,44 +1287,6 @@ body{
   line-height:1.5;
 }
 
-.manual-label{
-  font-size:11px;
-  color:#858596;
-  margin-top:15px;
-  margin-bottom:5px;
-}
-
-.upi-id-box{
-  display:flex;
-  gap:7px;
-  margin-top:5px;
-}
-
-.upi-id{
-  flex:1;
-  padding:11px;
-  border-radius:10px;
-  background:#08080e;
-  border:1px solid #2c2c3d;
-  color:#fff;
-  font-size:11px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.copy-upi{
-  border:0;
-  padding:0 12px;
-  border-radius:10px;
-  background:var(--green);
-  color:#061009;
-  font-weight:1000;
-  cursor:pointer;
-}
-
-/* NEW PAYMENT FLOW */
-
 .real-qr-box{
   width:190px;
   height:190px;
@@ -1081,7 +1297,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 0 18px rgba(255,255,255,.12);
+  box-shadow:0 0 15px rgba(255,255,255,.2);
 }
 
 .real-qr-box img{
@@ -1089,6 +1305,38 @@ body{
   height:100%;
   object-fit:contain;
   border-radius:7px;
+}
+
+.manual-label{
+  font-size:11px;
+  color:#858596;
+  margin-top:15px;
+  margin-bottom:5px;
+}
+
+.upi-id-box{
+  display:flex;
+  gap:7px;
+}
+
+.upi-id{
+  flex:1;
+  padding:11px;
+  border-radius:10px;
+  background:#08080e;
+  border:1px solid #2c2c3d;
+  color:#fff;
+  font-size:11px;
+}
+
+.copy-upi{
+  border:0;
+  padding:0 12px;
+  border-radius:10px;
+  background:var(--green);
+  color:#061009;
+  font-weight:1000;
+  cursor:pointer;
 }
 
 .payment-success-btn{
@@ -1102,7 +1350,6 @@ body{
   font-size:12px;
   font-weight:1000;
   cursor:pointer;
-  box-shadow:0 0 13px rgba(0,239,112,.28);
 }
 
 .step-icon{
@@ -1113,14 +1360,13 @@ body{
   align-items:center;
   justify-content:center;
   border-radius:50%;
-  background:rgba(150,60,255,.10);
+  background:rgba(150,60,255,.1);
   border:1px solid rgba(150,60,255,.25);
   font-size:29px;
 }
 
 .step-title{
   text-align:center;
-  color:#fff;
   font-size:19px;
   font-weight:1000;
 }
@@ -1145,11 +1391,6 @@ body{
   font-size:13px;
 }
 
-.customer-mobile:focus{
-  border-color:var(--purple);
-  box-shadow:0 0 10px rgba(150,60,255,.18);
-}
-
 .verification-loader{
   width:72px;
   height:72px;
@@ -1162,9 +1403,7 @@ body{
 }
 
 @keyframes verificationSpin{
-  to{
-    transform:rotate(360deg);
-  }
+  to{transform:rotate(360deg)}
 }
 
 .verify-dots{
@@ -1213,7 +1452,7 @@ body{
   background:linear-gradient(135deg,#ff2778,#8b35ff);
   font-size:11px;
   font-weight:1000;
-  box-shadow:0 0 13px rgba(255,39,120,.22);
+  box-shadow:0 0 15px rgba(255,39,120,.4);
 }
 
 .waiting-box{
@@ -1233,10 +1472,8 @@ body{
 
 .payment-timer{
   margin-top:7px;
-  color:#fff;
   font-size:30px;
   font-weight:1000;
-  letter-spacing:1px;
 }
 
 .waiting-text{
@@ -1311,10 +1548,6 @@ body{
     min-height:178px;
   }
 
-  .pass-card{
-    min-height:190px;
-  }
-
   .wheel-wrap,
   .wheel{
     width:215px;
@@ -1333,7 +1566,6 @@ body{
 <div class="container">
 
 <div class="top">
-
 <div class="logo">
 FREE FIRE <span>INDIA STORE</span>
 </div>
@@ -1341,19 +1573,11 @@ FREE FIRE <span>INDIA STORE</span>
 <div class="india">
 🇮🇳 INDIA
 </div>
-
 </div>
 
 <div class="hero">
-
-<h1>
-TOP-UP <span>STORE</span>
-</h1>
-
-<p>
-Fast • Secure • Premium Player Experience
-</p>
-
+<h1>TOP-UP <span>STORE</span></h1>
+<p>Fast • Secure • Premium Player Experience</p>
 </div>
 
 <div class="main-card">
@@ -1364,6 +1588,8 @@ FREE FIRE PLAYER ID
 
 <div class="uid-row">
 
+<div class="uid-input-wrap">
+
 <input
 id="uid"
 class="uid-input"
@@ -1371,10 +1597,17 @@ type="text"
 maxlength="15"
 inputmode="numeric"
 placeholder="Enter Player UID"
+oninput="uidTypingAnimation()"
 >
+
+<div class="uid-glow"></div>
+<div class="uid-scan-line"></div>
+
+</div>
 
 <button
 class="verify-btn"
+id="verifyBtn"
 onclick="verifyUID()"
 >
 VERIFY ID
@@ -1382,20 +1615,73 @@ VERIFY ID
 
 </div>
 
+
+<!-- SERVER CONNECT ANIMATION -->
+
+<div
+class="server-connect"
+id="serverConnect"
+>
+
+<div class="server-line">
+
+<b>🌐 FREE FIRE SERVER</b>
+
+<span
+class="server-status"
+id="serverStatus"
+>
+<span class="status-pulse"></span>
+CONNECTING...
+</span>
+
+</div>
+
+<div class="server-line">
+
+<b>🇮🇳 INDIA SERVER</b>
+
+<span
+class="server-status"
+id="indiaStatus"
+>
+WAITING
+</span>
+
+</div>
+
+<div class="server-line">
+
+<b>🎮 PLAYER UID</b>
+
+<span
+class="server-status"
+id="uidStatus"
+>
+SCANNING...
+</span>
+
+</div>
+
+</div>
+
+
 <div
 class="verify-status"
 id="verifyStatus"
 >
 <div class="loader"></div>
-Checking Player ID...
+<span>CHECKING PLAYER UID...</span>
 </div>
+
 
 <div
 class="success"
 id="success"
 >
-✓ PLAYER ID SELECTED SUCCESSFULLY
+✓ PLAYER ID READY • INDIA SERVER CONNECTED
 </div>
+
 
 <div class="server">
 
@@ -1716,8 +2002,9 @@ Top-up kitni der mein milta hai?
 </summary>
 
 <p>
-Payment successful hone ke baad top-up processing
-time service availability par depend karta hai.
+Payment successfully verify hone ke baad
+top-up processing service availability par depend
+karta hai.
 </p>
 
 </details>
@@ -1803,7 +2090,7 @@ onclick="closePayment()"
 </div>
 
 
-<!-- STEP 1 -->
+<!-- PAYMENT STEP -->
 
 <div id="paymentStep">
 
@@ -1825,27 +2112,21 @@ PAYMENT AMOUNT
 
 <br><br>
 
-QR scan karke ya neeche diye gaye
-UPI ID par payment karein.
+QR scan karke ya UPI ID par payment karein.
 
 <br><br>
 
-<b>UPI ID:</b>
-topup24servis@naviaxis
+<b>Receiver:</b> WASIM SK
+<br>
+<b>UPI ID:</b> topup24servis@naviaxis
 
 </div>
 
 
-<!--
-  IMPORTANT:
-  Replace YOUR_QR_IMAGE.png
-  with your actual QR image.
--->
-
 <div class="real-qr-box">
 
 <img
-src="YOUR_QR_IMAGE.png"
+src="IMG_20261007_082737.jpg"
 alt="UPI QR Code"
 >
 
@@ -1882,7 +2163,7 @@ onclick="showMobileStep()"
 </div>
 
 
-<!-- STEP 2 -->
+<!-- MOBILE -->
 
 <div
 id="mobileStep"
@@ -1901,11 +2182,6 @@ ENTER MOBILE NUMBER
 
 Payment complete karne ke baad
 apna 10 digit mobile number enter karein.
-
-<br><br>
-
-Mobile number order/contact reference
-ke liye use hoga.
 
 </p>
 
@@ -1928,7 +2204,7 @@ SUBMIT & CONTINUE
 </div>
 
 
-<!-- STEP 3 -->
+<!-- VERIFICATION -->
 
 <div
 id="verificationStep"
@@ -1939,29 +2215,27 @@ style="display:none;"
 </div>
 
 <h3 class="step-title">
-VERIFYING PAYMENT...
+PAYMENT DETAILS SUBMITTED
 </h3>
 
 <p class="step-text">
 
-Checking payment details...
+Your payment information has been submitted.
 <br>
-Please wait...
+Preparing manual verification...
 
 </p>
 
 <div class="verify-dots">
-
 <span></span>
 <span></span>
 <span></span>
-
 </div>
 
 </div>
 
 
-<!-- STEP 4 -->
+<!-- SCREENSHOT -->
 
 <div
 id="screenshotStep"
@@ -1973,20 +2247,18 @@ style="display:none;"
 </div>
 
 <h3 class="step-title">
-PAYMENT SCREENSHOT REQUIRED
+SEND PAYMENT SCREENSHOT
 </h3>
 
 <p class="step-text">
 
-Payment complete hone ke baad
-apna payment screenshot Instagram
-verification account par bhejein.
+Payment screenshot Instagram verification
+account par bhejein.
 
 <br><br>
 
 ⚠️ UPI PIN, OTP, password ya bank
-login details screenshot mein
-share na karein.
+login details screenshot mein share na karein.
 
 </p>
 
@@ -1998,7 +2270,6 @@ rel="noopener noreferrer"
 >
 📸 SEND PAYMENT SCREENSHOT
 </a>
-
 
 <div class="waiting-box">
 
@@ -2015,8 +2286,7 @@ class="payment-timer"
 
 <div class="waiting-text">
 
-Screenshot send karne ke baad
-please yahan wait karein.
+Screenshot send karne ke baad please wait karein.
 
 <br><br>
 
@@ -2036,110 +2306,93 @@ order/reward process kiya jayega.
 
 <script>
 
-/* =========================
-   PRODUCTS
-========================= */
+/* PRODUCTS */
 
 const diamonds=[
 
 {
-  id:"d100",
-  diamonds:100,
-  mrp:80,
-  price:80,
-  stock:0,
-  popular:false
+id:"d100",
+diamonds:100,
+mrp:80,
+price:80,
+stock:0,
+popular:false
 },
 
 {
-  id:"d310",
-  diamonds:310,
-  mrp:240,
-  price:240,
-  stock:0,
-  popular:false
+id:"d310",
+diamonds:310,
+mrp:240,
+price:240,
+stock:0,
+popular:false
 },
 
 {
-  id:"d520",
-  diamonds:520,
-  mrp:400,
-  price:200,
-  stock:87,
-  popular:true
+id:"d520",
+diamonds:520,
+mrp:400,
+price:200,
+stock:87,
+popular:true
 },
 
 {
-  id:"d1060",
-  diamonds:1060,
-  mrp:800,
-  price:400,
-  stock:67,
-  popular:false
+id:"d1060",
+diamonds:1060,
+mrp:800,
+price:400,
+stock:67,
+popular:false
 },
 
 {
-  id:"d2180",
-  diamonds:2180,
-  mrp:1600,
-  price:800,
-  stock:44,
-  popular:false
+id:"d2180",
+diamonds:2180,
+mrp:1600,
+price:800,
+stock:44,
+popular:false
 },
 
 {
-  id:"d5600",
-  diamonds:5600,
-  mrp:4000,
-  price:2000,
-  stock:10,
-  popular:false
+id:"d5600",
+diamonds:5600,
+mrp:4000,
+price:2000,
+stock:10,
+popular:false
 }
 
 ];
-
-
-/* =========================
-   MEMBERSHIP
-========================= */
 
 const passes=[
 
 {
-  id:"weekly",
-  name:"WEEKLY MEMBERSHIP",
-  days:"7 DAYS",
-  instant:"200 💎",
-  daily:"35 💎",
-  mrp:160,
-  price:110,
-  type:"weekly"
+id:"weekly",
+name:"WEEKLY MEMBERSHIP",
+days:"7 DAYS",
+instant:"200 💎",
+daily:"35 💎",
+mrp:160,
+price:110,
+type:"weekly"
 },
 
 {
-  id:"monthly",
-  name:"MONTHLY MEMBERSHIP",
-  days:"30 DAYS",
-  instant:"1000 💎",
-  daily:"50 💎",
-  mrp:800,
-  price:400,
-  type:"monthly"
+id:"monthly",
+name:"MONTHLY MEMBERSHIP",
+days:"30 DAYS",
+instant:"1000 💎",
+daily:"50 💎",
+mrp:800,
+price:400,
+type:"monthly"
 }
 
 ];
 
-
-/* =========================
-   UPI
-========================= */
-
-const UPI_ID =
-"topup24servis@naviaxis";
-
-const PAYEE_NAME =
-"Free Fire Store";
-
+const UPI_ID="topup24servis@naviaxis";
 
 let selectedProduct=null;
 let selectedPrice=0;
@@ -2152,1093 +2405,931 @@ let wheelRotation=0;
 let paymentTimerInterval=null;
 
 
-/* =========================
-   SOUND
-========================= */
+/* SOUND */
 
 function playClickSound(){
 
-  try{
+try{
 
-    const AudioContext=
-      window.AudioContext ||
-      window.webkitAudioContext;
+const AudioContext=
+window.AudioContext||
+window.webkitAudioContext;
 
-    const ctx=
-      new AudioContext();
+const ctx=new AudioContext();
 
-    const oscillator=
-      ctx.createOscillator();
+const oscillator=ctx.createOscillator();
+const gain=ctx.createGain();
 
-    const gain=
-      ctx.createGain();
+oscillator.type="sine";
 
-    oscillator.type="sine";
+oscillator.frequency.setValueAtTime(
+520,
+ctx.currentTime
+);
 
-    oscillator.frequency.setValueAtTime(
-      520,
-      ctx.currentTime
-    );
+oscillator.frequency.exponentialRampToValueAtTime(
+820,
+ctx.currentTime+.08
+);
 
-    oscillator.frequency.exponentialRampToValueAtTime(
-      820,
-      ctx.currentTime+.08
-    );
+gain.gain.setValueAtTime(
+.001,
+ctx.currentTime
+);
 
-    gain.gain.setValueAtTime(
-      .001,
-      ctx.currentTime
-    );
+gain.gain.exponentialRampToValueAtTime(
+.10,
+ctx.currentTime+.01
+);
 
-    gain.gain.exponentialRampToValueAtTime(
-      .10,
-      ctx.currentTime+.01
-    );
+gain.gain.exponentialRampToValueAtTime(
+.001,
+ctx.currentTime+.13
+);
 
-    gain.gain.exponentialRampToValueAtTime(
-      .001,
-      ctx.currentTime+.13
-    );
+oscillator.connect(gain);
+gain.connect(ctx.destination);
 
-    oscillator.connect(gain);
-    gain.connect(ctx.destination);
+oscillator.start();
+oscillator.stop(ctx.currentTime+.14);
 
-    oscillator.start();
-
-    oscillator.stop(
-      ctx.currentTime+.14
-    );
-
-  }catch(e){}
+}catch(e){}
 
 }
 
 
-/* =========================
-   DIAMONDS
-========================= */
+/* UID TYPING */
 
-function renderDiamonds(){
+function uidTypingAnimation(){
 
-  const grid=
-    document.getElementById(
-      "diamondGrid"
-    );
+const input=
+document.getElementById("uid");
 
-  grid.innerHTML="";
+const wrap=
+input.parentElement;
 
-  diamonds.forEach(item=>{
+const value=
+input.value.trim();
 
-    const card=
-      document.createElement("div");
+const success=
+document.getElementById("success");
 
-    card.className=
-      "diamond-card";
+const server=
+document.getElementById("serverConnect");
 
-    card.dataset.id=
-      item.id;
+success.style.display="none";
 
-    const popularHTML=
-      item.popular
-      ?
-      `<div class="popular-tag">
-        🔥 BEST VALUE
-      </div>`
-      :
-      "";
+if(value.length>0){
 
-    const stockHTML=
-      item.stock>0
-      ?
-      `
-      <div class="stock-count ${
-        item.stock<=10 ? "low" : ""
-      }">
-        ${item.stock} LEFT
-      </div>
-      `
-      :
-      `
-      <div class="out-stock">
-        OUT OF STOCK
-      </div>
-      `;
+wrap.classList.add("active");
+wrap.classList.add("scanning");
 
-    card.innerHTML=`
+server.classList.add("show");
 
-      ${popularHTML}
+}else{
 
-      <div class="selection-ring"></div>
+wrap.classList.remove("active");
+wrap.classList.remove("scanning");
 
-      <div class="selected-badge">
-        ✓ SELECTED
-      </div>
+server.classList.remove("show");
 
-      <div class="diamond-icon">
-        💎
-      </div>
-
-      <div class="diamond-name">
-        ${item.diamonds} Diamonds
-      </div>
-
-      <div class="mrp">
-        MRP ₹${item.mrp}
-      </div>
-
-      ${
-        item.stock>0
-        ?
-        `
-        <div class="price">
-          ₹${item.price}
-        </div>
-        `
-        :
-        ""
-      }
-
-      ${stockHTML}
-
-    `;
-
-    if(item.stock>0){
-
-      card.onclick=()=>{
-        selectProduct(
-          item,
-          card
-        );
-      };
-
-    }
-
-    grid.appendChild(card);
-
-  });
+}
 
 }
 
 
-/* =========================
-   MEMBERSHIP
-========================= */
-
-function renderPasses(){
-
-  const grid=
-    document.getElementById(
-      "passGrid"
-    );
-
-  grid.innerHTML="";
-
-  passes.forEach(item=>{
-
-    const card=
-      document.createElement("div");
-
-    card.className=
-      "pass-card "+
-      (
-        item.type==="monthly"
-        ?
-        "monthly"
-        :
-        ""
-      );
-
-    card.dataset.id=
-      item.id;
-
-    card.innerHTML=`
-
-      <div class="selection-ring"></div>
-
-      <div class="pass-selected">
-        ✓ SELECTED
-      </div>
-
-      <div class="pass-top">
-
-        <div class="pass-icon">
-          ${
-            item.type==="monthly"
-            ?
-            "M"
-            :
-            "W"
-          }
-        </div>
-
-        <div class="pass-name">
-          ${item.name}
-        </div>
-
-      </div>
-
-      <div class="pass-duration">
-
-        ${item.days}
-
-        <div>
-          <span>
-            MEMBERSHIP PERIOD
-          </span>
-        </div>
-
-      </div>
-
-      <div class="pass-rewards">
-
-        <div class="pass-reward">
-
-          <small>
-            INSTANT
-          </small>
-
-          <b>
-            ${item.instant}
-          </b>
-
-        </div>
-
-        <div class="pass-reward">
-
-          <small>
-            DAILY
-          </small>
-
-          <b>
-            ${item.daily}
-          </b>
-
-        </div>
-
-      </div>
-
-      <div class="pass-bottom">
-
-        <div>
-
-          <div class="pass-old">
-            MRP ₹${item.mrp}
-          </div>
-
-        </div>
-
-        <div class="pass-price">
-          ₹${item.price}
-        </div>
-
-      </div>
-
-    `;
-
-    card.onclick=()=>{
-      selectProduct(
-        item,
-        card
-      );
-    };
-
-    grid.appendChild(card);
-
-  });
-
-}
-
-
-/* =========================
-   SELECT PRODUCT
-========================= */
-
-function selectProduct(
-  item,
-  card
-){
-
-  playClickSound();
-
-  selectedProduct=
-    item;
-
-  selectedPrice=
-    item.price -
-    appliedDiscount;
-
-  if(selectedPrice<0)
-    selectedPrice=0;
-
-  document.querySelectorAll(
-    ".diamond-card,.pass-card"
-  ).forEach(c=>{
-
-    c.classList.remove(
-      "selected"
-    );
-
-    const ring=
-      c.querySelector(
-        ".selection-ring"
-      );
-
-    if(ring){
-      ring.classList.remove(
-        "run"
-      );
-    }
-
-  });
-
-  card.classList.add(
-    "selected"
-  );
-
-  const ring=
-    card.querySelector(
-      ".selection-ring"
-    );
-
-  if(ring){
-
-    ring.classList.remove(
-      "run"
-    );
-
-    void ring.offsetWidth;
-
-    ring.classList.add(
-      "run"
-    );
-
-  }
-
-  const icon=
-    card.querySelector(
-      ".diamond-icon"
-    );
-
-  if(icon){
-
-    icon.style.animation=
-      "none";
-
-    void icon.offsetWidth;
-
-    icon.style.animation=
-      "diamondPop .6s cubic-bezier(.2,1.5,.4,1)";
-
-  }
-
-  document.getElementById(
-    "total"
-  ).textContent=
-    "₹"+selectedPrice;
-
-}
-
-
-/* =========================
-   UID
-========================= */
+/* UID VERIFY */
 
 function verifyUID(){
 
-  const uid=
-    document.getElementById(
-      "uid"
-    ).value.trim();
+const input=
+document.getElementById("uid");
 
-  if(uid.length<5){
+const uid=
+input.value.trim();
 
-    alert(
-      "Please enter a valid Player UID."
-    );
+const wrap=
+input.parentElement;
 
-    return;
+const btn=
+document.getElementById("verifyBtn");
 
-  }
+const server=
+document.getElementById("serverConnect");
 
-  const status=
-    document.getElementById(
-      "verifyStatus"
-    );
+const verifyStatus=
+document.getElementById("verifyStatus");
 
-  const success=
-    document.getElementById(
-      "success"
-    );
+const success=
+document.getElementById("success");
 
-  status.style.display=
-    "block";
+const serverStatus=
+document.getElementById("serverStatus");
 
-  success.style.display=
-    "none";
+const indiaStatus=
+document.getElementById("indiaStatus");
 
-  setTimeout(()=>{
+const uidStatus=
+document.getElementById("uidStatus");
 
-    status.style.display=
-      "none";
 
-    success.style.display=
-      "block";
+if(uid.length<5){
 
-  },1000);
+alert(
+"Please enter a valid Player UID."
+);
+
+input.focus();
+
+wrap.classList.add("active");
+wrap.classList.add("scanning");
+server.classList.add("show");
+
+return;
 
 }
 
 
-/* =========================
-   COUPON
-========================= */
+playClickSound();
+
+success.style.display="none";
+
+server.classList.add("show");
+
+wrap.classList.add("active");
+wrap.classList.add("scanning");
+
+btn.classList.add("verifying");
+btn.innerHTML="⟳ CHECKING";
+
+
+serverStatus.innerHTML=
+'<span class="status-pulse"></span> CONNECTING...';
+
+indiaStatus.innerText=
+"WAITING";
+
+uidStatus.innerText=
+"SCANNING...";
+
+verifyStatus.classList.add("show");
+
+verifyStatus.innerHTML=`
+<div class="loader"></div>
+<span>CONNECTING TO FREE FIRE SERVER...</span>
+`;
+
+
+/* STEP 1 */
+
+setTimeout(()=>{
+
+serverStatus.innerHTML=
+'<span class="status-pulse ok"></span> CONNECTED';
+
+serverStatus.classList.add("ok");
+
+indiaStatus.innerHTML=
+'<span class="status-pulse ok"></span> FOUND';
+
+indiaStatus.classList.add("ok");
+
+verifyStatus.innerHTML=`
+<div class="loader"></div>
+<span>INDIA SERVER CONNECTED • CHECKING UID...</span>
+`;
+
+},650);
+
+
+/* STEP 2 */
+
+setTimeout(()=>{
+
+uidStatus.innerText=
+"ANALYZING...";
+
+verifyStatus.innerHTML=`
+<div class="loader"></div>
+<span>SCANNING PLAYER UID...</span>
+`;
+
+},1100);
+
+
+/* STEP 3 */
+
+setTimeout(()=>{
+
+wrap.classList.remove("scanning");
+
+uidStatus.innerHTML=
+'<span class="status-pulse ok"></span> READY';
+
+uidStatus.classList.add("ok");
+
+verifyStatus.classList.remove("show");
+verifyStatus.style.display="none";
+
+btn.classList.remove("verifying");
+
+btn.innerHTML=
+"✓ VERIFIED";
+
+success.innerHTML=
+"✓ PLAYER ID READY • INDIA SERVER CONNECTED";
+
+success.style.display="block";
+
+playClickSound();
+
+},1800);
+
+}
+
+
+/* DIAMONDS */
+
+function renderDiamonds(){
+
+const grid=
+document.getElementById("diamondGrid");
+
+grid.innerHTML="";
+
+diamonds.forEach(item=>{
+
+const card=document.createElement("div");
+
+card.className="diamond-card";
+card.dataset.id=item.id;
+
+const popularHTML=item.popular
+?
+`<div class="popular-tag">🔥 BEST VALUE</div>`
+:"";
+
+const stockHTML=item.stock>0
+?
+`
+<div class="stock-count ${
+item.stock<=10?"low":""
+}">
+${item.stock} LEFT
+</div>
+`
+:
+`
+<div class="out-stock">
+OUT OF STOCK
+</div>
+`;
+
+card.innerHTML=`
+
+${popularHTML}
+
+<div class="selection-ring"></div>
+
+<div class="selected-badge">
+✓ SELECTED
+</div>
+
+<div class="diamond-icon">
+💎
+</div>
+
+<div class="diamond-name">
+${item.diamonds} Diamonds
+</div>
+
+<div class="mrp">
+MRP ₹${item.mrp}
+</div>
+
+${
+item.stock>0
+?
+`<div class="price">₹${item.price}</div>`
+:""
+}
+
+${stockHTML}
+`;
+
+if(item.stock>0){
+
+card.onclick=()=>{
+selectProduct(item,card);
+};
+
+}
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* PASSES */
+
+function renderPasses(){
+
+const grid=
+document.getElementById("passGrid");
+
+grid.innerHTML="";
+
+passes.forEach(item=>{
+
+const card=document.createElement("div");
+
+card.className=
+"pass-card "+
+(item.type==="monthly"?"monthly":"");
+
+card.dataset.id=item.id;
+
+card.innerHTML=`
+
+<div class="selection-ring"></div>
+
+<div class="pass-selected">
+✓ SELECTED
+</div>
+
+<div class="pass-top">
+
+<div class="pass-icon">
+${item.type==="monthly"?"M":"W"}
+</div>
+
+<div class="pass-name">
+${item.name}
+</div>
+
+</div>
+
+<div class="pass-duration">
+
+${item.days}
+
+<div>
+<span>MEMBERSHIP PERIOD</span>
+</div>
+
+</div>
+
+<div class="pass-rewards">
+
+<div class="pass-reward">
+<small>INSTANT</small>
+<b>${item.instant}</b>
+</div>
+
+<div class="pass-reward">
+<small>DAILY</small>
+<b>${item.daily}</b>
+</div>
+
+</div>
+
+<div class="pass-bottom">
+
+<div class="pass-old">
+MRP ₹${item.mrp}
+</div>
+
+<div class="pass-price">
+₹${item.price}
+</div>
+
+</div>
+`;
+
+card.onclick=()=>{
+selectProduct(item,card);
+};
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* SELECT */
+
+function selectProduct(item,card){
+
+playClickSound();
+
+selectedProduct=item;
+
+selectedPrice=
+item.price-appliedDiscount;
+
+if(selectedPrice<0)
+selectedPrice=0;
+
+document.querySelectorAll(
+".diamond-card,.pass-card"
+).forEach(c=>{
+
+c.classList.remove("selected");
+
+const ring=
+c.querySelector(".selection-ring");
+
+if(ring)
+ring.classList.remove("run");
+
+});
+
+card.classList.add("selected");
+
+const ring=
+card.querySelector(".selection-ring");
+
+if(ring){
+
+ring.classList.remove("run");
+
+void ring.offsetWidth;
+
+ring.classList.add("run");
+
+}
+
+const icon=
+card.querySelector(".diamond-icon");
+
+if(icon){
+
+icon.style.animation="none";
+
+void icon.offsetWidth;
+
+icon.style.animation=
+"diamondPop .6s cubic-bezier(.2,1.5,.4,1)";
+
+}
+
+document.getElementById("total")
+.textContent="₹"+selectedPrice;
+
+}
+
+
+/* COUPON */
 
 function applyCoupon(){
 
-  const code=
-    document.getElementById(
-      "couponCode"
-    ).value
-    .trim()
-    .toUpperCase();
+const code=
+document.getElementById("couponCode")
+.value.trim()
+.toUpperCase();
 
-  const msg=
-    document.getElementById(
-      "couponMsg"
-    );
+const msg=
+document.getElementById("couponMsg");
 
-  if(!selectedProduct){
+if(!selectedProduct){
 
-    alert(
-      "Pehle koi product select karein!"
-    );
+alert("Pehle koi product select karein!");
 
-    return;
+return;
 
-  }
+}
 
-  if(
-    code==="SUNNY999" ||
-    code==="OFF20"
-  ){
+if(
+code==="SUNNY999"||
+code==="OFF20"
+){
 
-    appliedDiscount=20;
+appliedDiscount=20;
 
-    selectedPrice=
-      selectedProduct.price -
-      appliedDiscount;
+selectedPrice=
+selectedProduct.price-appliedDiscount;
 
-    if(selectedPrice<0)
-      selectedPrice=0;
+if(selectedPrice<0)
+selectedPrice=0;
 
-    msg.style.color=
-      "#00ef70";
+msg.style.color="#00ef70";
 
-    msg.innerText=
-      "✓ Coupon Applied! ₹20 Discount Active";
+msg.innerText=
+"✓ Coupon Applied! ₹20 Discount Active";
 
-    msg.style.display=
-      "block";
+msg.style.display="block";
 
-    document.getElementById(
-      "total"
-    ).innerText=
-      "₹"+
-      selectedPrice+
-      " (Saved ₹20)";
+document.getElementById("total")
+.innerText="₹"+selectedPrice;
 
-  }else{
+}else{
 
-    msg.style.color=
-      "#ff4161";
+msg.style.color="#ff4161";
 
-    msg.innerText=
-      "❌ Invalid Coupon Code!";
+msg.innerText=
+"❌ Invalid Coupon Code!";
 
-    msg.style.display=
-      "block";
+msg.style.display="block";
 
-  }
+}
 
 }
 
 
-/* =========================
-   SPIN
-========================= */
+/* SPIN */
 
 function spinWheel(){
 
-  if(spinning)
-    return;
+if(spinning)
+return;
 
-  const available=
-    diamonds.filter(
-      item=>item.stock>0
-    );
+const available=
+diamonds.filter(
+item=>item.stock>0
+);
 
-  if(!available.length){
+if(!available.length){
 
-    alert(
-      "Currently koi pack available nahi hai."
-    );
+alert("Currently koi pack available nahi hai.");
 
-    return;
+return;
 
-  }
+}
 
-  spinning=true;
+spinning=true;
 
-  const btn=
-    document.getElementById(
-      "spinBtn"
-    );
+const btn=
+document.getElementById("spinBtn");
 
-  const wheel=
-    document.getElementById(
-      "wheel"
-    );
+const wheel=
+document.getElementById("wheel");
 
-  btn.disabled=true;
+btn.disabled=true;
+btn.textContent="🎡 SPINNING...";
 
-  btn.textContent=
-    "🎡 SPINNING...";
+playClickSound();
 
-  playClickSound();
+const wheelOrder=[
+520,
+1060,
+2180,
+5600
+];
 
-  const wheelOrder=[
-    520,
-    1060,
-    2180,
-    5600
-  ];
+const availableValues=
+available.map(
+item=>item.diamonds
+);
 
-  const availableValues=
-    available.map(
-      item=>item.diamonds
-    );
+const winnerValue=
+availableValues[
+Math.floor(
+Math.random()*availableValues.length
+)
+];
 
-  const winnerValue=
-    availableValues[
-      Math.floor(
-        Math.random()*
-        availableValues.length
-      )
-    ];
+spinResult=
+diamonds.find(
+item=>item.diamonds===winnerValue
+);
 
-  spinResult=
-    diamonds.find(
-      item=>
-        item.diamonds===
-        winnerValue
-    );
+const index=
+wheelOrder.indexOf(winnerValue);
 
-  const index=
-    wheelOrder.indexOf(
-      winnerValue
-    );
+const current=
+((wheelRotation%360)+360)%360;
 
-  const segment=90;
+const targetAngle=
+(360-index*90)%360;
 
-  const current=
-    (
-      (wheelRotation%360)+360
-    )%360;
+const correction=
+(targetAngle-current+360)%360;
 
-  const targetAngle=
-    (
-      360 -
-      index*segment
-    )%360;
+wheelRotation+=
+(360*6)+correction;
 
-  const correction=
-    (
-      targetAngle-
-      current+
-      360
-    )%360;
+wheel.style.transform=
+`rotate(${wheelRotation}deg)`;
 
-  wheelRotation+=
-    (360*6)+
-    correction;
+setTimeout(()=>{
 
-  wheel.style.transform=
-    `rotate(${wheelRotation}deg)`;
+showSpinReward(spinResult);
 
-  setTimeout(()=>{
+spinning=false;
 
-    showSpinReward(
-      spinResult
-    );
+btn.disabled=false;
 
-    spinning=false;
+btn.textContent="🔄 SPIN AGAIN";
 
-    btn.disabled=false;
-
-    btn.textContent=
-      "🔄 SPIN AGAIN";
-
-  },4400);
+},4400);
 
 }
 
 
-/* =========================
-   SPIN RESULT
-========================= */
+/* REWARD */
 
 function showSpinReward(item){
 
-  if(!item)
-    return;
+if(!item)
+return;
 
-  document.getElementById(
-    "wonDiamonds"
-  ).textContent=
-    "+"+
-    item.diamonds+
-    " 💎";
+document.getElementById("wonDiamonds")
+.textContent=
+"+"+item.diamonds+" 💎";
 
-  document.getElementById(
-    "wonInfo"
-  ).textContent=
-    "+"+
-    item.diamonds+
-    " Diamonds";
+document.getElementById("wonInfo")
+.textContent=
+"+"+item.diamonds+" Diamonds";
 
-  document.getElementById(
-    "recommendedPack"
-  ).textContent=
-    item.diamonds+
-    " Diamonds";
+document.getElementById("recommendedPack")
+.textContent=
+item.diamonds+" Diamonds";
 
-  document.getElementById(
-    "recommendedPrice"
-  ).textContent=
-    "₹"+
-    item.price;
+document.getElementById("recommendedPrice")
+.textContent=
+"₹"+item.price;
 
-  document.getElementById(
-    "rewardText"
-  ).innerHTML=`
+document.getElementById("rewardText")
+.innerHTML=`
+💎 Spin result:
+<b>${item.diamonds} Diamonds pack</b>
+<br><br>
+🛒 You can select this pack and continue to payment.
+`;
 
-    💎 Spin result:
-    <b>
-      ${item.diamonds} Diamonds pack
-    </b>
+const popup=
+document.getElementById("rewardPopup");
 
-    <br><br>
+popup.style.display="block";
 
-    🛒 You can select this pack
-    and continue to payment.
-
-  `;
-
-  const popup=
-    document.getElementById(
-      "rewardPopup"
-    );
-
-  popup.style.display=
-    "block";
-
-  popup.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-  });
+popup.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
 
 }
 
 
-/* =========================
-   SELECT SPIN PACK
-========================= */
+/* SELECT SPIN */
 
 function selectSpinPack(){
 
-  if(!spinResult)
-    return;
+if(!spinResult)
+return;
 
-  const card=
-    document.querySelector(
-      `.diamond-card[data-id="${spinResult.id}"]`
-    );
+const card=
+document.querySelector(
+`.diamond-card[data-id="${spinResult.id}"]`
+);
 
-  if(card){
-
-    selectProduct(
-      spinResult,
-      card
-    );
-
-  }
+if(card)
+selectProduct(spinResult,card);
 
 }
 
 
-/* =========================
-   COPY REWARD
-========================= */
+/* COPY */
 
 function copyReward(){
 
-  if(!spinResult)
-    return;
+if(!spinResult)
+return;
 
-  const text=
+const text=
 `SPIN RESULT
 Winning Pack: ${spinResult.diamonds} Diamonds
 Pack Price: ₹${spinResult.price}`;
 
-  if(
-    navigator.clipboard
-  ){
+if(navigator.clipboard){
 
-    navigator.clipboard
-      .writeText(text)
-      .then(()=>{
-        alert(
-          "✓ Details copied!"
-        );
-      });
+navigator.clipboard
+.writeText(text)
+.then(()=>{
+alert("✓ Details copied!");
+});
 
-  }else{
+}else{
 
-    alert(text);
+alert(text);
 
-  }
+}
 
 }
 
 
-/* =========================
-   CHECKOUT
-========================= */
+/* CHECKOUT */
 
 function checkout(){
 
-  if(!selectedProduct){
+if(!selectedProduct){
 
-    alert(
-      "Please pehle koi product select karo."
-    );
+alert(
+"Please pehle koi product select karo."
+);
 
-    return;
+return;
 
-  }
+}
 
-  const uid=
-    document.getElementById(
-      "uid"
-    ).value.trim();
+const uid=
+document.getElementById("uid")
+.value.trim();
 
-  if(uid.length<5){
+if(uid.length<5){
 
-    alert(
-      "Please pehle Player UID verify karo."
-    );
+alert(
+"Please pehle Player UID verify karo."
+);
 
-    return;
+return;
 
-  }
+}
 
-  document.getElementById(
-    "payAmount"
-  ).textContent=
-    "₹"+
-    selectedPrice;
+document.getElementById("payAmount")
+.textContent=
+"₹"+selectedPrice;
 
+document.getElementById("paymentStep")
+.style.display="block";
 
-  /* RESET PAYMENT STEPS */
+document.getElementById("mobileStep")
+.style.display="none";
 
-  document.getElementById(
-    "paymentStep"
-  ).style.display=
-    "block";
+document.getElementById("verificationStep")
+.style.display="none";
 
-  document.getElementById(
-    "mobileStep"
-  ).style.display=
-    "none";
+document.getElementById("screenshotStep")
+.style.display="none";
 
-  document.getElementById(
-    "verificationStep"
-  ).style.display=
-    "none";
+document.getElementById("customerMobile")
+.value="";
 
-  document.getElementById(
-    "screenshotStep"
-  ).style.display=
-    "none";
+document.getElementById("paymentTimer")
+.textContent="01:00";
 
+document.getElementById("paymentTimer")
+.style.color="#fff";
 
-  document.getElementById(
-    "customerMobile"
-  ).value="";
-
-
-  document.getElementById(
-    "paymentTimer"
-  ).textContent=
-    "01:00";
-
-
-  document.getElementById(
-    "paymentTimer"
-  ).style.color=
-    "#fff";
-
-
-  document.getElementById(
-    "paymentModal"
-  ).style.display=
-    "block";
+document.getElementById("paymentModal")
+.style.display="block";
 
 }
 
 
-/* =========================
-   CLOSE PAYMENT
-========================= */
+/* PAYMENT */
 
 function closePayment(){
 
-  document.getElementById(
-    "paymentModal"
-  ).style.display=
-    "none";
+document.getElementById("paymentModal")
+.style.display="none";
 
 }
-
-
-/* =========================
-   MOBILE STEP
-========================= */
 
 function showMobileStep(){
 
-  document.getElementById(
-    "paymentStep"
-  ).style.display=
-    "none";
+document.getElementById("paymentStep")
+.style.display="none";
 
-  document.getElementById(
-    "mobileStep"
-  ).style.display=
-    "block";
+document.getElementById("mobileStep")
+.style.display="block";
 
 }
-
-
-/* =========================
-   PAYMENT VERIFICATION
-========================= */
 
 function startPaymentVerification(){
 
-  const mobile=
-    document.getElementById(
-      "customerMobile"
-    ).value.trim();
+const mobile=
+document.getElementById("customerMobile")
+.value.trim();
 
+if(!/^[0-9]{10}$/.test(mobile)){
 
-  if(
-    !/^[0-9]{10}$/.test(
-      mobile
-    )
-  ){
+alert(
+"Please enter a valid 10 digit mobile number."
+);
 
-    alert(
-      "Please enter a valid 10 digit mobile number."
-    );
+return;
 
-    return;
+}
 
-  }
+document.getElementById("mobileStep")
+.style.display="none";
 
+document.getElementById("verificationStep")
+.style.display="block";
 
-  document.getElementById(
-    "mobileStep"
-  ).style.display=
-    "none";
+setTimeout(function(){
 
+document.getElementById("verificationStep")
+.style.display="none";
 
-  document.getElementById(
-    "verificationStep"
-  ).style.display=
-    "block";
+document.getElementById("screenshotStep")
+.style.display="block";
 
+startPaymentTimer();
 
-  /*
-   * This is a processing animation.
-   * It does NOT claim that payment
-   * has already been verified.
-   */
-
-  setTimeout(function(){
-
-    document.getElementById(
-      "verificationStep"
-    ).style.display=
-      "none";
-
-
-    document.getElementById(
-      "screenshotStep"
-    ).style.display=
-      "block";
-
-
-    startPaymentTimer();
-
-  },2500);
+},2500);
 
 }
 
 
-/* =========================
-   1 MINUTE TIMER
-========================= */
+/* TIMER */
 
 function startPaymentTimer(){
 
-  if(paymentTimerInterval){
+if(paymentTimerInterval)
+clearInterval(paymentTimerInterval);
 
-    clearInterval(
-      paymentTimerInterval
-    );
+let seconds=60;
 
-  }
+const timer=
+document.getElementById("paymentTimer");
 
-  let seconds=60;
+timer.textContent="01:00";
 
-  const timer=
-    document.getElementById(
-      "paymentTimer"
-    );
+paymentTimerInterval=
+setInterval(function(){
 
-  timer.textContent=
-    "01:00";
+seconds--;
 
-  timer.style.color=
-    "#fff";
+const minutes=
+String(
+Math.floor(seconds/60)
+).padStart(2,"0");
 
+const remaining=
+String(seconds%60)
+.padStart(2,"0");
 
-  paymentTimerInterval=
-    setInterval(function(){
+timer.textContent=
+minutes+":"+remaining;
 
-      seconds--;
+if(seconds<=0){
 
-      const minutes=
-        String(
-          Math.floor(
-            seconds/60
-          )
-        ).padStart(2,"0");
+clearInterval(paymentTimerInterval);
 
-      const remaining=
-        String(
-          seconds%60
-        ).padStart(2,"0");
+timer.textContent="WAITING";
 
+timer.style.color=
+"var(--yellow)";
 
-      timer.textContent=
-        minutes+
-        ":"+
-        remaining;
+}
 
-
-      if(seconds<=0){
-
-        clearInterval(
-          paymentTimerInterval
-        );
-
-        timer.textContent=
-          "WAITING";
-
-        timer.style.color=
-          "var(--yellow)";
-
-      }
-
-    },1000);
+},1000);
 
 }
 
 
-/* =========================
-   COPY UPI
-========================= */
+/* COPY UPI */
 
 function copyUPI(){
 
-  playClickSound();
+playClickSound();
 
-  const id=
-    "topup24servis@naviaxis";
+const id=
+"topup24servis@naviaxis";
 
-  if(
-    navigator.clipboard
-  ){
+if(navigator.clipboard){
 
-    navigator.clipboard
-      .writeText(id)
-      .then(()=>{
+navigator.clipboard
+.writeText(id)
+.then(()=>{
 
-        alert(
-          "✓ UPI ID Copied!\n\n"+
-          id
-        );
+alert(
+"✓ UPI ID Copied!\n\n"+id
+);
 
-      })
-      .catch(()=>{
+});
 
-        alert(
-          "UPI ID:\n"+
-          id
-        );
+}else{
 
-      });
+alert(
+"UPI ID:\n"+id
+);
 
-  }else{
-
-    alert(
-      "UPI ID:\n"+
-      id
-    );
-
-  }
+}
 
 }
 
 
-/* =========================
-   MODAL BACKGROUND
-========================= */
+/* MODAL */
 
-document.getElementById(
-  "paymentModal"
-).addEventListener(
-  "click",
-  function(e){
+document.getElementById("paymentModal")
+.addEventListener(
+"click",
+function(e){
 
-    if(e.target===this){
+if(e.target===this)
+closePayment();
 
-      closePayment();
-
-    }
-
-  }
-);
+});
 
 
-/* =========================
-   INIT
-========================= */
+/* INIT */
 
 renderDiamonds();
-
 renderPasses();
 
 </script>
