@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Free Fire India Store</title>
+
+<style>
+:root{
+  --green:#00ef70;
+  --purple:#963cff;
+  --cyan:#00cfe8;
+  --gold:#ffb91f;
+  --pink:#ff3bd4;
+  --red:#ff4161;
+  --yellow:#ffd21f;
+  --bg:#07070d;
+  --card:#13131e;
+  --border:#303044;
+  --muted:#858596;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(150,60,255,.12),transparent 30%),
+    radial-gradient(circle at 90% 25%,rgba(0,239,112,.07),transparent 28%),
+    #07070d;
+  min-height:100vh;
+}
+
+.container{
+  width:min(720px,95%);
+  margin:auto;
+  padding:10px 0 45px;
+}
+
+/* TOP */
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 3px 14px;
+}
+
+.logo{
+  font-size:17px;
+  font-weight:1000;
+}
+
+.logo span{
+  color:var(--green);
+  text-shadow:0 0 8px rgba(0,239,112,.45);
+}
+
+.india{
+  padding:7px 11px;
+  border-radius:20px;
+  background:#11111a;
+  border:1px solid #353548;
+  font-size:11px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:18px 4px 23px;
+}
+
+.hero h1{
+  font-size:32px;
+  font-weight:1000;
+}
+
+.hero h1 span{
+  color:var(--purple);
+  text-shadow:0 0 10px rgba(150,60,255,.5);
+}
+
+.hero p{
+  color:#9999a9;
+  font-size:12px;
+  margin-top:7px;
+}
+
+/* MAIN */
+
+.main-card{
+  padding:15px;
+  border-radius:21px;
+  background:linear-gradient(145deg,#171722,#0b0b12);
+  border:1px solid #303044;
+  box-shadow:0 18px 55px rgba(0,0,0,.38);
+}
+
+/* UID */
+
+.label{
+  display:block;
+  color:#c9c9d5;
+  font-size:11px;
+  font-weight:1000;
+  margin-bottom:7px;
+}
+
+.uid-row{
+  display:flex;
+  gap:8px;
+}
+
+.uid-input{
+  flex:1;
+  min-width:0;
+  padding:14px;
+  border-radius:13px;
+  background:#08080e;
+  border:1px solid #303044;
+  color:#fff;
+  outline:none;
+  font-size:14px;
+}
+
+.uid-input:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 12px rgba(150,60,255,.22);
+}
+
+.verify-btn{
+  border:0;
+  border-radius:13px;
+  padding:0 16px;
+  color:#fff;
+  font-weight:1000;
+  background:linear-gradient(135deg,#a53cff,#7130e9);
+  box-shadow:0 0 12px rgba(150,60,255,.28);
+}
+
+.verify-status,
+.success{
+  display:none;
+  margin-top:9px;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+  font-size:10px;
+}
+
+.verify-status{
+  background:#171321;
+  color:#d5b8ff;
+}
+
+.success{
+  color:var(--green);
+  background:rgba(0,239,112,.06);
+  border:1px solid rgba(0,239,112,.2);
+}
+
+.loader{
+  display:inline-block;
+  width:13px;
+  height:13px;
+  border:2px solid #555;
+  border-top-color:var(--green);
+  border-radius:50%;
+  animation:load .7s linear infinite;
+  vertical-align:-2px;
+}
+
+@keyframes load{
+  to{transform:rotate(360deg)}
+}
+
+/* SERVER */
+
+.server{
+  margin-top:10px;
+  padding:12px;
+  border-radius:13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#08080e;
+  border:1px solid #2c2c40;
+}
+
+.server-left{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 8px rgba(0,239,112,.65);
+}
+
+.server-selected{
+  color:var(--green);
+  font-size:10px;
+  font-weight:1000;
+}
+
+/* SECTION */
+
+.section{
+  margin-top:21px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:10px;
+}
+
+.title{
+  font-size:17px;
+  font-weight:1000;
+}
+
+.sub{
+  color:#858596;
+  font-size:10px;
+}
+
+/* DIAMONDS */
+
+.diamond-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.diamond-card{
+  position:relative;
+  min-height:178px;
+  padding:10px 5px;
+  text-align:center;
+  overflow:hidden;
+  border-radius:15px;
+  background:
+    radial-gradient(circle at 50% 15%,rgba(0,207,232,.06),transparent 42%),
+    linear-gradient(145deg,#181824,#0d0d16);
+  border:1px solid #303044;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.diamond-card:hover{
+  transform:translateY(-2px);
+  border-color:#55556b;
+}
+
+.diamond-card>*{
+  position:relative;
+  z-index:2;
+}
+
+.diamond-icon{
+  display:inline-block;
+  font-size:39px;
+  line-height:1;
+  margin-top:3px;
+  filter:drop-shadow(0 0 5px rgba(0,207,232,.55));
+}
+
+.diamond-name{
+  margin-top:8px;
+  font-size:13px;
+  font-weight:1000;
+}
+
+.mrp{
+  color:#696978;
+  text-decoration:line-through;
+  font-size:10px;
+  margin-top:6px;
+}
+
+.price{
+  color:var(--green);
+  font-size:18px;
+  font-weight:1000;
+  margin-top:3px;
+  text-shadow:0 0 7px rgba(0,239,112,.45);
+}
+
+.stock-count{
+  display:inline-block;
+  margin-top:7px;
+  padding:4px 8px;
+  border-radius:20px;
+  color:#151207;
+  background:var(--yellow);
+  font-size:9px;
+  font-weight:1000;
+}
+
+.stock-count.low{
+  color:#fff;
+  background:var(--red);
+  box-shadow:0 0 8px rgba(255,65,97,.45);
+}
+
+.card-timer{
+  margin-top:5px;
+  color:#858596;
+  font-size:8px;
+}
+
+.card-timer b{
+  color:#ddd;
+}
+
+.out-stock{
+  margin-top:8px;
+  color:var(--red);
+  font-size:9px;
+  font-weight:1000;
+}
+
+/* SELECTION */
+
+.selection-ring{
+  position:absolute!important;
+  inset:0;
+  border-radius:15px;
+  opacity:0;
+  pointer-events:none;
+  z-index:8!important;
+  background:conic-gradient(
+    from 0deg,
+    transparent,
+    var(--green),
+    #fff,
+    var(--cyan),
+    var(--purple),
+    transparent
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  padding:2px;
+}
+
+.selection-ring.run{
+  opacity:1;
+  animation:ring .75s linear forwards;
+}
+
+@keyframes ring{
+  from{
+    transform:rotate(0);
+    opacity:1;
+  }
+  to{
+    transform:rotate(360deg);
+    opacity:0;
+  }
+}
+
+.selected-badge{
+  position:absolute!important;
+  top:7px;
+  right:6px;
+  display:none;
+  padding:5px 7px;
+  border-radius:20px;
+  background:var(--green);
+  color:#061009;
+  font-size:8px;
+  font-weight:1000;
+  z-index:10!important;
+}
+
+.diamond-card.selected{
+  border-color:var(--green);
+  box-shadow:
+    0 0 8px rgba(0,239,112,.6),
+    inset 0 0 16px rgba(0,239,112,.05);
+}
+
+.diamond-card.selected .selected-badge{
+  display:block;
+}
+
+.diamond-card.selected .diamond-icon{
+  animation:diamondPop .6s cubic-bezier(.2,1.5,.4,1);
+}
+
+@keyframes diamondPop{
+  0%{transform:scale(.65) rotate(-15deg)}
+  50%{transform:scale(1.2) rotate(10deg)}
+  100%{transform:scale(1) rotate(0)}
+}
+
+/* MEMBERSHIP */
+
+.pass-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.pass-card{
+  position:relative;
+  min-height:190px;
+  overflow:hidden;
+  padding:13px;
+  border-radius:16px;
+  background:
+    linear-gradient(135deg,#24143d,#151522 55%,#0d0d16);
+  border:1px solid #38334b;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.pass-card.monthly{
+  background:
+    linear-gradient(135deg,#3b280c,#21191a 55%,#111017);
+  border-color:#514329;
+}
+
+.pass-card.selected{
+  border-color:var(--green);
+  box-shadow:
+    0 0 9px rgba(0,239,112,.6),
+    inset 0 0 18px rgba(0,239,112,.05);
+}
+
+.pass-card>*{
+  position:relative;
+  z-index:2;
+}
+
+.pass-top{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.pass-icon{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  font-weight:1000;
+  background:linear-gradient(135deg,#d735ff,#711eff);
+  box-shadow:0 0 8px rgba(213,53,255,.4);
+}
+
+.monthly .pass-icon{
+  background:linear-gradient(135deg,#ffd329,#ff8b00);
+  color:#291900;
+  box-shadow:0 0 9px rgba(255,184,0,.45);
+}
+
+.pass-name{
+  font-size:13px;
+  font-weight:1000;
+}
+
+.pass-duration{
+  margin-top:12px;
+  font-size:24px;
+  font-weight:1000;
+}
+
+.pass-duration span{
+  font-size:9px;
+  color:#9999a9;
+  letter-spacing:.8px;
+}
+
+.pass-rewards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-top:10px;
+}
+
+.pass-reward{
+  padding:7px;
+  border-radius:8px;
+  background:rgba(0,0,0,.24);
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.pass-reward small{
+  display:block;
+  color:#8d8d9d;
+  font-size:7px;
+}
+
+.pass-reward b{
+  display:block;
+  margin-top:3px;
+  color:#fff;
+  font-size:10px;
+}
+
+.pass-bottom{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-top:11px;
+}
+
+.pass-old{
+  color:#777786;
+  text-decoration:line-through;
+  font-size:9px;
+}
+
+.pass-price{
+  color:var(--green);
+  font-size:19px;
+  font-weight:1000;
+  text-shadow:0 0 7px rgba(0,239,112,.45);
+}
+
+.pass-days{
+  color:#aaaaba;
+  font-size:8px;
+}
+
+.pass-selected{
+  position:absolute!important;
+  right:7px;
+  top:7px;
+  display:none;
+  padding:4px 7px;
+  border-radius:20px;
+  color:#061009;
+  background:var(--green);
+  font-size:8px;
+  font-weight:1000;
+}
+
+.pass-card.selected .pass-selected{
+  display:block;
+}
+
+/* SPIN */
+
+.spin-box{
+  position:relative;
+  overflow:hidden;
+  margin-top:21px;
+  padding:17px 10px;
+  text-align:center;
+  border-radius:19px;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(150,60,255,.11),transparent 42%),
+    #0b0b13;
+  border:1px solid #343449;
+  box-shadow:0 0 20px rgba(150,60,255,.08);
+}
+
+.spin-title{
+  font-size:19px;
+  font-weight:1000;
+  text-shadow:0 0 8px rgba(150,60,255,.45);
+}
+
+.spin-sub{
+  color:#9494a4;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.wheel-wrap{
+  position:relative;
+  width:225px;
+  height:225px;
+  margin:17px auto;
+}
+
+.pointer{
+  position:absolute;
+  z-index:50;
+  left:50%;
+  top:-13px;
+  transform:translateX(-50%);
+  color:#fff;
+  font-size:26px;
+  text-shadow:0 0 6px rgba(255,255,255,.7);
+}
+
+.wheel{
+  position:relative;
+  width:225px;
+  height:225px;
+  border-radius:50%;
+  border:7px solid #28283c;
+  overflow:hidden;
+  background:conic-gradient(
+    from -45deg,
+    #00df70 0deg 90deg,
+    #8d31f0 90deg 180deg,
+    #00c8df 180deg 270deg,
+    #7126e8 270deg 360deg
+  );
+  box-shadow:
+    0 0 0 3px rgba(0,207,232,.08),
+    0 0 12px rgba(0,207,232,.55),
+    0 0 24px rgba(150,60,255,.22);
+  transition:
+    transform 4.3s cubic-bezier(.12,.7,.15,1);
+}
+
+.wheel::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.2);
+}
+
+.wheel::after{
+  content:"";
+  position:absolute;
+  width:65px;
+  height:65px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:#07070d;
+  border:3px solid #fff;
+  box-shadow:0 0 10px rgba(255,255,255,.5);
+  z-index:20;
+}
+
+/*
+  Labels remain upright while wheel rotates.
+*/
+
+.wheel-label{
+  position:absolute;
+  z-index:15;
+  width:75px;
+  color:#fff;
+  font-size:11px;
+  font-weight:1000;
+  text-shadow:0 2px 5px #000;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+.l520{
+  top:25px;
+  left:50%;
+  transform:
+    translateX(-50%)
+    rotate(calc(var(--wheel-angle,0deg) * -1));
+}
+
+.l1060{
+  right:5px;
+  top:50%;
+  transform:
+    translateY(-50%)
+    rotate(calc(var(--wheel-angle,0deg) * -1));
+}
+
+.l2180{
+  bottom:25px;
+  left:50%;
+  transform:
+    translateX(-50%)
+    rotate(calc(var(--wheel-angle,0deg) * -1));
+}
+
+.l5600{
+  left:5px;
+  top:50%;
+  transform:
+    translateY(-50%)
+    rotate(calc(var(--wheel-angle,0deg) * -1));
+}
+
+.spin-btn{
+  border:0;
+  padding:13px 29px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--green),#00c960);
+  color:#061009;
+  font-size:12px;
+  font-weight:1000;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(0,239,112,.5);
+}
+
+.spin-btn:disabled{
+  opacity:.5;
+}
+
+.spin-note{
+  color:#69697a;
+  font-size:9px;
+  margin-top:9px;
+}
+
+/* RESULT */
+
+.reward-popup{
+  display:none;
+  margin-top:14px;
+  padding:17px;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(0,239,112,.09),transparent 50%),
+    #0c1013;
+  border:1px solid rgba(0,239,112,.45);
+  box-shadow:0 0 15px rgba(0,239,112,.12);
+  animation:rewardIn .4s ease;
+}
+
+@keyframes rewardIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.reward-head{
+  text-align:center;
+}
+
+.reward-head h2{
+  color:var(--green);
+  font-size:22px;
+  text-shadow:0 0 9px rgba(0,239,112,.55);
+}
+
+.reward-head p{
+  color:#9b9baa;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.reward-number{
+  text-align:center;
+  margin:13px 0;
+}
+
+.reward-number strong{
+  display:block;
+  font-size:30px;
+  text-shadow:0 0 9px rgba(255,255,255,.5);
+}
+
+.reward-number span{
+  display:block;
+  margin-top:4px;
+  color:var(--yellow);
+  font-size:11px;
+  font-weight:1000;
+}
+
+.reward-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:7px;
+}
+
+.reward-item{
+  padding:10px;
+  border-radius:10px;
+  background:#161620;
+  border:1px solid #29293b;
+}
+
+.reward-item small{
+  color:#777789;
+  font-size:8px;
+}
+
+.reward-item strong{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+}
+
+.reward-unlocked{
+  color:var(--green)!important;
+}
+
+.reward-message{
+  margin-top:10px;
+  padding:12px;
+  border-radius:11px;
+  background:rgba(150,60,255,.07);
+  color:#c8c8d5;
+  font-size:10px;
+  line-height:1.55;
+  text-align:center;
+}
+
+.reward-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:10px;
+}
+
+.select-spin,
+.copy-reward{
+  padding:12px 6px;
+  border-radius:11px;
+  border:0;
+  font-size:10px;
+  font-weight:1000;
+  cursor:pointer;
+}
+
+.select-spin{
+  color:#061009;
+  background:linear-gradient(135deg,var(--green),#00c960);
+}
+
+.copy-reward{
+  color:#fff;
+  background:#242431;
+  border:1px solid #38384b;
+}
+
+/* PAYMENT */
+
+.payment{
+  margin-top:20px;
+}
+
+.payment-title{
+  font-size:17px;
+  font-weight:1000;
+  margin-bottom:10px;
+}
+
+.upi{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:13px;
+  border-radius:13px;
+  background:#12121c;
+  border:1px solid #303044;
+}
+
+.upi-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.upi-icon{
+  width:38px;
+  height:38px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:10px;
+  background:linear-gradient(135deg,#9d32f5,#6929db);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.upi-name{
+  font-size:12px;
+  font-weight:1000;
+}
+
+.upi-desc{
+  color:#777789;
+  font-size:9px;
+  margin-top:2px;
+}
+
+.summary{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:9px;
+  padding:13px;
+  border-radius:12px;
+  background:#08080e;
+  border:1px solid #29293a;
+  font-size:11px;
+}
+
+.summary strong{
+  color:var(--green);
+  font-size:18px;
+  text-shadow:0 0 7px rgba(0,239,112,.45);
+}
+
+.checkout{
+  width:100%;
+  margin-top:9px;
+  padding:14px;
+  border:0;
+  border-radius:13px;
+  color:#fff;
+  font-weight:1000;
+  background:linear-gradient(135deg,#963cff,#7130e9);
+  box-shadow:0 0 13px rgba(150,60,255,.3);
+  cursor:pointer;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  padding:14px;
+  overflow:auto;
+  background:rgba(0,0,0,.86);
+}
+
+.modal-box{
+  width:min(480px,100%);
+  margin:25px auto;
+  padding:18px;
+  border-radius:20px;
+  background:#101019;
+  border:1px solid #3a3a50;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.modal-head h2{
+  font-size:18px;
+}
+
+.close{
+  width:31px;
+  height:31px;
+  border:0;
+  border-radius:50%;
+  color:#fff;
+  background:#252532;
+}
+
+.amount-box{
+  padding:13px;
+  text-align:center;
+  border-radius:12px;
+  background:#171722;
+  border:1px solid #2b2b3c;
+}
+
+.amount-box span{
+  color:#777789;
+  font-size:9px;
+}
+
+.amount-box strong{
+  display:block;
+  margin-top:3px;
+  color:var(--green);
+  font-size:26px;
+}
+
+.upi-pay-btn,
+.submit-payment{
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(135deg,var(--green),#00c960);
+  color:#061009;
+  font-weight:1000;
+}
+
+.qr-note{
+  margin-top:10px;
+  padding:11px;
+  border-radius:11px;
+  background:rgba(150,60,255,.07);
+  color:#bbbccc;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.upi-id-box{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+
+.upi-id{
+  flex:1;
+  padding:11px;
+  border-radius:10px;
+  background:#08080e;
+  border:1px solid #2c2c3d;
+  color:#fff;
+  font-size:11px;
+}
+
+.copy-upi{
+  border:0;
+  padding:0 12px;
+  border-radius:10px;
+  background:var(--green);
+  color:#061009;
+  font-weight:1000;
+}
+
+.form-label{
+  display:block;
+  margin:12px 0 5px;
+  color:#aaaaba;
+  font-size:10px;
+  font-weight:900;
+}
+
+.form-input,
+.file-input{
+  width:100%;
+  padding:11px;
+  border-radius:10px;
+  background:#08080e;
+  border:1px solid #2c2c3d;
+  color:#fff;
+  font-size:11px;
+}
+
+.payment-success{
+  display:none;
+  margin-top:10px;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  color:var(--green);
+  background:rgba(0,239,112,.06);
+  border:1px solid rgba(0,239,112,.2);
+  font-size:10px;
+}
+
+/* FOOTER */
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:20px;
+}
+
+.trust-card{
+  padding:12px 4px;
+  text-align:center;
+  border-radius:13px;
+  background:#101019;
+  border:1px solid #29293b;
+}
+
+.trust-icon{
+  font-size:18px;
+}
+
+.trust-number{
+  margin-top:4px;
+  font-size:10px;
+  font-weight:1000;
+}
+
+.trust-text{
+  color:#777789;
+  font-size:7px;
+  margin-top:2px;
+}
+
+.experience{
+  margin-top:17px;
+  text-align:center;
+  color:#777789;
+  font-size:9px;
+}
+
+.creator{
+  margin-top:11px;
+  text-align:center;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.disclaimer{
+  max-width:520px;
+  margin:6px auto 0;
+  text-align:center;
+  color:#555566;
+  font-size:8px;
+  line-height:1.5;
+}
+
+/* MOBILE */
+
+@media(max-width:430px){
+
+  .container{
+    width:95%;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .diamond-grid{
+    gap:7px;
+  }
+
+  .diamond-card{
+    min-height:178px;
+  }
+
+  .pass-card{
+    min-height:190px;
+  }
+
+  .wheel-wrap,
+  .wheel{
+    width:215px;
+    height:215px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="top">
+
+<div class="logo">
+FREE FIRE <span>INDIA STORE</span>
+</div>
+
+<div class="india">
+🇮🇳 INDIA
+</div>
+
+</div>
+
+
+<div class="hero">
+
+<h1>
+TOP-UP <span>STORE</span>
+</h1>
+
+<p>
+Fast • Secure • Premium Player Experience
+</p>
+
+</div>
+
+
+<div class="main-card">
+
+<label class="label">
+FREE FIRE PLAYER ID
+</label>
+
+<div class="uid-row">
+
+<input
+id="uid"
+class="uid-input"
+type="text"
+maxlength="15"
+inputmode="numeric"
+placeholder="Enter Player UID"
+>
+
+<button
+class="verify-btn"
+onclick="verifyUID()"
+>
+VERIFY ID
+</button>
+
+</div>
+
+
+<div
+class="verify-status"
+id="verifyStatus"
+>
+<div class="loader"></div>
+Checking Player ID...
+</div>
+
+
+<div
+class="success"
+id="success"
+>
+✓ PLAYER ID SELECTED SUCCESSFULLY
+</div>
+
+
+<div class="server">
+
+<div class="server-left">
+
+<div class="dot"></div>
+
+🇮🇳 India Server
+
+</div>
+
+<div class="server-selected">
+SELECTED ✓
+</div>
+
+</div>
+
+
+<!-- DIAMONDS -->
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="title">
+💎 Diamonds
+</div>
+
+<div class="sub">
+India Store
+</div>
+
+</div>
+
+<div
+class="diamond-grid"
+id="diamondGrid"
+></div>
+
+</div>
+
+
+<!-- MEMBERSHIP -->
+
+<div class="section">
+
+<div class="section-head">
+
+<div class="title">
+🎟️ Membership
+</div>
+
+<div class="sub">
+Special Price
+</div>
+
+</div>
+
+<div
+class="pass-grid"
+id="passGrid"
+></div>
+
+</div>
+
+
+<!-- SPIN -->
+
+<div class="spin-box">
+
+<div class="spin-title">
+🎡 FREE SPIN REWARD
+</div>
+
+<div class="spin-sub">
+Spin karo aur available pack mein se apna FREE BONUS win karo!
+</div>
+
+
+<div class="wheel-wrap">
+
+<div class="pointer">
+▼
+</div>
+
+
+<div
+class="wheel"
+id="wheel"
+>
+
+<div class="wheel-label l520">
+520 💎
+</div>
+
+<div class="wheel-label l1060">
+1060 💎
+</div>
+
+<div class="wheel-label l2180">
+2180 💎
+</div>
+
+<div class="wheel-label l5600">
+5600 💎
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="spin-btn"
+id="spinBtn"
+onclick="spinWheel()"
+>
+🎡 SPIN NOW — FREE
+</button>
+
+
+<div class="spin-note">
+Free promotional spin • No payment required to spin
+</div>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div
+class="reward-popup"
+id="rewardPopup"
+>
+
+<div class="reward-head">
+
+<h2>
+🎉 CONGRATULATIONS!
+</h2>
+
+<p>
+🏆 SPIN REWARD UNLOCKED
+</p>
+
+</div>
+
+
+<div class="reward-number">
+
+<strong id="wonDiamonds">
++520 💎
+</strong>
+
+<span>
+🎁 FREE BONUS UNLOCKED
+</span>
+
+</div>
+
+
+<div class="reward-grid">
+
+<div class="reward-item">
+
+<small>
+WON REWARD
+</small>
+
+<strong id="wonInfo">
+</strong>
+
+</div>
+
+
+<div class="reward-item">
+
+<small>
+RECOMMENDED PACK
+</small>
+
+<strong id="recommendedPack">
+</strong>
+
+</div>
+
+
+<div class="reward-item">
+
+<small>
+PACK PRICE
+</small>
+
+<strong id="recommendedPrice">
+</strong>
+
+</div>
+
+
+<div class="reward-item">
+
+<small>
+REWARD STATUS
+</small>
+
+<strong class="reward-unlocked">
+✓ UNLOCKED
+</strong>
+
+</div>
+
+</div>
+
+
+<div
+class="reward-message"
+id="rewardText"
+>
+</div>
+
+
+<div class="reward-buttons">
+
+<button
+class="select-spin"
+onclick="selectSpinPack()"
+>
+💎 SELECT THIS PACK
+</button>
+
+
+<button
+class="copy-reward"
+onclick="copyReward()"
+>
+📋 COPY DETAILS
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="payment">
+
+<div class="payment-title">
+💳 Payment
+</div>
+
+
+<div class="upi">
+
+<div class="upi-left">
+
+<div class="upi-icon">
+UPI
+</div>
+
+<div>
+
+<div class="upi-name">
+UPI Payment
+</div>
+
+<div class="upi-desc">
+Pay with any UPI app
+</div>
+
+</div>
+
+</div>
+
+<input
+type="radio"
+checked
+style="accent-color:#963cff;"
+>
+
+</div>
+
+
+<div class="summary">
+
+<span>
+Selected Product
+</span>
+
+<strong id="total">
+₹0
+</strong>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+CONTINUE TO UPI PAYMENT →
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="trust-grid">
+
+<div class="trust-card">
+<div class="trust-icon">⚡</div>
+<div class="trust-number">FAST</div>
+<div class="trust-text">SERVICE</div>
+</div>
+
+<div class="trust-card">
+<div class="trust-icon">🔒</div>
+<div class="trust-number">SECURE</div>
+<div class="trust-text">UPI PAYMENT</div>
+</div>
+
+<div class="trust-card">
+<div class="trust-icon">🇮🇳</div>
+<div class="trust-number">INDIA</div>
+<div class="trust-text">SERVER</div>
+</div>
+
+</div>
+
+
+<div class="experience">
+Fast service • Secure UPI • India Server
+</div>
+
+<div class="creator">
+FREE FIRE CREATOR STORE
+</div>
+
+<div class="disclaimer">
+This website is an independent creator/community store
+and is not affiliated with or endorsed by Garena unless
+separately authorized.
+</div>
+
+</div>
+
+
+<!-- PAYMENT MODAL -->
+
+<div
+class="modal"
+id="paymentModal"
+>
+
+<div class="modal-box">
+
+<div class="modal-head">
+
+<h2>
+💳 UPI PAYMENT
+</h2>
+
+<button
+class="close"
+onclick="closePayment()"
+>
+✕
+</button>
+
+</div>
+
+
+<div class="amount-box">
+
+<span>
+PAYMENT AMOUNT
+</span>
+
+<strong id="payAmount">
+₹0
+</strong>
+
+</div>
+
+
+<button
+class="upi-pay-btn"
+onclick="openUPIApp()"
+>
+📱 OPEN UPI APP & PAY
+</button>
+
+
+<div class="qr-note">
+
+Payment complete hone ke baad
+<b>UTR / Transaction ID</b>
+aur payment screenshot submit karein.
+
+</div>
+
+
+<div class="upi-id-box">
+
+<div class="upi-id">
+topup24servis@naviaxis
+</div>
+
+<button
+class="copy-upi"
+onclick="copyUPI()"
+>
+COPY
+</button>
+
+</div>
+
+
+<label class="form-label">
+UTR / TRANSACTION ID
+</label>
+
+<input
+class="form-input"
+id="utr"
+type="text"
+placeholder="Enter UTR / Transaction ID"
+>
+
+
+<label class="form-label">
+PAYMENT SCREENSHOT
+</label>
+
+<input
+class="file-input"
+id="paymentScreenshot"
+type="file"
+accept="image/*"
+>
+
+
+<button
+class="submit-payment"
+onclick="submitPayment()"
+>
+✓ SUBMIT PAYMENT DETAILS
+</button>
+
+
+<div
+class="payment-success"
+id="paymentSuccess"
+>
+✓ PAYMENT DETAILS SUBMITTED
+<br><br>
+Aapke details verification ke liye submit ho gaye hain.
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* PRODUCTS */
+
+const diamonds=[
+
+{
+ id:"d100",
+ diamonds:100,
+ mrp:80,
+ price:80,
+ stock:0
+},
+
+{
+ id:"d310",
+ diamonds:310,
+ mrp:240,
+ price:240,
+ stock:0
+},
+
+{
+ id:"d520",
+ diamonds:520,
+ mrp:400,
+ price:200,
+ stock:87
+},
+
+{
+ id:"d1060",
+ diamonds:1060,
+ mrp:800,
+ price:400,
+ stock:67
+},
+
+{
+ id:"d2180",
+ diamonds:2180,
+ mrp:1600,
+ price:800,
+ stock:44
+},
+
+{
+ id:"d5600",
+ diamonds:5600,
+ mrp:4000,
+ price:2000,
+ stock:10
+}
+
+];
+
+
+/* MEMBERSHIP */
+
+const passes=[
+
+{
+ id:"weekly",
+ name:"WEEKLY MEMBERSHIP",
+ days:"7 DAYS",
+ instant:"200 💎",
+ daily:"35 💎",
+ mrp:160,
+ price:110,
+ type:"weekly"
+},
+
+{
+ id:"monthly",
+ name:"MONTHLY MEMBERSHIP",
+ days:"30 DAYS",
+ instant:"1000 💎",
+ daily:"50 💎",
+ mrp:800,
+ price:400,
+ type:"monthly"
+}
+
+];
+
+
+const UPI_ID="topup24servis@naviaxis";
+const PAYEE_NAME="Free Fire Store";
+
+const OFFER_END =
+new Date("2026-10-08T23:59:59+05:30");
+
+let selectedProduct=null;
+let selectedPrice=0;
+let spinResult=null;
+let spinning=false;
+let wheelRotation=0;
+
+
+/* SOUND */
+
+function playClickSound(){
+
+try{
+
+const AudioContext=
+window.AudioContext||
+window.webkitAudioContext;
+
+const ctx=new AudioContext();
+
+const oscillator=ctx.createOscillator();
+const gain=ctx.createGain();
+
+oscillator.type="sine";
+
+oscillator.frequency.setValueAtTime(
+520,
+ctx.currentTime
+);
+
+oscillator.frequency.exponentialRampToValueAtTime(
+820,
+ctx.currentTime+.08
+);
+
+gain.gain.setValueAtTime(
+.001,
+ctx.currentTime
+);
+
+gain.gain.exponentialRampToValueAtTime(
+.10,
+ctx.currentTime+.01
+);
+
+gain.gain.exponentialRampToValueAtTime(
+.001,
+ctx.currentTime+.13
+);
+
+oscillator.connect(gain);
+gain.connect(ctx.destination);
+
+oscillator.start();
+oscillator.stop(ctx.currentTime+.14);
+
+}catch(e){}
+
+}
+
+
+/* TIMER */
+
+function formatTime(ms){
+
+if(ms<=0)return"ENDED";
+
+let total=Math.floor(ms/1000);
+
+let days=Math.floor(total/86400);
+
+let hours=Math.floor(
+(total%86400)/3600
+);
+
+let minutes=Math.floor(
+(total%3600)/60
+);
+
+let seconds=total%60;
+
+return(
+String(days).padStart(2,"0")+
+"d "+
+String(hours).padStart(2,"0")+
+":"+
+String(minutes).padStart(2,"0")+
+":"+
+String(seconds).padStart(2,"0")
+);
+
+}
+
+
+function updateTimers(){
+
+const remaining=
+OFFER_END.getTime()-Date.now();
+
+document.querySelectorAll(
+".timer-value"
+).forEach(el=>{
+el.textContent=formatTime(remaining);
+});
+
+}
+
+
+/* DIAMONDS */
+
+function renderDiamonds(){
+
+const grid=
+document.getElementById("diamondGrid");
+
+grid.innerHTML="";
+
+diamonds.forEach(item=>{
+
+const card=document.createElement("div");
+
+card.className="diamond-card";
+
+card.dataset.id=item.id;
+
+let stockHTML="";
+
+if(item.stock>0){
+
+const low=
+item.stock<=10?" low":"";
+
+stockHTML=`
+
+<div class="stock-count${low}">
+${item.stock} LEFT
+</div>
+
+<div class="card-timer">
+⏱ <b class="timer-value">--:--:--</b>
+</div>
+
+`;
+
+}else{
+
+stockHTML=`
+
+<div class="out-stock">
+OUT OF STOCK
+</div>
+
+`;
+
+}
+
+
+card.innerHTML=`
+
+<div class="selection-ring"></div>
+
+<div class="selected-badge">
+✓ SELECTED
+</div>
+
+<div class="diamond-icon">
+💎
+</div>
+
+<div class="diamond-name">
+${item.diamonds} Diamonds
+</div>
+
+<div class="mrp">
+MRP ₹${item.mrp}
+</div>
+
+${
+item.stock>0
+?
+`
+<div class="price">
+₹${item.price}
+</div>
+`
+:""
+}
+
+${stockHTML}
+
+`;
+
+
+if(item.stock>0){
+
+card.onclick=()=>{
+selectProduct(item,card);
+};
+
+}
+
+grid.appendChild(card);
+
+});
+
+updateTimers();
+
+}
+
+
+/* MEMBERSHIP */
+
+function renderPasses(){
+
+const grid=
+document.getElementById("passGrid");
+
+grid.innerHTML="";
+
+passes.forEach(item=>{
+
+const card=document.createElement("div");
+
+card.className=
+"pass-card "+
+(item.type==="monthly"?"monthly":"");
+
+card.dataset.id=item.id;
+
+
+card.innerHTML=`
+
+<div class="selection-ring"></div>
+
+<div class="pass-selected">
+✓ SELECTED
+</div>
+
+<div class="pass-top">
+
+<div class="pass-icon">
+${item.type==="monthly"?"M":"W"}
+</div>
+
+<div class="pass-name">
+${item.name}
+</div>
+
+</div>
+
+<div class="pass-duration">
+
+${item.days}
+
+<div>
+<span>MEMBERSHIP PERIOD</span>
+</div>
+
+</div>
+
+
+<div class="pass-rewards">
+
+<div class="pass-reward">
+<small>INSTANT REWARD</small>
+<b>${item.instant}</b>
+</div>
+
+<div class="pass-reward">
+<small>DAILY REWARD</small>
+<b>${item.daily}</b>
+</div>
+
+</div>
+
+
+<div class="pass-bottom">
+
+<div>
+
+<div class="pass-old">
+MRP ₹${item.mrp}
+</div>
+
+<div class="pass-days">
+Effective for ${item.days.toLowerCase()}
+</div>
+
+</div>
+
+<div class="pass-price">
+₹${item.price}
+</div>
+
+</div>
+
+`;
+
+
+card.onclick=()=>{
+selectProduct(item,card);
+};
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* SELECT */
+
+function selectProduct(item,card){
+
+playClickSound();
+
+selectedProduct=item;
+selectedPrice=item.price;
+
+
+document.querySelectorAll(
+".diamond-card,.pass-card"
+).forEach(c=>{
+
+c.classList.remove("selected");
+
+const ring=
+c.querySelector(".selection-ring");
+
+if(ring){
+ring.classList.remove("run");
+}
+
+});
+
+
+card.classList.add("selected");
+
+
+const ring=
+card.querySelector(".selection-ring");
+
+if(ring){
+
+ring.classList.remove("run");
+
+void ring.offsetWidth;
+
+ring.classList.add("run");
+
+}
+
+
+const icon=
+card.querySelector(".diamond-icon");
+
+if(icon){
+
+icon.style.animation="none";
+
+void icon.offsetWidth;
+
+icon.style.animation=
+"diamondPop .6s cubic-bezier(.2,1.5,.4,1)";
+
+}
+
+
+document.getElementById("total")
+.textContent="₹"+item.price;
+
+}
+
+
+/* UID */
+
+function verifyUID(){
+
+const uid=
+document.getElementById("uid")
+.value.trim();
+
+if(uid.length<5){
+
+alert("Please enter a valid Player UID.");
+
+return;
+
+}
+
+const status=
+document.getElementById("verifyStatus");
+
+const success=
+document.getElementById("success");
+
+status.style.display="block";
+success.style.display="none";
+
+
+setTimeout(()=>{
+
+status.style.display="none";
+success.style.display="block";
+
+},1200);
+
+}
+
+
+/* SPIN */
+
+function spinWheel(){
+
+if(spinning)return;
+
+
+const available=
+diamonds.filter(
+item=>item.stock>0
+);
+
+if(!available.length){
+
+alert(
+"Currently koi pack available nahi hai."
+);
+
+return;
+
+}
+
+
+spinning=true;
+
+
+const btn=
+document.getElementById("spinBtn");
+
+const wheel=
+document.getElementById("wheel");
+
+btn.disabled=true;
+
+btn.textContent=
+"🎡 SPINNING...";
+
+playClickSound();
+
+
+/*
+EXACT WHEEL ORDER
+
+0 = 520    TOP
+1 = 1060   RIGHT
+2 = 2180   BOTTOM
+3 = 5600   LEFT
+*/
+
+const wheelOrder=[
+520,
+1060,
+2180,
+5600
+];
+
+
+/*
+Pick only available pack.
+*/
+
+const availableValues=
+available.map(
+item=>item.diamonds
+);
+
+const winnerValue=
+availableValues[
+Math.floor(
+Math.random()*availableValues.length
+)
+];
+
+
+spinResult=
+diamonds.find(
+item=>item.diamonds===winnerValue
+);
+
+
+const index=
+wheelOrder.indexOf(winnerValue);
+
+
+/*
+90° each segment.
+
+index 0 = top
+index 1 = right
+index 2 = bottom
+index 3 = left
+*/
+
+const segment=90;
+
+
+/*
+Current normalized wheel angle.
+*/
+
+const current=
+((wheelRotation%360)+360)%360;
+
+
+/*
+To bring the selected segment
+to the TOP pointer.
+*/
+
+const targetAngle=
+(360-(index*segment))%360;
+
+const correction=
+(targetAngle-current+360)%360;
+
+
+wheelRotation +=
+(360*6)+correction;
+
+
+wheel.style.setProperty(
+"--wheel-angle",
+wheelRotation+"deg"
+);
+
+wheel.style.transform=
+`rotate(${wheelRotation}deg)`;
+
+
+setTimeout(()=>{
+
+/*
+SAME spinResult is passed here.
+So wheel winner and result
+cannot randomly mismatch.
+*/
+
+showSpinReward(spinResult);
+
+spinning=false;
+
+btn.disabled=false;
+
+btn.textContent=
+"🔄 SPIN AGAIN";
+
+},4400);
+
+}
+
+
+/* RESULT */
+
+function showSpinReward(item){
+
+if(!item)return;
+
+
+document.getElementById(
+"wonDiamonds"
+).textContent=
+"+"+item.diamonds+" 💎";
+
+
+document.getElementById(
+"wonInfo"
+).textContent=
+"+"+item.diamonds+" Diamonds";
+
+
+document.getElementById(
+"recommendedPack"
+).textContent=
+item.diamonds+" Diamonds";
+
+
+document.getElementById(
+"recommendedPrice"
+).textContent=
+"₹"+item.price;
+
+
+document.getElementById(
+"rewardText"
+).innerHTML=`
+
+💎 Spin mein aapne
+<b>${item.diamonds} Diamonds pack</b>
+win kiya!
+
+<br><br>
+
+🛒 Ab isi winning pack ko
+select karke normal payment flow
+continue kar sakte ho.
+
+`;
+
+
+const popup=
+document.getElementById("rewardPopup");
+
+popup.style.display="block";
+
+
+popup.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+
+
+/* SELECT WINNER */
+
+function selectSpinPack(){
+
+if(!spinResult)return;
+
+
+const card=
+document.querySelector(
+`.diamond-card[data-id="${spinResult.id}"]`
+);
+
+
+if(!card)return;
+
+
+selectProduct(
+spinResult,
+card
+);
+
+
+setTimeout(()=>{
+
+card.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+},250);
+
+}
+
+
+/* COPY RESULT */
+
+function copyReward(){
+
+if(!spinResult)return;
+
+
+const text=
+`SPIN RESULT
+Winning Pack: ${spinResult.diamonds} Diamonds
+Pack Price: ₹${spinResult.price}`;
+
+
+if(navigator.clipboard){
+
+navigator.clipboard
+.writeText(text)
+.then(()=>{
+alert("✓ Reward details copied!");
+});
+
+}else{
+
+alert(text);
+
+}
+
+}
+
+
+/* CHECKOUT */
+
+function checkout(){
+
+if(!selectedProduct){
+
+alert(
+"Please pehle koi product select karo."
+);
+
+return;
+
+}
+
+
+const uid=
+document.getElementById("uid")
+.value.trim();
+
+
+if(uid.length<5){
+
+alert(
+"Please pehle Player UID verify karo."
+);
+
+return;
+
+}
+
+
+document.getElementById(
+"payAmount"
+).textContent=
+"₹"+selectedPrice;
+
+
+document.getElementById(
+"paymentModal"
+).style.display="block";
+
+}
+
+
+/* CLOSE */
+
+function closePayment(){
+
+document.getElementById(
+"paymentModal"
+).style.display="none";
+
+}
+
+
+/* UPI */
+
+function openUPIApp(){
+
+if(!selectedProduct)return;
+
+
+const uid=
+document.getElementById("uid")
+.value.trim();
+
+
+const note=
+"Free Fire Topup - UID "+uid;
+
+
+const upiUrl=
+"upi://pay"+
+"?pa="+encodeURIComponent(UPI_ID)+
+"&pn="+encodeURIComponent(PAYEE_NAME)+
+"&am="+encodeURIComponent(selectedPrice)+
+"&cu=INR"+
+"&tn="+encodeURIComponent(note);
+
+
+window.location.href=upiUrl;
+
+}
+
+
+/* COPY UPI */
+
+function copyUPI(){
+
+if(navigator.clipboard){
+
+navigator.clipboard
+.writeText(UPI_ID)
+.then(()=>{
+alert("✓ UPI ID copied!");
+});
+
+}else{
+
+alert(
+"UPI ID: "+UPI_ID
+);
+
+}
+
+}
+
+
+/* PAYMENT SUBMIT */
+
+function submitPayment(){
+
+const utr=
+document.getElementById("utr")
+.value.trim();
+
+const screenshot=
+document.getElementById(
+"paymentScreenshot"
+).files[0];
+
+
+if(!utr){
+
+alert(
+"Please UTR / Transaction ID enter karo."
+);
+
+return;
+
+}
+
+
+if(!screenshot){
+
+alert(
+"Please payment screenshot select karo."
+);
+
+return;
+
+}
+
+
+/*
+Frontend demo only.
+Real submission ke liye backend/form
+endpoint connect karna hoga.
+*/
+
+document.getElementById(
+"paymentSuccess"
+).style.display="block";
+
+}
+
+
+/* INIT */
+
+renderDiamonds();
+renderPasses();
+
+setInterval(
+updateTimers,
+1000
+);
+
+</script>
+
+</body>
+</html>
