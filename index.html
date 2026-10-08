@@ -2126,8 +2126,9 @@ QR scan karke ya UPI ID par payment karein.
 <div class="real-qr-box">
 
 <img
-src="IMG_20261007_082737.jpg"
-alt="UPI QR Code"
+id="dynamicQR"
+src=""
+alt="UPI Payment QR Code"
 >
 
 </div>
@@ -2192,6 +2193,7 @@ type="tel"
 inputmode="numeric"
 maxlength="10"
 placeholder="Enter 10 digit mobile number"
+oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 >
 
 <button
@@ -3085,8 +3087,14 @@ document.querySelector(
 `.diamond-card[data-id="${spinResult.id}"]`
 );
 
-if(card)
+if(card){
 selectProduct(spinResult,card);
+
+// Smooth auto-scroll down to payment section
+document.querySelector('.payment').scrollIntoView({
+behavior:'smooth'
+});
+}
 
 }
 
@@ -3151,6 +3159,11 @@ return;
 document.getElementById("payAmount")
 .textContent=
 "₹"+selectedPrice;
+
+// DYNAMIC UPI QR GENERATION
+const upiURI = `upi://pay?pa=${UPI_ID}&pn=WASIM%20SK&am=${selectedPrice}&cu=INR`;
+const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURI)}`;
+document.getElementById("dynamicQR").src = qrUrl;
 
 document.getElementById("paymentStep")
 .style.display="block";
