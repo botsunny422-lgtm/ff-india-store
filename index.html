@@ -485,16 +485,11 @@ body{
   justify-content: space-between;
   cursor: pointer;
   margin-bottom: 14px;
-  transition: transform 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .airdrop-card:hover {
   transform: translateY(-2px);
-}
-
-.airdrop-card.selected {
-  border-color: var(--green) !important;
-  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45) !important;
 }
 
 .airdrop-left {
@@ -708,9 +703,14 @@ body{
   to { box-shadow: 0 0 12px var(--green); }
 }
 
-.diamond-card.selected{
-  border: 1px solid var(--green) !important;
-  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45), inset 0 0 15px rgba(0, 239, 112, 0.15) !important;
+/* COLORFUL ACTIVE CARD SELECTION EFFECT */
+.diamond-card.selected, 
+.pass-card.selected, 
+.airdrop-card.selected {
+  border: 2px solid #ff007f !important;
+  background: linear-gradient(135deg, rgba(150, 60, 255, 0.45), rgba(255, 0, 127, 0.35), rgba(0, 207, 232, 0.3)) !important;
+  box-shadow: 0 0 30px rgba(255, 0, 127, 0.65), inset 0 0 15px rgba(0, 239, 112, 0.3) !important;
+  transform: translateY(-4px) scale(1.02);
 }
 
 .diamond-card.selected .selected-badge{
@@ -745,11 +745,6 @@ body{
   transform:translateY(-3px);
   border-color: rgba(0, 239, 112, 0.5) !important;
   box-shadow: 0 12px 30px rgba(0, 239, 112, 0.15) !important;
-}
-
-.pass-card.selected{
-  border: 1px solid var(--green) !important;
-  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45), inset 0 0 15px rgba(0, 239, 112, 0.15) !important;
 }
 
 .pass-card>*{
@@ -1437,10 +1432,10 @@ QR scan karke ya UPI ID par payment karein.<br><br>
 </div>
 
 <script>
-/* DIAMOND PACKS WITH CLEAN PRO/POPULAR TAGS */
+/* DIAMOND PACKS WITH UPDATED PRICE (310 Diamonds = ₹149) */
 const diamonds = [
   { id:"d100", diamonds:100, mrp:80, price:80, stock:0, popularTag: null },
-  { id:"d310", diamonds:310, mrp:240, price:240, stock:50, popularTag: "⚡ BEST VALUE" },
+  { id:"d310", diamonds:310, mrp:240, price:149, stock:50, popularTag: "⚡ BEST VALUE" },
   { id:"d520", diamonds:520, mrp:400, price:200, stock:87, popularTag: "🔥 MOST POPULAR" },
   { id:"d1060", diamonds:1060, mrp:800, price:400, stock:67, popularTag: null },
   { id:"d2180", diamonds:2180, mrp:1600, price:800, stock:44, popularTag: null },
